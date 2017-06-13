@@ -352,7 +352,7 @@ def _cert_info(user, course_overview, cert_status, course_mode):  # pylint: disa
         'show_disabled_download_button': False,
         'show_download_url': False,
         'show_survey_button': False,
-        'can_unenroll': True,
+        'can_unenroll': False,
     }
 
     if cert_status is None:
@@ -371,7 +371,7 @@ def _cert_info(user, course_overview, cert_status, course_mode):  # pylint: disa
         'show_disabled_download_button': status == 'generating',
         'mode': cert_status.get('mode', None),
         'linked_in_url': None,
-        'can_unenroll': status not in DISABLE_UNENROLL_CERT_STATES,
+        'can_unenroll': False,
     }
 
     if (status in ('generating', 'ready', 'notpassing', 'restricted', 'auditing', 'unverified') and
