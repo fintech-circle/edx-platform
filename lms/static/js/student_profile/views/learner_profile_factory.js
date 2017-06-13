@@ -46,24 +46,6 @@
                 el: $('.message-banner')
             });
 
-            var accountPrivacyFieldView = new LearnerProfileFieldsView.AccountPrivacyFieldView({
-                model: accountPreferencesModel,
-                required: true,
-                editable: 'always',
-                showMessages: false,
-                title: interpolate_text(
-                    gettext('{platform_name} learners can see my:'), {platform_name: options.platform_name}
-                ),
-                valueAttribute: 'account_privacy',
-                options: [
-                    ['private', gettext('Limited Profile')],
-                    ['all_users', gettext('Full Profile')]
-                ],
-                helpMessage: '',
-                accountSettingsPageUrl: options.account_settings_page_url,
-                persistChanges: true
-            });
-
             var profileImageFieldView = new LearnerProfileFieldsView.ProfileImageFieldView({
                 model: accountSettingsModel,
                 valueAttribute: 'profile_image',
@@ -94,20 +76,6 @@
                     placeholderValue: gettext('Add Country'),
                     valueAttribute: 'country',
                     options: options.country_options,
-                    helpMessage: '',
-                    persistChanges: true
-                }),
-                new AccountSettingsFieldViews.LanguageProficienciesFieldView({
-                    model: accountSettingsModel,
-                    screenReaderTitle: gettext('Preferred Language'),
-                    titleVisible: false,
-                    required: false,
-                    editable: editable,
-                    showMessages: false,
-                    iconName: 'fa-comment',
-                    placeholderValue: gettext('Add language'),
-                    valueAttribute: 'language_proficiencies',
-                    options: options.language_options,
                     helpMessage: '',
                     persistChanges: true
                 })
@@ -153,7 +121,6 @@
                 has_preferences_access: options.has_preferences_access,
                 accountSettingsModel: accountSettingsModel,
                 preferencesModel: accountPreferencesModel,
-                accountPrivacyFieldView: accountPrivacyFieldView,
                 profileImageFieldView: profileImageFieldView,
                 usernameFieldView: usernameFieldView,
                 sectionOneFieldViews: sectionOneFieldViews,
@@ -162,11 +129,7 @@
             });
 
             var getProfileVisibility = function() {
-                if (options.has_preferences_access) {
-                    return accountPreferencesModel.get('account_privacy');
-                } else {
-                    return accountSettingsModel.get('profile_is_public') ? 'all_users' : 'private';
-                }
+                return 'all_users';
             };
 
             var showLearnerProfileView = function() {
@@ -181,11 +144,6 @@
                 learnerProfileView.render();
             };
 
-            if (options.has_preferences_access) {
-                if (accountSettingsModel.get('requires_parental_consent')) {
-                    accountPreferencesModel.set('account_privacy', 'private');
-                }
-            }
             showLearnerProfileView();
 
             return {
