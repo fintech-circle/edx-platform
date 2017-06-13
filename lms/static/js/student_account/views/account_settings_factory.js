@@ -87,21 +87,6 @@
                             })
                         },
                         {
-                            view: new AccountSettingsFieldViews.LanguagePreferenceFieldView({
-                                model: userPreferencesModel,
-                                title: gettext('Language'),
-                                valueAttribute: 'pref-lang',
-                                required: true,
-                                refreshPageOnSave: true,
-                                helpMessage: StringUtils.interpolate(
-                                    gettext('The language used throughout this site. This site is currently available in a limited number of languages.'),  // eslint-disable-line max-len
-                                    {platform_name: platformName}
-                                ),
-                                options: fieldsData.language.options,
-                                persistChanges: true
-                            })
-                        },
-                        {
                             view: new AccountSettingsFieldViews.DropdownFieldView({
                                 model: userAccountModel,
                                 required: true,
@@ -155,15 +140,6 @@
                                 title: gettext('Year of Birth'),
                                 valueAttribute: 'year_of_birth',
                                 options: fieldsData.year_of_birth.options,
-                                persistChanges: true
-                            })
-                        },
-                        {
-                            view: new AccountSettingsFieldViews.LanguageProficienciesFieldView({
-                                model: userAccountModel,
-                                title: gettext('Preferred Language'),
-                                valueAttribute: 'language_proficiencies',
-                                options: fieldsData.preferred_language.options,
                                 persistChanges: true
                             })
                         }
