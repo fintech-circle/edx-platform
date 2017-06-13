@@ -113,7 +113,7 @@ from openedx.core.djangoapps.theming import helpers as theming_helpers
         <% cert_status = cert_statuses.get(enrollment.course_id) %>
         <% can_unenroll = False %>
         <% credit_status = credit_statuses.get(enrollment.course_id) %>
-        <% show_email_settings = (enrollment.course_id in show_email_settings_for) %>
+        <% show_email_settings = None %>
         <% course_mode_info = all_course_modes.get(enrollment.course_id) %>
         <% show_refund_option = (enrollment.course_id in show_refund_option_for) %>
         <% is_paid_course = (enrollment.course_id in enrolled_courses_either_paid) %>
