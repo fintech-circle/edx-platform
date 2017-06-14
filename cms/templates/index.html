@@ -85,30 +85,9 @@ from openedx.core.djangolib.markup import HTML, Text
                   <span class="tip tip-error is-hiding" id="tip-error-new-course-org"></span>
                 </li>
 
-                <li class="field text required" id="field-course-number">
-                  <label for="new-course-number">${_("Course Number")}</label>
-                  ## Translators: This is an example for the number used to identify a course,
-                  ## seen when filling out the form to create a new course. The number here is
-                  ## short for "Computer Science 101". It can contain letters but cannot contain spaces.
-                  <input class="new-course-number" id="new-course-number" type="text" name="new-course-number" required placeholder="${_('e.g. CS101')}" aria-describedby="tip-new-course-number tip-error-new-course-number" />
-                  <span class="tip" id="tip-new-course-number">${Text(_("The unique number that identifies your course within your organization. {strong_start}Note: This is part of your course URL, so no spaces or special characters are allowed and it cannot be changed.{strong_end}")).format(
-                      strong_start=HTML('<strong>'),
-                      strong_end=HTML('</strong>'),
-                  )}</span>
-                  <span class="tip tip-error is-hiding" id="tip-error-new-course-number"></span>
-                </li>
 
-                <li class="field text required" id="field-course-run">
-                  <label for="new-course-run">${_("Course Run")}</label>
-                  ## Translators: This is an example for the "run" used to identify different
-                  ## instances of a course, seen when filling out the form to create a new course.
-                  <input class="new-course-run" id="new-course-run" type="text" name="new-course-run" required placeholder="${_('e.g. 2014_T1')}" aria-describedby="tip-new-course-run tip-error-new-course-run" />
-                  <span class="tip" id="tip-new-course-run">${Text(_("The term in which your course will run. {strong_start}Note: This is part of your course URL, so no spaces or special characters are allowed and it cannot be changed.{strong_end}")).format(
-                      strong_start=HTML('<strong>'),
-                      strong_end=HTML('</strong>'),
-                  )}</span>
-                  <span class="tip tip-error is-hiding" id="tip-error-new-course-run"></span>
-                </li>
+                  <input class="new-course-number" id="new-course-number" type="hidden" value="C1" ="new-course-number" required placeholder="${_('e.g. CS101')}" aria-describedby="tip-new-course-number tip-error-new-course-number" />
+                  <input class="new-course-run" id="new-course-run" type="hidden" value="1" name="new-course-run" required placeholder="${_('e.g. 2014_T1')}" aria-describedby="tip-new-course-run tip-error-new-course-run" />
               </ol>
 
             </fieldset>
