@@ -340,13 +340,13 @@ class CourseFields(object):
     no_grade = Boolean(
         display_name=_("Course Not Graded"),
         help=_("Enter true or false. If true, the course will not be graded."),
-        default=False,
+        default=True,
         scope=Scope.settings
     )
     disable_progress_graph = Boolean(
         display_name=_("Disable Progress Graph"),
         help=_("Enter true or false. If true, students cannot view the progress graph."),
-        default=False,
+        default=True,
         scope=Scope.settings
     )
     pdf_textbooks = List(
@@ -581,6 +581,7 @@ class CourseFields(object):
         display_name=_("Hide Progress Tab"),
         help=_("Allows hiding of the progress tab."),
         scope=Scope.settings,
+        default=True,
         deprecated=True
     )
 
