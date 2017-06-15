@@ -26,8 +26,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 GLOBAL_WAIT_FOR_TIMEOUT = 60
 
 REQUIREJS_WAIT = {
-    # Settings - Schedule & Details
-    re.compile(r'^Schedule & Details Settings \|'): [
+    # Settings -  Details
+    re.compile(r'^Details Settings \|'): [
         "jquery", "js/base", "js/models/course",
         "js/models/settings/course_details", "js/views/settings/main"],
 

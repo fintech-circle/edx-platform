@@ -82,7 +82,7 @@ FEATURES['AUTOMATIC_AUTH_FOR_TESTING'] = True
 FEATURES['MILESTONES_APP'] = True
 
 # Enable pre-requisite course
-FEATURES['ENABLE_PREREQUISITE_COURSES'] = True
+FEATURES['ENABLE_PREREQUISITE_COURSES'] = False
 
 # Enable student notes
 FEATURES['ENABLE_EDXNOTES'] = True
@@ -102,9 +102,9 @@ FEATURES['ENABLE_ENROLLMENT_TRACK_USER_PARTITION'] = True
 PARTNER_SUPPORT_EMAIL = 'partner-support@example.com'
 
 ########################### Entrance Exams #################################
-FEATURES['ENTRANCE_EXAMS'] = True
+FEATURES['ENTRANCE_EXAMS'] = False
 
-FEATURES['ENABLE_SPECIAL_EXAMS'] = True
+FEATURES['ENABLE_SPECIAL_EXAMS'] = False
 
 # Point the URL used to test YouTube availability to our stub YouTube server
 YOUTUBE_PORT = 9080

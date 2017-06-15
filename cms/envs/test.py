@@ -335,3 +335,10 @@ FEATURES['CUSTOM_COURSES_EDX'] = True
 
 # API access management -- needed for simple-history to run.
 INSTALLED_APPS += ('openedx.core.djangoapps.api_admin',)
+
+
+"ENABLE_PREREQUISITE_COURSES": false,
+"WIKI_ENABLED": false,
+"LICENSING": false,
+"ENTRANCE_EXAMS": false,
+"ENABLE_SPECIAL_EXAMS ": false,

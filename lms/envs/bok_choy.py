@@ -128,7 +128,7 @@ FEATURES['MILESTONES_APP'] = True
 FEATURES['ENABLE_OAUTH2_PROVIDER'] = True
 
 # Enable pre-requisite course
-FEATURES['ENABLE_PREREQUISITE_COURSES'] = True
+FEATURES['ENABLE_PREREQUISITE_COURSES'] = False
 
 # Enable Course Discovery
 FEATURES['ENABLE_COURSE_DISCOVERY'] = True
@@ -151,9 +151,9 @@ FEATURES['ENABLE_SOFTWARE_SECURE_FAKE'] = True
 FEATURES['ENABLE_ENROLLMENT_TRACK_USER_PARTITION'] = True
 
 ########################### Entrance Exams #################################
-FEATURES['ENTRANCE_EXAMS'] = True
+FEATURES['ENTRANCE_EXAMS'] = False
 
-FEATURES['ENABLE_SPECIAL_EXAMS'] = True
+FEATURES['ENABLE_SPECIAL_EXAMS'] = False
 
 # Point the URL used to test YouTube availability to our stub YouTube server
 YOUTUBE_PORT = 9080
