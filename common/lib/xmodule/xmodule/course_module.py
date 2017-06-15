@@ -792,7 +792,7 @@ class CourseFields(object):
             "due dates for assignments, and students can progress through the course at any rate before "
             "the course ends."
         ),
-        default=False,
+        default=True,
         scope=Scope.settings
     )
 
