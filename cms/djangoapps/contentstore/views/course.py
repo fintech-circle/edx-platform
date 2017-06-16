@@ -1613,12 +1613,9 @@ def group_configurations_detail_handler(request, course_key_string, group_config
 
 def are_content_experiments_enabled(course):
     """
-    Returns True if content experiments have been enabled for the course.
+    Returns False
     """
-    return (
-        'split_test' in ADVANCED_COMPONENT_TYPES and
-        'split_test' in course.advanced_modules
-    )
+    return False
 
 
 def _get_course_creator_status(user):
