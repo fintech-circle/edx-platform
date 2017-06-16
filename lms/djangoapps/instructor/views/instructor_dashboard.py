@@ -504,6 +504,7 @@ def _section_cohort_management(course, access):
     course_key = course.id
     ccx_enabled = hasattr(course_key, 'ccx')
     section_data = {
+        'is_hidden': True,
         'section_key': 'cohort_management',
         'section_display_name': _('Cohorts'),
         'access': access,
