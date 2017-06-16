@@ -732,6 +732,7 @@ class CourseFields(object):
                 '{"name": "Topic2Name", "description": "Topic2Description", "id": "Topic2ID"}], "max_team_size": 5}'
             ),
         ),
+        default={},
         scope=Scope.settings,
     )
 
