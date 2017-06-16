@@ -35,7 +35,7 @@ __all__ = [
 log = logging.getLogger(__name__)
 
 # NOTE: This list is disjoint from ADVANCED_COMPONENT_TYPES
-COMPONENT_TYPES = ['discussion', 'html', 'problem', 'video']
+COMPONENT_TYPES = ['discussion', 'html', 'video']
 
 ADVANCED_COMPONENT_TYPES = sorted(set(name for name, class_ in XBlock.load_classes()) - set(COMPONENT_TYPES))
 
