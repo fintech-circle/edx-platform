@@ -204,13 +204,13 @@ FEATURES = {
     'ENABLE_LIBRARY_INDEX': False,
 
     # Enable course reruns, which will always use the split modulestore
-    'ALLOW_COURSE_RERUNS': True,
+    'ALLOW_COURSE_RERUNS': False,
 
     # Certificates Web/HTML Views
     'CERTIFICATES_HTML_VIEW': False,
 
     # Teams feature
-    'ENABLE_TEAMS': True,
+    'ENABLE_TEAMS': False,
 
     # Show video bumper in Studio
     'ENABLE_VIDEO_BUMPER': False,
