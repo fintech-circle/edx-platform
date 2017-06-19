@@ -44,6 +44,7 @@ class InheritanceMixin(XBlockMixin):
         display_name=_("Due Date"),
         help=_("Enter the default date by which problems are due."),
         scope=Scope.settings,
+        deprecated=True
     )
     visible_to_staff_only = Boolean(
         help=_("If true, can be seen only by course staff, regardless of start date."),
@@ -131,6 +132,7 @@ class InheritanceMixin(XBlockMixin):
         help=_("Enter the number of days before the start date that beta users can access the course."),
         scope=Scope.settings,
         default=None,
+        deprecated=True
     )
     static_asset_path = String(
         display_name=_("Static Asset Path"),

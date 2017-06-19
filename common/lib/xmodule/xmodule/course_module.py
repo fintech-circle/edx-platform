@@ -170,7 +170,8 @@ class CourseFields(object):
     lti_passports = List(
         display_name=_("LTI Passports"),
         help=_('Enter the passports for course LTI tools in the following format: "id:client_key:client_secret".'),
-        scope=Scope.settings
+        scope=Scope.settings,
+        deprecated=True
     )
     textbooks = TextbookList(
         help=_("List of Textbook objects with (title, url) for textbooks used in this course"),
@@ -341,12 +342,14 @@ class CourseFields(object):
         display_name=_("Course Not Graded"),
         help=_("Enter true or false. If true, the course will not be graded."),
         default=True,
+        deprecated=True,
         scope=Scope.settings
     )
     disable_progress_graph = Boolean(
         display_name=_("Disable Progress Graph"),
         help=_("Enter true or false. If true, students cannot view the progress graph."),
         default=True,
+        deprecated=True,
         scope=Scope.settings
     )
     pdf_textbooks = List(
@@ -367,7 +370,8 @@ class CourseFields(object):
             "Enter the remote gradebook mapping. Only use this setting when "
             "REMOTE_GRADEBOOK_URL has been specified."
         ),
-        scope=Scope.settings
+        scope=Scope.settings,
+        deprecated=True
     )
     enable_ccx = Boolean(
         # Translators: Custom Courses for edX (CCX) is an edX feature for re-using course content. CCX Coach is
@@ -433,7 +437,9 @@ class CourseFields(object):
             "Enter the format for due dates. The default is Mon DD, YYYY. Enter \"%m-%d-%Y\" for MM-DD-YYYY, "
             "\"%d-%m-%Y\" for DD-MM-YYYY, \"%Y-%m-%d\" for YYYY-MM-DD, or \"%Y-%d-%m\" for YYYY-DD-MM."
         ),
-        scope=Scope.settings, default=None
+        scope=Scope.settings,
+        default=None,
+        deprecated=True
     )
     enrollment_domain = String(
         display_name=_("External Login Domain"),
@@ -734,6 +740,7 @@ class CourseFields(object):
         ),
         default={},
         scope=Scope.settings,
+        deprecated=True
     )
 
     enable_proctored_exams = Boolean(
@@ -743,7 +750,8 @@ class CourseFields(object):
             "Note that enabling proctored exams will also enable timed exams."
         ),
         default=False,
-        scope=Scope.settings
+        scope=Scope.settings,
+        deprecated=True
     )
 
     allow_proctoring_opt_out = Boolean(
@@ -754,7 +762,8 @@ class CourseFields(object):
             "This setting only applies if proctored exams are enabled for the course."
         ),
         default=True,
-        scope=Scope.settings
+        scope=Scope.settings,
+        deprecated=True
     )
 
     create_zendesk_tickets = Boolean(
@@ -773,7 +782,8 @@ class CourseFields(object):
             "Regardless of this setting, timed exams are enabled if Enable Proctored Exams is set to true."
         ),
         default=False,
-        scope=Scope.settings
+        scope=Scope.settings,
+        deprecated=True
     )
 
     minimum_grade_credit = Float(
