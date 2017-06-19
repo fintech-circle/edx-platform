@@ -106,51 +106,6 @@ from django.utils.translation import ugettext as _
 
 <hr class="divider" />
 
-%if section_data['access']['instructor']:
-<fieldset class="batch-beta-testers membership-section">
-    <legend id="heading-batch-beta-testers" class="hd hd-3">${_("Batch Beta Tester Addition")}</legend>
-    <label>
-        ${_("Enter email addresses and/or usernames separated by new lines or commas.")}<br/>
-        ${_("Note: Users must have an activated {platform_name} account before they can be enrolled as beta testers.").format(platform_name=settings.PLATFORM_NAME)}
-        <textarea rows="6" cols="50" name="student-ids-for-beta" placeholder="${_("Email Addresses/Usernames")}" spellcheck="false"></textarea>
-    </label>
-    <div class="enroll-option">
-        <label class="has-hint">
-            <input type="checkbox" name="auto-enroll-beta" id="auto-enroll-beta" value="Auto-Enroll" checked="yes" aria-describedby="heading-batch-beta-testers">
-            <span class="label-text">${_("Auto Enroll")}</span>
-            <div class="hint auto-enroll-beta-hint">
-                <span class="hint-caret"></span>
-                <p id="auto-enroll-beta-tip">
-                    ${_("If this option is <em>checked</em>, users who have not enrolled in your course will be automatically enrolled.")}
-                    <br /><br />
-                    ${_("Checking this box has no effect if 'Remove beta testers' is selected.")}
-                </p>
-            </div>
-        </label>
-    </div>
-    <div class="enroll-option">
-        <label class="has-hint">
-            <input type="checkbox" name="email-students-beta" id="email-students-beta" value="Notify-students-by-email" checked="yes" aria-describedby="heading-batch-beta-testers">
-            <span class="label-text">${_("Notify users by email")}</span>
-            <div class="hint email-students-beta-hint">
-                <span class="hint-caret"></span>
-                <p id="email-students-beta-tip">
-                    ${_("If this option is <em>checked</em>, users will receive an email notification.")}
-                </p>
-            </div>
-        </label>
-    </div>
-    <div>
-        <input type="button" name="beta-testers" class="enrollment-button" value="${_("Add beta testers")}" data-endpoint="${ section_data['modify_beta_testers_button_url'] }" data-action="add" >
-        <input type="button" name="beta-testers" class="enrollment-button" value="${_("Remove beta testers")}" data-endpoint="${ section_data['modify_beta_testers_button_url'] }" data-action="remove" >
-    </div>
-    <div class="request-response"></div>
-    <div class="request-response-error"></div>
-</fieldset>
-
-<hr class="divider" />
-%endif
-
 <div class="member-lists-management membership-section" aria-live="polite">
   ## Translators: an "Administration List" is a list, such as Course Staff, that users can be added to.
   <h3 class="hd hd-3">${_("Course Team Management")}</h3>
