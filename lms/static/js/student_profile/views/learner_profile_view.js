@@ -52,12 +52,7 @@
 
                     if (this.showFullProfile() && (this.options.accountSettingsModel.get('accomplishments_shared'))) {
                         tabs = [
-                            {view: this.sectionTwoView, title: gettext('About Me'), url: 'about_me'},
-                            {
-                                view: this.options.badgeListContainer,
-                                title: gettext('Accomplishments'),
-                                url: 'accomplishments'
-                            }
+                            {view: this.sectionTwoView, title: gettext('About Me'), url: 'about_me'}
                         ];
 
                         // Build the accomplishments Tab and fill with data
