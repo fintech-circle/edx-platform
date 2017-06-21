@@ -506,7 +506,8 @@ class CourseFields(object):
             "Issue Open Badges badges for this course. Badges are generated when certificates are created."
         ),
         scope=Scope.settings,
-        default=True
+        deprecated=True,
+        default=False
     )
     ## Course level Certificate Name overrides.
     cert_name_short = String(
@@ -628,7 +629,8 @@ class CourseFields(object):
             "if they're not enrolled in the course."
         ),
         default=False,
-        scope=Scope.settings
+        scope=Scope.settings,
+        deprecated=True
     )
 
     invitation_only = Boolean(
@@ -804,6 +806,7 @@ class CourseFields(object):
             "the course ends."
         ),
         default=True,
+        deprecated=True,
         scope=Scope.settings
     )
 
