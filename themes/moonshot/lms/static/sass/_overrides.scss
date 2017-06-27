@@ -1,0 +1,10 @@
+/* Most CSS styling in Open edX is done with Sass files compiled to CSS. You can override individual settings by creating a new Sass file that uses the existing file, and overrides the few settings you want.
+
+For example, to change the fonts used throughout the site, you can create an lms/static/sass/_overrides.scss file with the change you want:
+
+$sans-serif: 'Helvetica';
+
+The variables that can currently be overridden are defined in lms/static/sass/base/_variables.scss. */
+
+// Theming overrides for sample theme
+
