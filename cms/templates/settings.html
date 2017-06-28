@@ -520,14 +520,11 @@ CMS.URL.UPLOAD_ASSET = '${upload_asset_url | n, js_escaped_string}'
      % if context_course:
           <%
             course_team_url = utils.reverse_course_url('course_team_handler', context_course.id)
-            grading_config_url = utils.reverse_course_url('grading_handler', context_course.id)
-            advanced_config_url = utils.reverse_course_url('advanced_settings_handler', context_course.id)
           %>
         <h3 class="title-3">${_("Other Course Settings")}</h3>
         <nav class="nav-related" aria-label="${_('Other Course Settings')}">
           <ul>
             <li class="nav-item"><a href="${course_team_url}">${_("Course Team")}</a></li>
-            <li class="nav-item"><a href="${advanced_config_url}">${_("Advanced Settings")}</a></li>
           </ul>
         </nav>
      % endif
