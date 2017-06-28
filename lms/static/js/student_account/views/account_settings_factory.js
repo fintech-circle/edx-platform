@@ -21,7 +21,7 @@
         ) {
             var accountSettingsElement, userAccountModel, userPreferencesModel, aboutSectionsData,
                 accountsSectionData, ordersSectionData, accountSettingsView, showAccountSettingsPage,
-                showLoadingError, orderNumber, getUserField, userFields, timeZoneDropdownField, countryDropdownField;
+                showLoadingError, orderNumber, getUserField, userFields;
 
             accountSettingsElement = $('.wrapper-account-settings');
 
@@ -53,7 +53,7 @@
                                 title: gettext('Full Name'),
                                 valueAttribute: 'name',
                                 helpMessage: gettext(
-                                    'The name that is used for ID verification and appears on your certificates. Other learners never see your full name. Make sure to enter your name exactly as it appears on your government-issued photo ID, including any non-Roman characters.'  // eslint-disable-line max-len
+                                    'The name that is used for ID verification and appears on your certificates (if applicable). Other learners never see your full name. Make sure to enter your name exactly as it appears on your government-issued photo ID, including any non-Roman characters.'  // eslint-disable-line max-len
                                 ),
                                 persistChanges: true
                             })
@@ -85,63 +85,6 @@
                                     {platform_name: platformName}
                                 )
                             })
-                        },
-                        {
-                            view: new AccountSettingsFieldViews.DropdownFieldView({
-                                model: userAccountModel,
-                                required: true,
-                                title: gettext('Country or Region'),
-                                valueAttribute: 'country',
-                                options: fieldsData.country.options,
-                                persistChanges: true
-                            })
-                        },
-                        {
-                            view: new AccountSettingsFieldViews.TimeZoneFieldView({
-                                model: userPreferencesModel,
-                                required: true,
-                                title: gettext('Time Zone'),
-                                valueAttribute: 'time_zone',
-                                helpMessage: gettext('Select the time zone for displaying course dates. If you do not specify a time zone, course dates, including assignment deadlines, will be displayed in your browser\'s local time zone.'), // eslint-disable-line max-len
-                                groupOptions: [{
-                                    groupTitle: gettext('All Time Zones'),
-                                    selectOptions: fieldsData.time_zone.options,
-                                    nullValueOptionLabel: gettext('Default (Local Time Zone)')
-                                }],
-                                persistChanges: true
-                            })
-                        }
-                    ]
-                },
-                {
-                    title: gettext('Additional Information'),
-                    fields: [
-                        {
-                            view: new AccountSettingsFieldViews.DropdownFieldView({
-                                model: userAccountModel,
-                                title: gettext('Education Completed'),
-                                valueAttribute: 'level_of_education',
-                                options: fieldsData.level_of_education.options,
-                                persistChanges: true
-                            })
-                        },
-                        {
-                            view: new AccountSettingsFieldViews.DropdownFieldView({
-                                model: userAccountModel,
-                                title: gettext('Gender'),
-                                valueAttribute: 'gender',
-                                options: fieldsData.gender.options,
-                                persistChanges: true
-                            })
-                        },
-                        {
-                            view: new AccountSettingsFieldViews.DropdownFieldView({
-                                model: userAccountModel,
-                                title: gettext('Year of Birth'),
-                                valueAttribute: 'year_of_birth',
-                                options: fieldsData.year_of_birth.options,
-                                persistChanges: true
-                            })
                         }
                     ]
                 }
@@ -156,9 +99,6 @@
             userFields = _.find(aboutSectionsData, function(section) {
                 return section.title === gettext('Basic Account Information');
             }).fields;
-            timeZoneDropdownField = getUserField(userFields, 'time_zone');
-            countryDropdownField = getUserField(userFields, 'country');
-            timeZoneDropdownField.listenToCountryView(countryDropdownField);
 
             accountsSectionData = [
                 {
