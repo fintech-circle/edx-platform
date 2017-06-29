@@ -109,6 +109,7 @@ cms/static/sass/*.css.map
 cms/static/themed_sass/
 themes/**/css/*.css
 themes/**/css/discussion/*.css
+!themes/moonshot/**/css/*.css
 
 ### Logging artifacts
 log/
