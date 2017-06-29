@@ -74,6 +74,12 @@ CMS.URL.UPLOAD_ASSET = '${upload_asset_url | n, js_escaped_string}'
               <input title="${_('This field is disabled: this information cannot be changed.')}" type="text"
                 class="long" id="course-name" readonly />
             </li>
+
+            <li class="field text" id="field-course-subtitle">
+              <label for="course-subtitle">${_("Course Category")}</label>
+              <input type="text" id="course-subtitle">
+              <span class="tip tip-stacked">${_("Displayed as category on the course details page. Limit to 150 characters.")}</span>
+            </li>
           </ol>
 
           % if about_page_editable:
@@ -208,11 +214,12 @@ CMS.URL.UPLOAD_ASSET = '${upload_asset_url | n, js_escaped_string}'
                   <input type="text" id="course-title" data-display-name="${context_course.display_name}">
                   <span class="tip tip-stacked">${_("Displayed as title on the course details page. Limit to 50 characters.")}</span>
                 </li>
-                <li class="field text" id="field-course-subtitle">
+                <!-- Use course-subtitle for storing categories -->
+                <!--li class="field text" id="field-course-subtitle">
                   <label for="course-subtitle">${_("Course Subtitle")}</label>
                   <input type="text" id="course-subtitle">
                   <span class="tip tip-stacked">${_("Displayed as subtitle on the course details page. Limit to 150 characters.")}</span>
-                </li>
+                </li-->
                 <li class="field text" id="field-course-duration">
                   <label for="course-duration">${_("Course Duration")}</label>
                   <input type="text" id="course-duration">
