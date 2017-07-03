@@ -74,13 +74,16 @@ CMS.URL.UPLOAD_ASSET = '${upload_asset_url | n, js_escaped_string}'
               <input title="${_('This field is disabled: this information cannot be changed.')}" type="text"
                 class="long" id="course-name" readonly />
             </li>
-
-            <li class="field text" id="field-course-subtitle">
-              <label for="course-subtitle">${_("Course Category")}</label>
-              <input type="text" id="course-subtitle">
-              <span class="tip tip-stacked">${_("Displayed as category on the course details page. Limit to 150 characters.")}</span>
-            </li>
           </ol>
+          <div class="list-input">
+            <ul class="list-actions">
+              <li class="field text" id="field-course-subtitle">
+                <label for="course-subtitle">${_("Course Category")}</label>
+                <input type="text" id="course-subtitle">
+                <span class="tip tip-stacked">${_("Displayed as category on the course details page. Limit to 150 characters.")}</span>
+              </li>
+            </ul>
+          </div>
 
           % if about_page_editable:
           <div class="note note-promotion note-promotion-courseURL has-actions">
