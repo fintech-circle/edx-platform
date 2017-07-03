@@ -337,13 +337,16 @@ class RegistrationView(APIView):
                     # Translators: This message is shown to users who attempt to create a new
                     # account using an email address associated with an existing account.
                     u"It looks like {email_address} belongs to an existing account. "
-                    u"Try again with a different email address."
+                    u"If you created an account in one part of the platform, you should already have an account in all "
+                    u"other ones - try your current login."
                 ).format(email_address=email),
                 "username": _(
                     # Translators: This message is shown to users who attempt to create a new
                     # account using a username associated with an existing account.
                     u"It looks like {username} belongs to an existing account. "
-                    u"Try again with a different username."
+                    u"If you created an account in one part of the platform, you should already have an account in all "
+                    u"other ones - try your current login."
+                    u"If you do not have an account yet, try a different username."
                 ).format(username=username),
             }
             errors = {
