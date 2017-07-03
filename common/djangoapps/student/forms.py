@@ -240,7 +240,7 @@ class AccountCreationForm(forms.Form):
         if User.objects.filter(email__iexact=email).exists():
             raise ValidationError(
                 _(
-                    "It looks like {email} belongs to an existing account. Try again with a different email address."
+                    "It looks like {email} belongs to an existing account. If you created an account in one part of the platform, you should already have an account in all other ones - try your current login."
                 ).format(email=email)
             )
         return email
