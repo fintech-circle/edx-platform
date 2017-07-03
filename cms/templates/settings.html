@@ -522,20 +522,6 @@ CMS.URL.UPLOAD_ASSET = '${upload_asset_url | n, js_escaped_string}'
 
         <p>${_("Other information from this page appears on the About page for your course. This information includes the course overview, course image, introduction video, and estimated time requirements. Students use About pages to choose new courses to take.")}</p>
      </div>
-
-     <div class="bit">
-     % if context_course:
-          <%
-            course_team_url = utils.reverse_course_url('course_team_handler', context_course.id)
-          %>
-        <h3 class="title-3">${_("Other Course Settings")}</h3>
-        <nav class="nav-related" aria-label="${_('Other Course Settings')}">
-          <ul>
-            <li class="nav-item"><a href="${course_team_url}">${_("Course Team")}</a></li>
-          </ul>
-        </nav>
-     % endif
-     </div>
     </div>
   </div>
 </div>
