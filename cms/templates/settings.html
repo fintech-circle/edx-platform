@@ -177,11 +177,31 @@ CMS.URL.UPLOAD_ASSET = '${upload_asset_url | n, js_escaped_string}'
                 <p>No credit requirements found.</p>
               % endif
           </div>
-          <hr class="divide" />
         % endif
+        % if has_admin_rights:
+        <hr class="divide" />
         <div class="group-settings schedule">
-          <input type="hidden" class="start-date date start datepicker" id="course-start-date" value="01/01/2017"/>
-          <input type="hidden" class="time start timepicker" id="course-start-time" value="00:00"/>
+          <header>
+            <h2 class="title-2">${_('Course Schedule')}</h2>
+            <span class="tip">${_('Dates that control when your course can be viewed')}</span>
+          </header>
+
+          <ul class="list-input">
+            <li class="field-group field-group-course-start" id="course-start">
+              <div class="field date" id="field-course-start-date">
+                <label for="course-start-date">${_("Course Start Date")}</label>
+                <input type="text" class="start-date date start datepicker" id="course-start-date" placeholder="MM/DD/YYYY" autocomplete="off" />
+                <span class="tip tip-stacked">${_("First day the course begins")}</span>
+              </div>
+
+              <div class="field time" id="field-course-start-time">
+                <label for="course-start-time">${_("Course Start Time")}</label>
+                <input type="text" class="time start timepicker" id="course-start-time" value="" placeholder="HH:MM" autocomplete="off" />
+                <span class="tip tip-stacked timezone">${_("(UTC)")}</span>
+              </div>
+            </li>
+          </ul>
+
           <input type="hidden" class="start-date date start" id="course-enrollment-start-date" value="01/01/2017"/>
           <input type="hidden" class="time start" id="course-enrollment-start-time" value="00:00"/>
 
@@ -202,6 +222,7 @@ CMS.URL.UPLOAD_ASSET = '${upload_asset_url | n, js_escaped_string}'
           </div>
           % endif
         </div>
+        % endif
 
         <hr class="divide" />
             <div class="group-settings marketing">

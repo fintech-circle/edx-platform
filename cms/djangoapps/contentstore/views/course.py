@@ -977,6 +977,8 @@ def settings_handler(request, course_key_string):
                 settings.FEATURES.get('EDITABLE_SHORT_DESCRIPTION', True)
             )
             self_paced_enabled = SelfPacedConfiguration.current().enabled
+            # Allow FTC admins to set release dates
+            has_admin_rights = request.user.email.lower() == settings.FTC_ADMIN_EMAIL.lower()
 
             settings_context = {
                 'context_course': course_module,
@@ -993,6 +995,7 @@ def settings_handler(request, course_key_string):
                 'language_options': settings.ALL_LANGUAGES,
                 'credit_eligibility_enabled': credit_eligibility_enabled,
                 'is_credit_course': False,
+                'has_admin_rights': has_admin_rights,
                 'show_min_grade_warning': False,
                 'enrollment_end_editable': enrollment_end_editable,
                 'is_prerequisite_courses_enabled': is_prerequisite_courses_enabled(),
