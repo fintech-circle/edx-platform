@@ -75,15 +75,6 @@ CMS.URL.UPLOAD_ASSET = '${upload_asset_url | n, js_escaped_string}'
                 class="long" id="course-name" readonly />
             </li>
           </ol>
-          <div class="list-input">
-            <ul class="list-actions">
-              <li class="field text" id="field-course-subtitle">
-                <label for="course-subtitle">${_("Course Category")}</label>
-                <input type="text" id="course-subtitle">
-                <span class="tip tip-stacked">${_("Displayed as category on the course details page. Limit to 150 characters.")}</span>
-              </li>
-            </ul>
-          </div>
 
           % if about_page_editable:
           <div class="note note-promotion note-promotion-courseURL has-actions">
@@ -251,12 +242,6 @@ CMS.URL.UPLOAD_ASSET = '${upload_asset_url | n, js_escaped_string}'
                   <input type="text" id="course-title" data-display-name="${context_course.display_name}">
                   <span class="tip tip-stacked">${_("Displayed as title on the course details page. Limit to 50 characters.")}</span>
                 </li>
-                <!-- Use course-subtitle for storing categories -->
-                <!--li class="field text" id="field-course-subtitle">
-                  <label for="course-subtitle">${_("Course Subtitle")}</label>
-                  <input type="text" id="course-subtitle">
-                  <span class="tip tip-stacked">${_("Displayed as subtitle on the course details page. Limit to 150 characters.")}</span>
-                </li-->
                 <li class="field text" id="field-course-duration">
                   <label for="course-duration">${_("Course Duration")}</label>
                   <input type="text" id="course-duration">
@@ -271,9 +256,9 @@ CMS.URL.UPLOAD_ASSET = '${upload_asset_url | n, js_escaped_string}'
 
                 % if short_description_editable:
                 <li class="field text" id="field-course-short-description">
-                  <label for="course-short-description">${_("Course Short Description")}</label>
+                  <label for="course-short-description">${_("Course Tags")}</label>
                   <textarea class="text" id="course-short-description"></textarea>
-                  <span class="tip tip-stacked">${_("Appears on the course catalog page when students roll over the course name. Limit to ~150 characters")}</span>
+                  <span class="tip tip-stacked">${_("Specify space-separated tags relevant to the course. Limit to ~150 characters")}</span>
                 </li>
                 % endif
 
