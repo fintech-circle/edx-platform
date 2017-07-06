@@ -978,7 +978,7 @@ def settings_handler(request, course_key_string):
             )
             self_paced_enabled = SelfPacedConfiguration.current().enabled
             # Allow FTC admins to set release dates
-            has_admin_rights = request.user.email.lower() == settings.FTC_ADMIN_EMAIL.lower()
+            has_admin_rights = GlobalStaff().has_user(request.user)
 
             settings_context = {
                 'context_course': course_module,
