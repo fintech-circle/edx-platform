@@ -6,10 +6,282 @@ header .logo-header .logo a img {
     height: 45px;
 }
 
+
+
+.window-wrap {
+    position: relative;
+    background :#fff;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.btn-orange {
+    padding: 14px 25px;
+    border-radius: 30px;
+    background-color: #fd7400;
+}
+
+header {
+    height: auto;
+    &.header-global {
+        position: absolute;
+        background: 0 none;
+        border: 0 none;
+        box-shadow: none;
+        //-webkit-filter: blur(10px);
+        //filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 20px 0 0 0;
+        .wrapper-header {
+            height: auto;
+            padding: 0;
+            .logo {
+                margin: 0;
+                padding: 0;
+            }
+            ol {
+                &.left {
+                    float: right;
+                    &.authenticated {
+                        float: left;
+                    }
+                }
+                &.list-inline {
+                    margin: 0;
+                    padding: 0;
+                    &.nav-global, &.nav-courseware {
+                        margin: 0;
+                        padding: 0;
+                    }
+                    li {
+                        a {
+                            padding: 14px 25px;
+                            font-family: 'Open Sans';
+                            font-size: 12px;
+                            font-weight: 600;
+                            letter-spacing: 1.2px;
+                            text-align: left;
+                            color: #ffffff;
+                            &.btn-login, &.btn-register {
+                                background: 0 none;
+                                box-shadow: none;
+                                border: 0 none;
+                            }
+                            &.btn-orange {
+                                padding: 14px 25px;
+                                border-radius: 30px;
+                                background-color: #fd7400;
+                            }
+                        }
+                    }
+                }
+            }
+            .course-search {
+                float: right;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.banner-main-page {
+    img {
+        opacity: 0.9;
+        margin: 0 auto;
+    }
+    .carousel-indicators {
+        text-align: right;
+        li {
+            border: 1px solid #fff;
+            margin: 1px;
+        }
+    }
+    .carousel-caption {
+        left: 25%;
+        right: 25%;
+        bottom: 18%;
+        text-align: left;
+        text-shadow: none;
+        h2 {
+            margin-bottom: 30px;
+            font-family: 'Open Sans';
+            font-size: 40px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-align: left;
+            color: #ffffff;
+            span {
+                border-bottom: 4px solid #fd7400;
+                font-size: 40px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                text-align: left;
+                color: #ffffff;
+            }
+        }
+        span {
+            font-family: 'Open Sans';
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-align: left;
+            color: #ffffff;
+        }
+    }
+}
+
+.home {
+    .courses-container {
+        .courses {
+            .courses-listing {
+                .courses-listing-item {
+                    article {
+                        background: #fff;
+                        border: 1px solid #dcdcdc;
+                        border-radius: 5px;
+                        box-shadow: none;
+                        &:hover {
+                            box-shadow: 10px 50px -1px #4a4a4a;
+                        }
+                        a {
+                            .course-image {
+                                .cover-image {
+
+                                }
+                            }
+                            .course-info {
+                                h2 {
+                                    span {
+                                        &.course-organization {
+                                            font-family: 'Open Sans';
+                                            font-size: 10px;
+                                            font-weight: 600;
+                                            letter-spacing: 0.7px;
+                                            text-align: left;
+                                            color: #fd7400;
+                                        }
+                                        &.course-code {
+                                            font-family: 'Open Sans';
+                                            font-size: 18px;
+                                            font-weight: 600;
+                                            letter-spacing: 0.1px;
+                                            text-align: left;
+                                            color: #4a4a4a;
+                                        }
+                                        &.course-title {
+                                            font-family: 'Open Sans';
+                                            font-size: 10px;
+                                            letter-spacing: 0.7px;
+                                            text-align: left;
+                                            color: #9b9b9b;
+                                        }
+                                    }
+                                }
+                            }
+                            .course-date {
+                                font-family: 'Open Sans';
+                                font-size: 10px;
+                                letter-spacing: 0.7px;
+                                text-align: left;
+                                color: #4a4a4a;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 footer#footer-edx-v3 {
-    background: url("../images/footer-background.png") top left repeat!important;
+    &.footer-main {
+        //background: url("../images/footer-background.png") top left repeat!important;
+        background: none;
+        padding: 0;
+        border-top: 0 none;
+        .top-section {
+            padding: 0 0 10px 0;
+            background-color: #f7f7f7;
+        }
+        .bottom-section {
+            background-color: #9b9b9b;
+        }
+        .footer-content-wrapper {
+            .site-details {
+                width: 100%;
+                nav {
+                    margin: 20px 0;
+                    &.site-nav {
+                        ul {
+                            li {
+                                margin-right: 54px;
+                                a, a:visited {
+                                    font-family: 'Open Sans';
+                                    font-size: 12px;
+                                    line-height: 17px;
+                                    letter-spacing: 1.2px;
+                                    text-align: left;
+                                    color: #4a4a4a;
+                                    text-transform: uppercase;
+                                }
+                            }
+                        }
+                    }
+                    &.legal-notices {
+                        margin: 15px 0;
+                        ul {
+                            li {
+                                margin-right: 34px;
+                                a, a:visited {
+                                    font-family: 'Open Sans';
+                                    font-size: 10px;
+                                    line-height: 14px;
+                                    text-align: left;
+                                    color: #ffffff;
+                                    letter-spacing: 1px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .logo-section {
+                    float: left;
+                    width: 100%;
+                    margin-bottom: 25px;
+                    .footer-logo {
+                        margin: 0;
+                        width: auto;
+                        height: auto;
+                    }
+                    .openedx-link {
+                        margin: 0;
+                        width: auto;
+                        height: auto;
+                    }
+                    .footer-logo, .openedx-link {
+                        a {
+                            img {
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+                p {
+                    margin: 0 0 10px 0;
+                    font-family: 'Open Sans';
+                    font-size: 8px;
+                    line-height: 11px;
+                    text-align: left;
+                    color: #4a4a4a;
+                    letter-spacing: 1.2px;
+                }
+            }
+        }
+    }
 }
 
 footer .footer-logo a img {
-    height: 45px;
+    //height: 45px;
 }
