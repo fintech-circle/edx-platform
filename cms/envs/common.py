@@ -494,9 +494,6 @@ MODULESTORE = {
 MODULESTORE_FIELD_OVERRIDE_PROVIDERS = ()
 
 
-############################# FINTECH Circle Settings #############################
-FTC_ADMIN_EMAIL = ''
-
 #################### Python sandbox ############################################
 
 CODE_JAIL = {
