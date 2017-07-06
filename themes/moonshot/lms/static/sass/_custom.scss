@@ -2,12 +2,6 @@
     width: $intive-width;
 }
 
-header .logo-header .logo a img {
-    height: 45px;
-}
-
-
-
 .window-wrap {
     position: relative;
     background :#fff;
@@ -81,6 +75,38 @@ header {
             .course-search {
                 float: right;
                 display: inline-block;
+                .form-inline {
+                    border-radius: 30px;
+                    background-color: rgba(245, 245, 245, 0.8);
+                    .form-group {
+                        input {
+                            background: 0 none;
+                            box-shadow: none;
+                            border: 0 none;
+                            height: 40px;
+
+                            font-family: 'Open Sans';
+                            font-size: 12px;
+                            font-weight: 600;
+                            letter-spacing: 1.2px;
+                            text-align: left;
+                            color: #4a4a4a;
+                            font-style: normal;
+                        }
+                    }
+                    button {
+                        &.search-button {
+                            background: 0 none;
+                            box-shadow: none;
+                            border: 0 none;
+                            &:hover {
+                                background: 0 none;
+                                box-shadow: none;
+                                border: 0 none;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -141,8 +167,8 @@ header {
                         border: 1px solid #dcdcdc;
                         border-radius: 5px;
                         box-shadow: none;
-                        &:hover {
-                            box-shadow: 10px 50px -1px #4a4a4a;
+                        &:hover, &:focus {
+                            box-shadow: 10px 50px -1px 0 #4a4a4a;
                         }
                         a {
                             .course-image {

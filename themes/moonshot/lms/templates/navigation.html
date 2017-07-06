@@ -52,7 +52,7 @@ site_status_msg = get_site_status_msg(course_id)
         <div class="logo">
           <a href="${marketing_link('ROOT')}">
             <%block name="navigation_logo">
-            <img src="${static.url("images/finetech-logo-black.png")}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
+            <img src="${static.url("images/finetech-logo-white.png")}" class="img-responsive" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
             </%block>
           </a>
         </div>
@@ -198,11 +198,12 @@ site_status_msg = get_site_status_msg(course_id)
       % endif
 
       <div class="course-search">
-        <form method="get" action="/courses">
-          <label><span class="sr">${_("Search for a course")}</span>
-            <input class="search-input" name="search_query" type="text" placeholder="${_("Search for a course")}"></input>
-          </label>
-          <button class="search-button" type="submit">
+        <form method="get" action="/courses" class="form-inline">
+          <div class="form-group">
+            <label></label>
+            <input class="search-input form-control" name="search_query" type="text" placeholder="${_("Search for a course")}"></input>
+          </div>
+          <button class="btn btn-default search-button" type="submit">
             <span class="icon fa fa-search" aria-hidden="true"></span><span class="sr">${_("Search")}</span>
           </button>
         </form>
