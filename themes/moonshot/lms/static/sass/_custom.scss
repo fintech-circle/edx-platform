@@ -69,6 +69,16 @@ header {
                             letter-spacing: 1.2px;
                             text-align: left;
                             color: #ffffff;
+                            background: 0 none;
+                            border: 0 none;
+                            @media #{$screen-xxs} {
+                                padding: 14px 10px;
+                            }
+                            &:hover {
+                                background: 0 none;
+                                box-shadow: none;
+                                border: 0 none;
+                            }
                             &.btn-login, &.btn-register {
                                 background: 0 none;
                                 box-shadow: none;
@@ -86,6 +96,9 @@ header {
             .course-search {
                 float: right;
                 display: inline-block;
+                @media #{$screen-xxs} {
+                    display: none;
+                }
                 .form-inline {
                     border-radius: 30px;
                     background-color: rgba(245, 245, 245, 0.8);
@@ -257,6 +270,9 @@ header {
 .section-quote {
     background: #f7f7f7 url("../images/quote.png") center 80px no-repeat;
     padding: 40px 0;
+    @media #{$screen-xs} {
+        text-align: center;
+    }
     .container {
         max-width: none;
         min-width: 0;
@@ -265,6 +281,11 @@ header {
         width: auto;
         max-width: none;
     }
+    img {
+        @media #{$screen-xs} {
+            margin: 0 auto 40px;
+        }
+    }
     .box {
         p {
             display: block;
@@ -272,7 +293,6 @@ header {
             font-family: 'Open Sans';
             font-size: 18px;
             font-style: italic;
-            text-align: left;
             color: #4a4a4a;
         }
         strong {
@@ -281,14 +301,12 @@ header {
             font-family: 'Open Sans';
             font-size: 20px;
             font-weight: 600;
-            text-align: left;
             color: #4a4a4a;
         }
         span {
             display: block;
             font-family: 'Open Sans';
             font-size: 14px;
-            text-align: left;
             color: #9b9b9b;
         }
     }
