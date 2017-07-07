@@ -30,7 +30,6 @@ def program_listing(request):
     context = {
         'disable_courseware_js': True,
         'marketing_url': get_program_marketing_url(programs_config),
-        'nav_hidden': True,
         'programs': meter.engaged_programs,
         'progress': meter.progress(),
         'show_program_listing': programs_config.enabled,
@@ -71,7 +70,6 @@ def program_details(request, program_uuid):
     context = {
         'urls': urls,
         'show_program_listing': programs_config.enabled,
-        'nav_hidden': True,
         'disable_courseware_js': True,
         'uses_pattern_library': True,
         'user_preferences': get_user_preferences(request.user),
