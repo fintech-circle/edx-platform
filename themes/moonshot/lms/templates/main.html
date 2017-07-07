@@ -180,6 +180,7 @@ from pipeline_mako import render_require_js_path_overrides
                   </div>
               </div>
           </div>
+          <a href="" title="" class="btn btn-orange">Find courses</a>
       </div>
       <script type="text/javascript">
           $('.carousel').carousel({
@@ -191,6 +192,85 @@ from pipeline_mako import render_require_js_path_overrides
       ${self.body()}
       <%block name="bodyextra"/>
     </div>
+
+      <div class="section-quote">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                      <img src="${static.url("images/group.png")}" alt="..." class="img-responsive">
+                  </div>
+                  <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
+                      <div class="box">
+                          <p>
+                              We will empower Finance professionals to acquire the necessary digital understanding and entrepreneurial skills to play
+                              a leading role in the future of Banking, Insurance and Asset Management globally. Make technology disruption work for you by being a step ahead!
+                          </p>
+                          <div class="author">
+                              <strong>Susanne Chishti</strong>
+                              <span>CEO and founder of Fintech Circle</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="section-info">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-12 col-xs-12">
+                      <div class="item">
+                          <h3>Become a <span>Lecturer</span> </h3>
+                      <span>Share your Expertise with our global community of 75,000 members.<br />
+                        Teaching your Fintech skills is both fun & rewarding.</span>
+                          <a href="" title="" class="btn btn-orange">See how it works</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="section-popular-courses">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-12 col-xs-12">
+                      <h4>Popular courses</h4>
+                  </div>
+              </div>
+          </div>
+          <a href="" title="" class="btn btn-orange">View more</a>
+      </div>
+
+      <div class="section-tag">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-12 col-xs-12">
+                      <h4>Browse content by tags</h4>
+                      <div class="item">
+                          <ul>
+                              <li><a href="" title="" class="btn btn-tag-blue">B2B</a></li>
+                              <li><a href="" title="" class="btn btn-tag-violet">B2C</a></li>
+                              <li><a href="" title="" class="btn btn-tag-green">AI</a></li>
+                              <li><a href="" title="" class="btn btn-tag-blue">WEALTHTECH</a></li>
+                              <li><a href="" title="" class="btn btn-tag-violet">FINTECH</a></li>
+                              <li><a href="" title="" class="btn btn-tag-green">REGTECH</a></li>
+                              <li><a href="" title="" class="btn btn-tag-blue">STARTUP</a></li>
+                              <li><a href="" title="" class="btn btn-tag-violet">BUSINESS</a></li>
+                              <li><a href="" title="" class="btn btn-tag-green">NGO</a></li>
+                              <li><a href="" title="" class="btn btn-tag-blue">MENTORING</a></li>
+                              <li><a href="" title="" class="btn btn-tag-violet">BLOCKCHAIN</a></li>
+                              <li><a href="" title="" class="btn btn-tag-green">FUNDING</a></li>
+                              <li><a href="" title="" class="btn btn-tag-blue">LEADERSHIP</a></li>
+                              <li><a href="" title="" class="btn btn-tag-violet">MOBILE</a></li>
+                              <li><a href="" title="" class="btn btn-tag-green">PAYMENTS</a></li>
+                              <li><a href="" title="" class="btn btn-tag-green">RESEARCH</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
 
     % if not disable_footer:
         <%include file="${static.get_template_path('footer.html')}" />
