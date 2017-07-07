@@ -1,0 +1,61 @@
+// =============================================
+// Responsive break points
+// =============================================
+
+$screen-xs-min:   "481px";
+$screen-sm-min:   "768px";
+$screen-md-min:   "992px";
+$screen-lg-min:   "1200px";
+ 
+$screen-xs-max:   "480px";
+$screen-sm-max:   "767px";
+$screen-md-max:   "991px";
+$screen-lg-max:   "1199px";
+ 
+/* -------------------------------------------- *
+ * Breakpoints
+ */
+
+$screen-lg: "only screen and (min-width: 1200px)";
+$screen-md: "only screen and (max-width: 1199px)";
+$screen-sm: "only screen and (max-width: 991px)";
+$screen-xs: "only screen and (max-width: 767px)";
+$screen-xxs: "only screen and (max-width: 550px)";
+$screen-400: "only screen and (max-width: 400px)";
+ 
+.hidden-xxs {
+  @media #{$screen-xxs} {
+    display: none !important;
+  }
+}
+ 
+.visible-xxs {
+  display: none;
+  @media #{$screen-xxs}{
+    display: block;
+  }
+}
+                                                                                                                                                                                                                                   
+.col-xxs-12 {                                                                                                                                                                                                                     
+  @media #{$screen-xxs} {                                                                                                                                                                                                            
+    width: 100% !important;                                                                                                                                                                                                       
+  }                                                                                                                                                                                                                               
+}                                                                                                                                                                                                                                 
+                                                                                                                                                                                                                                   
+.no-padding-xs {                                                                                                                                                                                                                  
+  @media #{$screen-xs} {
+    padding: 0px !important;                                                                                                                                                                                                      
+  }
+}
+ 
+.clear-both-xs {
+  @media #{$screen-xs} {
+    clear: both;
+  }
+}
+ 
+.text-center-xs {
+  @media #{$screen-xs} {
+    text-align: center;
+  }
+}
