@@ -99,6 +99,7 @@ from util.course import get_link_for_about_page, get_encoded_course_sharing_utm_
         </h3>
         <div class="course-info">
           <span class="info-university">${course_overview.display_org_with_default}</span>
+          <span class="info-tags">${course_overview.short_description}</span>
           <%
             if course_overview.start_date_is_still_default:
                 container_string = _("Coming Soon")

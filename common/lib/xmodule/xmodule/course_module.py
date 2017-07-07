@@ -1304,6 +1304,13 @@ class CourseDescriptor(CourseFields, SequenceDescriptor, LicenseMixin):
         return self.number
 
     @property
+    def display_tags_with_default(self):
+        """
+        Return a display course number if it has been specified, otherwise return the ''
+        """
+        return self.short_description
+
+    @property
     def org(self):
         return self.location.org
 
@@ -1394,9 +1401,10 @@ class CourseSummary(object):
     A lightweight course summary class, which constructs split/mongo course summary without loading
     the course. It is used at cms for listing courses to global staff user.
     """
-    course_info_fields = ['display_name', 'display_coursenumber', 'display_organization']
+    course_info_fields = ['display_name', 'display_coursenumber', 'display_organization', 'short_description']
 
-    def __init__(self, course_locator, display_name=u"Empty", display_coursenumber=None, display_organization=None):
+    def __init__(self, course_locator, display_name=u"Empty", display_coursenumber=None, display_organization=None,
+                 short_description=None):
         """
         Initialize and construct course summary
 
@@ -1417,6 +1425,7 @@ class CourseSummary(object):
         self.display_coursenumber = display_coursenumber
         self.display_organization = display_organization
         self.display_name = display_name
+        self.short_description = short_description
 
         self.id = course_locator  # pylint: disable=invalid-name
         self.location = course_locator.make_usage_key('course', 'course')
@@ -1440,3 +1449,12 @@ class CourseSummary(object):
         if self.display_coursenumber:
             return self.display_coursenumber
         return self.location.course
+
+    @property
+    def display_tags_with_default(self):
+        """
+        Return a short_description if it has been specified, otherwise return the 'course' that
+        is in the location
+        """
+        return self.short_description
+

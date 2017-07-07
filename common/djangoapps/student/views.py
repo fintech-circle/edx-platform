@@ -847,6 +847,15 @@ def dashboard(request):
     valid_verification_statuses = ['approved', 'must_reverify', 'pending', 'expired']
     display_sidebar_on_dashboard = len(order_history_list) or verification_status in valid_verification_statuses
 
+    # Find all currently used tags
+    # TODO: Make this more efficient, store it in in the model, etc.
+    tag_list = set()
+    courses_list = get_courses()
+    for course in courses_list:
+        tags = course.short_description
+        if tags:
+            tag_list.update(tags.split(' '))
+
     context = {
         'enterprise_message': enterprise_message,
         'enrollment_message': enrollment_message,
@@ -883,6 +892,7 @@ def dashboard(request):
         'disable_courseware_js': True,
         'display_course_modes_on_dashboard': enable_verified_certificates and display_course_modes_on_dashboard,
         'display_sidebar_on_dashboard': display_sidebar_on_dashboard,
+        'tag_list': list(tag_list)
     }
 
     ecommerce_service = EcommerceService()
