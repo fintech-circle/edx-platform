@@ -1304,13 +1304,6 @@ class CourseDescriptor(CourseFields, SequenceDescriptor, LicenseMixin):
         return self.number
 
     @property
-    def display_tags_with_default(self):
-        """
-        Return a display course number if it has been specified, otherwise return the ''
-        """
-        return self.short_description
-
-    @property
     def org(self):
         return self.location.org
 
@@ -1450,11 +1443,4 @@ class CourseSummary(object):
             return self.display_coursenumber
         return self.location.course
 
-    @property
-    def display_tags_with_default(self):
-        """
-        Return a short_description if it has been specified, otherwise return the 'course' that
-        is in the location
-        """
-        return self.short_description
 
