@@ -1,3 +1,19 @@
+//.container {
+//    background: 0 none !important;
+//    margin-right: auto !important;
+//    margin-left: auto !important;
+//    max-width: none !important;
+//    min-width: 0 !important;
+//    width: auto !important;
+//    .row {
+//        background: 0 none;
+//        border: 0 none;
+//        box-shadow: none;
+//        display: block;
+//        table-layout: auto;
+//    }
+//}
+
 #intive {
     width: $intive-width;
 }
@@ -38,7 +54,12 @@ header {
         //-webkit-filter: blur(10px);
         //filter: blur(10px);
         background-color: rgba(0, 0, 0, 0.6);
-        padding: 20px 0 0 0;
+        padding: 20px 15px 0 15px;
+        @media #{$screen-xs} {
+            position: relative;
+            height: auto;
+            padding: 10px 15px 10px 15px;
+        }
         .wrapper-header {
             height: auto;
             padding: 0;
@@ -71,9 +92,6 @@ header {
                             color: #ffffff;
                             background: 0 none;
                             border: 0 none;
-                            @media #{$screen-xxs} {
-                                padding: 14px 10px;
-                            }
                             &:hover {
                                 background: 0 none;
                                 box-shadow: none;
@@ -88,6 +106,12 @@ header {
                                 padding: 14px 25px;
                                 border-radius: 30px;
                                 background-color: #fd7400;
+                                @media #{$screen-xxs} {
+                                    padding: 14px 10px;
+                                }
+                            }
+                            @media #{$screen-xxs} {
+                                padding: 14px 10px;
                             }
                         }
                     }
@@ -96,13 +120,17 @@ header {
             .course-search {
                 float: right;
                 display: inline-block;
-                @media #{$screen-xxs} {
-                    display: none;
+                @media #{$screen-xs} {
+                    clear: both;
+                    padding: 10px 0 0;
                 }
                 .form-inline {
                     border-radius: 30px;
                     background-color: rgba(245, 245, 245, 0.8);
                     .form-group {
+                        display: inline-block !important;
+                        margin-bottom: 0 !important;
+                        vertical-align: middle !important;
                         input {
                             background: 0 none;
                             box-shadow: none;
@@ -155,6 +183,26 @@ header {
         bottom: 18%;
         text-align: left;
         text-shadow: none;
+        @media #{$screen-md} {
+            left: 15%;
+            right: 15%;
+            bottom: 12%;
+        }
+        @media #{$screen-sm} {
+            left: 7%;
+            right: 7%;
+            bottom: 3%;
+        }
+        @media #{$screen-xs} {
+            left: 5%;
+            right: 5%;
+            bottom: 15%;
+        }
+        @media #{$screen-xxs} {
+            left: 5%;
+            right: 5%;
+            bottom: 30%;
+        }
         h2 {
             margin-bottom: 30px;
             font-family: 'Open Sans';
@@ -163,6 +211,21 @@ header {
             letter-spacing: 1px;
             text-align: left;
             color: #ffffff;
+            @media #{$screen-sm} {
+                margin-bottom: 20px;
+                font-size: 36px;
+            }
+            @media #{$screen-xs} {
+                margin-bottom: 20px;
+            }
+            @media #{$screen-xs} {
+                margin-bottom: 10px;
+                font-size: 36px;
+            }
+            @media #{$screen-xxs} {
+                margin-bottom: 10px;
+                font-size: 20px;
+            }
             span {
                 border-bottom: 4px solid #fd7400;
                 font-size: 40px;
@@ -170,6 +233,12 @@ header {
                 letter-spacing: 1px;
                 text-align: left;
                 color: #ffffff;
+                @media #{$screen-xs} {
+                    font-size: 36px;
+                }
+                @media #{$screen-xxs} {
+                    font-size: 20px;
+                }
             }
         }
         span {
@@ -178,6 +247,9 @@ header {
             letter-spacing: 1px;
             text-align: left;
             color: #ffffff;
+            @media #{$screen-xs} {
+                font-size: 12px;
+            }
         }
     }
     .btn-orange {
@@ -287,21 +359,39 @@ header {
         }
     }
     .box {
+        margin: 70px 0 0 0;
+        @media #{$screen-xs} {
+            margin: 0;
+        }
         p {
             display: block;
             margin-bottom: 55px;
             font-family: 'Open Sans';
-            font-size: 18px;
+            font-size: 20px;
             font-style: italic;
             color: #4a4a4a;
         }
         strong {
+            position: relative;
             display: block;
             margin-bottom: 5px;
             font-family: 'Open Sans';
             font-size: 20px;
             font-weight: 600;
             color: #4a4a4a;
+            @media #{$screen-xs} {
+                display: inline-block;
+            }
+            &:before {
+                position: absolute;
+                top: 50%;
+                left: -42px;
+                content: "";
+                display: block;
+                width: 36px;
+                height: 2px;
+                background: #008fd3;
+            }
         }
         span {
             display: block;
@@ -344,6 +434,12 @@ header {
             letter-spacing: 1px;
             text-align: center;
             color: #ffffff;
+            @media #{$screen-sm} {
+                font-size: 48px;
+            }
+            @media #{$screen-xs} {
+                font-size: 32px;
+            }
             span {
                 display: inline;
                 border-bottom: 4px solid #fd7400;
@@ -351,6 +447,12 @@ header {
                 letter-spacing: 0.6px;
                 text-align: center;
                 color: #ffffff;
+                @media #{$screen-sm} {
+                    font-size: 48px;
+                }
+                @media #{$screen-xs} {
+                    font-size: 32px;
+                }
             }
         }
         span {
@@ -360,6 +462,12 @@ header {
             letter-spacing: 0.6px;
             text-align: center;
             color: #ffffff;
+            @media #{$screen-sm} {
+                font-size: 20px;
+            }
+            @media #{$screen-xs} {
+                font-size: 16px;
+            }
         }
         a {
             margin-top: 45px;
@@ -488,10 +596,11 @@ footer#footer-edx-v3 {
         padding: 0;
         border-top: 0 none;
         .top-section {
-            padding: 0 0 10px 0;
+            padding: 0 15px 10px 15px;
             background-color: #f7f7f7;
         }
         .bottom-section {
+            padding: 0 15px;
             background-color: #9b9b9b;
         }
         .footer-content-wrapper {
@@ -503,6 +612,9 @@ footer#footer-edx-v3 {
                         ul {
                             li {
                                 margin-right: 54px;
+                                @media #{$screen-xs} {
+                                    margin-right: 15px;
+                                }
                                 a, a:visited {
                                     font-family: 'Open Sans';
                                     font-size: 12px;
@@ -520,6 +632,9 @@ footer#footer-edx-v3 {
                         ul {
                             li {
                                 margin-right: 34px;
+                                @media #{$screen-xs} {
+                                    margin-right: 15px;
+                                }
                                 a, a:visited {
                                     font-family: 'Open Sans';
                                     font-size: 10px;
@@ -567,8 +682,4 @@ footer#footer-edx-v3 {
             }
         }
     }
-}
-
-footer .footer-logo a img {
-    //height: 45px;
 }
