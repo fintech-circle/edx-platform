@@ -94,7 +94,7 @@ class CourseOverview(TimeStampedModel):
 
     # Catalog information
     catalog_visibility = TextField(null=True)
-    short_description = TextField(null=True)
+    short_description = TextField(default='')
     course_video_url = TextField(null=True)
     effort = TextField(null=True)
     self_paced = BooleanField(default=False)

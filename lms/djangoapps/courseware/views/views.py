@@ -169,12 +169,22 @@ def courses(request):
     if program_types:
         programs_list = get_programs_with_type(program_types)
 
+    # Find all currently used tags
+    # TODO: Make this more efficient, store it in in the model, etc.
+    tag_list = set()
+    courses_list = get_courses()
+    for course in courses_list:
+        tags = course.short_description
+        if tags:
+            tag_list.update(tags.split(' '))
+
     return render_to_response(
         "courseware/courses.html",
         {
             'courses': courses_list,
             'course_discovery_meanings': course_discovery_meanings,
-            'programs_list': programs_list
+            'programs_list': programs_list,
+            'tag_list': list(tag_list)
         }
     )
 
