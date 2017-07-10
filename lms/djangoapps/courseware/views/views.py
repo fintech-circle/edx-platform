@@ -272,6 +272,15 @@ def course_info(request, course_id):
                 return url
         return None
 
+    # Find all currently used tags
+    # TODO: Make this more efficient, store it in in the model, etc.
+    tag_list = set()
+    courses_list = get_courses()
+    for course in courses_list:
+        tags = course.short_description
+        if tags:
+            tag_list.update(tags.split(' '))
+
     course_key = CourseKey.from_string(course_id)
 
     # If the unified course experience is enabled, redirect to the "Course" tab
@@ -336,15 +345,6 @@ def course_info(request, course_id):
         if request.user.is_authenticated():
             if SelfPacedConfiguration.current().enable_course_home_improvements:
                 dates_fragment = CourseDatesFragmentView().render_to_fragment(request, course_id=course_id)
-
-        # Find all currently used tags
-        # TODO: Make this more efficient, store it in in the model, etc.
-        tag_list = set()
-        courses_list = get_courses()
-        for course in courses_list:
-            tags = course.short_description
-            if tags:
-                tag_list.update(tags.split(' '))
 
         context = {
             'request': request,
@@ -698,6 +698,15 @@ def course_about(request, course_id):
         # CCX only CCX coach can enroll students.
         return redirect(reverse('dashboard'))
 
+    # Find all currently used tags
+    # TODO: Make this more efficient, store it in in the model, etc.
+    tag_list = set()
+    courses_list = get_courses()
+    for course in courses_list:
+        tags = course.short_description
+        if tags:
+            tag_list.update(tags.split(' '))
+
     with modulestore().bulk_operations(course_key):
         permission = get_permission_for_course_about()
         course = get_course_with_access(request.user, permission, course_key)
@@ -779,15 +788,6 @@ def course_about(request, course_id):
 
         # Overview
         overview = CourseOverview.get_from_id(course.id)
-
-        # Find all currently used tags
-        # TODO: Make this more efficient, store it in in the model, etc.
-        tag_list = set()
-        courses_list = get_courses()
-        for course in courses_list:
-            tags = course.short_description
-            if tags:
-                tag_list.update(tags.split(' '))
 
         context = {
             'course': course,
