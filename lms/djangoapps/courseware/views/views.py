@@ -337,6 +337,15 @@ def course_info(request, course_id):
             if SelfPacedConfiguration.current().enable_course_home_improvements:
                 dates_fragment = CourseDatesFragmentView().render_to_fragment(request, course_id=course_id)
 
+        # Find all currently used tags
+        # TODO: Make this more efficient, store it in in the model, etc.
+        tag_list = set()
+        courses_list = get_courses()
+        for course in courses_list:
+            tags = course.short_description
+            if tags:
+                tag_list.update(tags.split(' '))
+
         context = {
             'request': request,
             'masquerade_user': user,
@@ -352,6 +361,7 @@ def course_info(request, course_id):
             'url_to_enroll': url_to_enroll,
             'upgrade_link': check_and_get_upgrade_link(request, user, course.id),
             'upgrade_price': get_cosmetic_verified_display_price(course),
+            'tag_list': list(tag_list)
         }
 
         # Get the URL of the user's last position in order to display the 'where you were last' message
@@ -770,6 +780,15 @@ def course_about(request, course_id):
         # Overview
         overview = CourseOverview.get_from_id(course.id)
 
+        # Find all currently used tags
+        # TODO: Make this more efficient, store it in in the model, etc.
+        tag_list = set()
+        courses_list = get_courses()
+        for course in courses_list:
+            tags = course.short_description
+            if tags:
+                tag_list.update(tags.split(' '))
+
         context = {
             'course': course,
             'course_details': course_details,
@@ -798,6 +817,7 @@ def course_about(request, course_id):
             'cart_link': reverse('shoppingcart.views.show_cart'),
             'pre_requisite_courses': pre_requisite_courses,
             'course_image_urls': overview.image_urls,
+            'tag_list': list(tag_list)
         }
         inject_coursetalk_keys_into_context(context, course_key)
 
