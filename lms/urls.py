@@ -37,6 +37,9 @@ urlpatterns = (
     # FTC Categories view
     url(r'^categories', 'student.views.categories', name="categories"),
 
+    # FTC Lecturers view
+    url(r'^lecturers', 'student.views.lecturers', name="lecturers"),
+
     # Event tracking endpoints
     url(r'', include('track.urls')),
 

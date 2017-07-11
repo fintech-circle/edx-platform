@@ -72,36 +72,25 @@ site_status_msg = get_site_status_msg(course_id)
           % endif
       </h1>
 
-      % if user.is_authenticated():
       <ol class="left nav-global list-inline authenticated">
-        <%block name="navigation_global_links_authenticated">
-          % if settings.FEATURES.get('COURSES_ARE_BROWSABLE') and not show_program_listing:
             <li class="item nav-global-01">
-              <a href="${marketing_link('COURSES')}">${_('Explore courses')}</a>
+              <a href="${marketing_link('COURSES')}">Courses</a>
             </li>
           % endif
             <li class="item nav-global-02">
-              <a href="${marketing_link('CATEGORIES')}">Categories</a>
+              <a href="${marketing_link('ABOUT')}">About</a>
             </li>
-          % if show_program_listing:
-            <li class="tab-nav-item">
-              <a class="${'active ' if reverse('dashboard') == request.path else ''}tab-nav-link" href="${reverse('dashboard')}">
-                ${_("Courses")}
-              </a>
+            <li class="item nav-global-03">
+              <a href="${marketing_link('LECTURERS')}">Lecturers</a>
             </li>
-            <li class="tab-nav-item">
-              <a class="${'active ' if reverse('program_listing_view') in request.path else ''}tab-nav-link" href="${reverse('program_listing_view')}">
-                ${_("Programs")}
-              </a>
+            <li class="item nav-global-04">
+              <a href="${marketing_link('CONTACT')}">Contact</a>
             </li>
-          % endif
           %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
             <li class="item">
-              ## Translators: This is short for "System administration".
-              <a href="${reverse('sysadmin')}">${_("Sysadmin")}</a>
+              <a href="${reverse('sysadmin')}">Sysadmin</a>
             </li>
           %endif
-        </%block>
       </ol>
 
       <%include file="user_dropdown.html"/>

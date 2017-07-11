@@ -2265,6 +2265,7 @@ MKTG_URL_LINK_MAP = {
     'DONATE': 'donate',
     'SITEMAP.XML': 'sitemap_xml',
     'CATEGORIES': 'categories',
+    'LECTURERS': 'lecturers',
 
     # Verified Certificates
     'WHAT_IS_VERIFIED_CERT': 'verified-certificate',

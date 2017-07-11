@@ -625,6 +625,27 @@ def compose_and_send_activation_email(user, profile, user_registration=None):
 
 @login_required
 @ensure_csrf_cookie
+def lecturers(request):
+    """
+    Provides the LMS Lecturers view
+
+    Arguments:
+        request: The request object.
+
+    Returns:
+        The dashboard response.
+
+    """
+    context = {
+    }
+
+    response = render_to_response('lecturers.html', context)
+    set_user_info_cookie(response, request)
+    return response
+
+
+@login_required
+@ensure_csrf_cookie
 def categories(request):
     """
     Provides the LMS Categories view
