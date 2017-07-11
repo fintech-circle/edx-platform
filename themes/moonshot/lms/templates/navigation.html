@@ -103,7 +103,7 @@ site_status_msg = get_site_status_msg(course_id)
                   <a href="${reverse('sysadmin')}">Sysadmin</a>
                 </li>
               % endif
-            % else
+            % else:
             <%block name="navigation_global_links_authenticated">
               %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
                 <li class="item">
