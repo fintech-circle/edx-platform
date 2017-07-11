@@ -72,11 +72,11 @@ site_status_msg = get_site_status_msg(course_id)
           % endif
       </h1>
 
-      <ol class="left nav-global list-inline authenticated">
+      <ol class="left list-inline nav-global">
+        <%block name="navigation_global_links">
             <li class="item nav-global-01">
               <a href="${marketing_link('COURSES')}">Courses</a>
             </li>
-          % endif
             <li class="item nav-global-02">
               <a href="${marketing_link('ABOUT')}">About</a>
             </li>
@@ -86,11 +86,24 @@ site_status_msg = get_site_status_msg(course_id)
             <li class="item nav-global-04">
               <a href="${marketing_link('CONTACT')}">Contact</a>
             </li>
-          %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
-            <li class="item">
-              <a href="${reverse('sysadmin')}">Sysadmin</a>
-            </li>
-          %endif
+            % if not user.is_authenticated():
+              % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+                % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+                  <li class="item nav-global-04">
+                    <a class="btn-neutral btn-register btn-orange" href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}">${_("Register")}</a>
+                  </li>
+                % elif static.get_value('ALLOW_PUBLIC_ACCOUNT_CREATION', settings.FEATURES.get('ALLOW_PUBLIC_ACCOUNT_CREATION')):
+                  <li class="item nav-global-04">
+                    <a class="btn-neutral btn-register btn-orange" href="/register${login_query()}">${_("Register")}</a>
+                  </li>
+                % endif
+              % endif
+                %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
+                <li class="item">
+                  <a href="${reverse('sysadmin')}">Sysadmin</a>
+                </li>
+            %endif
+        </%block>
       </ol>
 
       <%include file="user_dropdown.html"/>
@@ -108,44 +121,19 @@ site_status_msg = get_site_status_msg(course_id)
           </li>
         </ol>
       % endif
-    % else:
-      <ol class="left list-inline nav-global">
-        <%block name="navigation_global_links">
-          % if static.get_value('ENABLE_MKTG_SITE', settings.FEATURES.get('ENABLE_MKTG_SITE', False)):
-            <li class="item nav-global-01">
-              <a href="${marketing_link('HOW_IT_WORKS')}">${_("How it Works")}</a>
+      % if user.is_authenticated():
+        <ol class="left nav-global list-inline authenticated">
+        <%block name="navigation_global_links_authenticated">
+          %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
+            <li class="item">
+              <a href="${reverse('sysadmin')}">Sysadmin</a>
             </li>
-            % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-              <li class="item nav-global-02">
-                <a href="${marketing_link('COURSES')}">${_("Courses")}</a>
-              </li>
-            % endif
-            <li class="item nav-global-03">
-              <a href="${marketing_link('SCHOOLS')}">${_("Schools")}</a>
-            </li>
-          % endif
+          %endif
         </%block>
+        </ol>
+      % endif
 
-        <%block name="navigation_other_global_links">
-          % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
-            % if settings.FEATURES.get('ENABLE_COURSE_DISCOVERY'):
-              <li class="item nav-global-05">
-                <a class="btn" href="/courses">${_("Explore Courses")}</a>
-              </li>
-            %endif
-            % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-              <li class="item nav-global-04">
-                <a class="btn-neutral btn-register btn-orange" href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}">${_("Register")}</a>
-              </li>
-            % elif static.get_value('ALLOW_PUBLIC_ACCOUNT_CREATION', settings.FEATURES.get('ALLOW_PUBLIC_ACCOUNT_CREATION')):
-              <li class="item nav-global-04">
-                <a class="btn-neutral btn-register btn-orange" href="/register${login_query()}">${_("Register")}</a>
-              </li>
-            % endif
-          % endif
-        </%block>
-      </ol>
-
+      % if not user.is_authenticated():
       <ol class="right nav-courseware list-inline">
         <%block name="navigation_sign_in">
           <li class="item nav-courseware-01">
@@ -159,34 +147,6 @@ site_status_msg = get_site_status_msg(course_id)
           </li>
         </%block>
       </ol>
-    % endif
-    % if header_language_selector_is_enabled():
-     <% languages = released_languages() %>
-      % if len(languages) > 1:
-      <ol class="user">
-        <li class="primary">
-          <form action="/i18n/setlang/" method="post" class="settings-language-form" id="language-settings-form">
-            <input type="hidden" id="csrf_token" name="csrfmiddlewaretoken" value="${csrf_token}">
-            % if user.is_authenticated():
-            <input title="preference api" type="hidden" class="url-endpoint" value="${reverse('preferences_api', kwargs={'username': user.username})}" data-user-is-authenticated="true">
-            % else:
-            <input title="session update url" type="hidden" class="url-endpoint" value="${reverse('session_language')}" data-user-is-authenticated="false">
-            % endif
-            <label><span class="sr">${_("Choose Language")}</span>
-                <select class="input select language-selector" id="settings-language-value" name="language">
-                  % for language in languages:
-                    % if language[0] == LANGUAGE_CODE:
-                      <option value="${language[0]}" selected="selected">${language[1]}</option>
-                    % else:
-                      <option value="${language[0]}" >${language[1]}</option>
-                    % endif
-                  % endfor
-                </select>
-            </label>
-          </form>
-        </li>
-      </ol>
-      % endif
       % endif
 
       <div class="course-search">
