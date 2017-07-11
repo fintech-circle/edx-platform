@@ -34,6 +34,9 @@ urlpatterns = (
     url(r'^dashboard$', 'student.views.dashboard', name="dashboard"),
     url(r'^change_enrollment$', 'student.views.change_enrollment', name='change_enrollment'),
 
+    # FTC Categories view
+    url(r'^categories', 'student.views.categories', name="categories"),
+
     # Event tracking endpoints
     url(r'', include('track.urls')),
 

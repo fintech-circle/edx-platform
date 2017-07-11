@@ -625,6 +625,37 @@ def compose_and_send_activation_email(user, profile, user_registration=None):
 
 @login_required
 @ensure_csrf_cookie
+def categories(request):
+    """
+    Provides the LMS Categories view
+
+    Arguments:
+        request: The request object.
+
+    Returns:
+        The dashboard response.
+
+    """
+    # Find all currently used tags
+    # TODO: Make this more efficient, store it in in the model, etc.
+    tag_list = set()
+    courses_list = get_courses()
+    for course in courses_list:
+        tags = course.short_description
+        if tags:
+            tag_list.update(tags.split(' '))
+
+    context = {
+        'tag_list': tag_list
+    }
+
+    response = render_to_response('categories.html', context)
+    set_user_info_cookie(response, request)
+    return response
+
+
+@login_required
+@ensure_csrf_cookie
 def dashboard(request):
     """
     Provides the LMS dashboard view

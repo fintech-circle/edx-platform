@@ -1,0 +1,25 @@
+<%page expression_filter="h"/>
+<%inherit file="main.html" />
+<%namespace name='static' file='static_content.html'/>
+
+<%block name="pagetitle">"Categories"</%block>
+<%block name="bodyclass">view-categories is-authenticated</%block>
+
+
+<section class="container categories" id="categories-main">
+<main id="main" aria-label="Content" tabindex="-1">
+  <section class="my-categories" id="my-categories">
+    <header class="wrapper-header-categories">
+      <h2 class="header-categories">All Categories</h2>
+    </header>
+      <div class="section-tag">
+        <ul>
+            % for index, tag in enumerate(tag_list):
+                <li><a href="${EDX_ROOT_URL}/courses?search_query=${tag}" title="">${tag}</a></li>
+            % endfor
+        </ul>
+      </div>
+  </section>
+</main>
+
+

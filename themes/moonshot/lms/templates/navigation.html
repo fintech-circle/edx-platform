@@ -73,13 +73,16 @@ site_status_msg = get_site_status_msg(course_id)
       </h1>
 
       % if user.is_authenticated():
-        <ol class="left nav-global list-inline authenticated">
+      <ol class="left nav-global list-inline authenticated">
         <%block name="navigation_global_links_authenticated">
           % if settings.FEATURES.get('COURSES_ARE_BROWSABLE') and not show_program_listing:
             <li class="item nav-global-01">
               <a href="${marketing_link('COURSES')}">${_('Explore courses')}</a>
             </li>
           % endif
+            <li class="item nav-global-02">
+              <a href="${marketing_link('CATEGORIES')}">Categories</a>
+            </li>
           % if show_program_listing:
             <li class="tab-nav-item">
               <a class="${'active ' if reverse('dashboard') == request.path else ''}tab-nav-link" href="${reverse('dashboard')}">
