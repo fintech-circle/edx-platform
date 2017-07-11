@@ -122,7 +122,7 @@ from pipeline_mako import render_require_js_path_overrides
     })();
     </script>
 % endif
-    <link href="${static.url("vendors/bootstrap/css/bootstrap.min.css")}" rel="stylesheet">
+    <link href="${static.url("vendors/bootstrap/css/bootstrap.css")}" rel="stylesheet">
     <link href="${static.url("vendors/font-awesome/css/font-awesome.min.css")}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=latin-ext" rel="stylesheet">
 </head>
@@ -194,8 +194,8 @@ from pipeline_mako import render_require_js_path_overrides
     </div>
 
       <div class="section-quote">
-          <div class="container">
-              <div class="row">
+          <div class="container-bs">
+              <div class="row-bs">
                   <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                       <img src="${static.url("images/group.png")}" alt="..." class="img-responsive">
                   </div>
@@ -216,8 +216,8 @@ from pipeline_mako import render_require_js_path_overrides
       </div>
 
       <div class="section-info">
-          <div class="container">
-              <div class="row">
+          <div class="container-bs">
+              <div class="row-bs">
                   <div class="col-sm-12 col-xs-12">
                       <div class="item">
                           <h3>Become a <span>Lecturer</span> </h3>
@@ -231,8 +231,8 @@ from pipeline_mako import render_require_js_path_overrides
       </div>
 
       <div class="section-popular-courses">
-          <div class="container">
-              <div class="row">
+          <div class="container-bs">
+              <div class="row-bs">
                   <div class="col-sm-12 col-xs-12">
                       <h4>Popular courses</h4>
                   </div>
@@ -242,8 +242,8 @@ from pipeline_mako import render_require_js_path_overrides
       </div>
       % if tag_list:
       <div class="section-tag">
-          <div class="container">
-              <div class="row">
+          <div class="container-bs">
+              <div class="row-bs">
                   <div class="col-sm-12 col-xs-12">
                       <h4>Browse content by tags</h4>
                       <div class="item">
@@ -258,6 +258,26 @@ from pipeline_mako import render_require_js_path_overrides
           </div>
       </div>
       % endif
+
+      <div class="section-newsletter">
+          <div class="container-bs">
+              <div class="row-bs">
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                      <h5>Don’t miss a single thing!</h5>
+                          <span>Get notified about new courses, events, news & more</span>
+                  </div>
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                      <form class="form-inline">
+                          <div class="form-group">
+                              <input type="email" class="form-control" id="newsletter" placeholder="Enter your e-mail">
+                          </div>
+                          <div class="clearfix visible-xs"></div>
+                          <button type="submit" class="btn btn-default">Subscribe</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
 
 
     % if not disable_footer:

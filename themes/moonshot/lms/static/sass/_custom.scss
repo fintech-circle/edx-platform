@@ -53,7 +53,12 @@ header {
         box-shadow: none;
         //-webkit-filter: blur(10px);
         //filter: blur(10px);
-        background-color: rgba(0, 0, 0, 0.6);
+        //background-color: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.6); /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(#000000, rgba(0, 0, 0, 0)); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#000000, rgba(0, 0, 0, 0)); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#000000, rgba(0, 0, 0, 0)); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#000000, rgba(0, 0, 0, 0)); /* Standard syntax */
         padding: 20px 15px 0 15px;
         @media #{$screen-xs} {
             position: relative;
@@ -306,7 +311,9 @@ header {
                                             text-align: left;
                                             color: #fd7400;
                                         }
-                                        &.course-code {
+                                        &.course-code, &.course-tags {
+                                            line-height: 16.28px;
+                                            padding: 0 15px;
                                             font-family: 'Open Sans';
                                             font-size: 18px;
                                             font-weight: 600;
@@ -315,6 +322,8 @@ header {
                                             color: #4a4a4a;
                                         }
                                         &.course-title {
+                                            height: auto;
+                                            margin: 5px 0;
                                             font-family: 'Open Sans';
                                             font-size: 10px;
                                             letter-spacing: 0.7px;
@@ -330,6 +339,7 @@ header {
                                 letter-spacing: 0.7px;
                                 text-align: left;
                                 color: #4a4a4a;
+                                text-transform: uppercase;
                             }
                         }
                     }
@@ -339,20 +349,149 @@ header {
     }
 }
 
+.container {
+    &.dashboard {
+        border: 0 none;
+        .wrapper-header-courses {
+            text-align: center;
+            border: 0 none;
+            h2 {
+                font-family: 'Open Sans';
+                font-size: 20px;
+                font-weight: bold;
+                letter-spacing: 0.1px;
+                text-align: center;
+                color: #4a4a4a;
+            }
+        }
+        .listing-courses {
+            .course-item {
+                .course-container {
+                    border-radius: 5px;
+                    background-color: #ffffff;
+                    border: solid 1px #dcdcdc;
+                    .course {
+                        margin: 0;
+                        .wrapper-course-image {
+                            a {
+                                border: 0 none;
+                                font-family: 'Open Sans';
+                                font-size: 10px;
+                                letter-spacing: 0.7px;
+                                text-align: left;
+                                color: #4a4a4a;
+                            }
+                        }
+                        .wrapper-course-details {
+                            padding: 18px 22px 10px 0;
+                            h3, h3 a {
+                                font-family: 'Open Sans';
+                                margin: 0;
+                                font-size: 18px;
+                                line-height: 24px;
+                                font-weight: 600;
+                                letter-spacing: 0.1px;
+                                text-align: left;
+                                color: #4a4a4a;
+                            }
+                            .course-info {
+                                span {
+                                    font-family: 'Open Sans';
+                                    font-size: 10px;
+                                    letter-spacing: 0.7px;
+                                    text-align: left;
+                                    color: #4a4a4a;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .wrapper-find-courses {
+            .course-advertise {
+                border: 0 none;
+                .advertise-message {
+                    font-family: 'Open Sans';
+                    font-size: 12px;
+                    letter-spacing: 0.9px;
+                    text-align: left;
+                    color: #4a4a4a;
+                }
+                .ad-link {
+                    a {
+                        display: block;
+                        width: 100%;
+                        padding: 16px 15px;
+                        border-radius: 60px;
+                        background-color: #fd7400;
+                        font-family: 'Open Sans';
+                        font-size: 12px;
+                        line-height: 18px;
+                        font-weight: bold;
+                        letter-spacing: 1.2px;
+                        text-align: center;
+                        color: #ffffff;
+                        text-transform: uppercase;
+                        border: 0 none;
+                        &:hover {
+                            color: #ffffff;
+                            border: 0 none;
+                        }
+                        span {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.content-wrapper {
+    .container {
+        h1 {
+            font-family: 'Open Sans';
+            color: #4a4a4a;
+        }
+        p {
+            font-family: 'Open Sans';
+            color: #4a4a4a;
+        }
+    }
+}
+
 .section-quote {
-    background: #f7f7f7 url("../images/quote.png") center 80px no-repeat;
-    padding: 40px 0;
+    background: #f7f7f7 url("../images/quote.png") 45% 20% no-repeat;
+    padding: 65px 0;
     @media #{$screen-xs} {
         text-align: center;
     }
-    .container {
-        max-width: none;
-        min-width: 0;
-    }
-    .row {
-        width: auto;
-        max-width: none;
-    }
+
+    //.container {
+    //    background: 0 none !important;
+    //    margin-right: auto !important;
+    //    margin-left: auto !important;
+    //    max-width: none !important;
+    //    min-width: 0 !important;
+    //    width: auto !important;
+    //    .row {
+    //        background: 0 none;
+    //        border: 0 none;
+    //        box-shadow: none;
+    //        display: block;
+    //        table-layout: auto;
+    //    }
+    //}
+    //
+    //.container {
+    //    max-width: none;
+    //    min-width: 0;
+    //}
+    //.row {
+    //    width: auto;
+    //    max-width: none;
+    //}
     img {
         @media #{$screen-xs} {
             margin: 0 auto 40px;
@@ -410,16 +549,32 @@ header {
     display: block;
     height: 400px;
     min-height: 400px;
-    padding: 40px 0;
+    padding: 75px 0;
 
-    .container {
-        max-width: none;
-        min-width: 0;
-    }
-    .row {
-        width: auto;
-        max-width: none;
-    }
+    //.container {
+    //    background: 0 none !important;
+    //    margin-right: auto !important;
+    //    margin-left: auto !important;
+    //    max-width: none !important;
+    //    min-width: 0 !important;
+    //    width: auto !important;
+    //    .row {
+    //        background: 0 none;
+    //        border: 0 none;
+    //        box-shadow: none;
+    //        display: block;
+    //        table-layout: auto;
+    //    }
+    //}
+    //
+    //.container {
+    //    max-width: none;
+    //    min-width: 0;
+    //}
+    //.row {
+    //    width: auto;
+    //    max-width: none;
+    //}
     img {
         margin: 0 auto;
     }
@@ -496,14 +651,31 @@ header {
     padding: 90px 0;
     text-align: center;
     background: #f7f7f7;
-    .container {
-        max-width: none;
-        min-width: 0;
-    }
-    .row {
-        width: auto;
-        max-width: none;
-    }
+
+    //.container {
+    //    background: 0 none !important;
+    //    margin-right: auto !important;
+    //    margin-left: auto !important;
+    //    max-width: none !important;
+    //    min-width: 0 !important;
+    //    width: auto !important;
+    //    .row {
+    //        background: 0 none;
+    //        border: 0 none;
+    //        box-shadow: none;
+    //        display: block;
+    //        table-layout: auto;
+    //    }
+    //}
+    //
+    //.container {
+    //    max-width: none;
+    //    min-width: 0;
+    //}
+    //.row {
+    //    width: auto;
+    //    max-width: none;
+    //}
     h4 {
         font-family: 'Open Sans';
         font-size: 20px;
@@ -540,14 +712,31 @@ header {
     padding: 90px 0;
     text-align: center;
     background: #fff;
-    .container {
-        max-width: none;
-        min-width: 0;
-    }
-    .row {
-        width: auto;
-        max-width: none;
-    }
+
+    //.container {
+    //    background: 0 none !important;
+    //    margin-right: auto !important;
+    //    margin-left: auto !important;
+    //    max-width: none !important;
+    //    min-width: 0 !important;
+    //    width: auto !important;
+    //    .row {
+    //        background: 0 none;
+    //        border: 0 none;
+    //        box-shadow: none;
+    //        display: block;
+    //        table-layout: auto;
+    //    }
+    //}
+    //
+    //.container {
+    //    max-width: none;
+    //    min-width: 0;
+    //}
+    //.row {
+    //    width: auto;
+    //    max-width: none;
+    //}
     h4 {
         font-family: 'Open Sans';
         font-size: 20px;
@@ -585,6 +774,113 @@ header {
                     background-color: #417505;
                 }
             }
+        }
+    }
+}
+
+.section-newsletter {
+    padding: 40px 0;
+    background: #f6a623;
+    h5 {
+        margin-top: 0;
+        margin-bottom: 5px;
+        font-family: 'Open Sans';
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: bold;
+        line-height: normal;
+        color: #ffffff;
+    }
+    span {
+        font-family: 'Open Sans';
+        font-size: 16px;
+        line-height: 1.25;
+        letter-spacing: 1px;
+        text-align: left;
+        color: #a45818;
+    }
+    .form-inline {
+        margin: 8px 0 0 0;
+        display: table;
+        width: 100%;
+        .form-group {
+            display: table-cell;
+            padding: 0 50px 0 0;
+            width: 90%;
+            @media #{$screen-xs} {
+                display: block;
+                padding: 0;
+                width: 100%;
+            }
+        }
+    }
+    input[type="email"] {
+        width: 100%;
+        height: auto;
+        padding: 18px 35px 16px;
+        background: 0 none;
+        box-shadow: none;
+        border-radius: 0;
+        font-family: 'Open Sans';
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: bold;
+        letter-spacing: 1.2px;
+        text-align: center;
+        color: #a45817;
+        border: 0 none;
+        border-bottom: 2px solid #fff;
+        text-transform: uppercase;
+        font-style: normal;
+
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: #a45817;
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+            color: #a45817;
+        }
+        &:-ms-input-placeholder { /* IE 10+ */
+            color: #a45817;
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+            color: #a45817;
+        }
+
+        &:hover, &:focus {
+            color: #a45817;
+            background: 0 none;
+            box-shadow: none;
+            border-radius: 0;
+            border-bottom: 2px solid #fff;
+        }
+    }
+    button {
+        display: table-cell;
+        padding: 19px 35px;
+        box-shadow: none;
+        border-radius: 0;
+        border-radius: 60px;
+        border: 0 none;
+        background-color: #ffffff;
+        font-family: 'Open Sans';
+        font-size: 12px;
+        line-height: 12px;
+        font-weight: bold;
+        letter-spacing: 1.2px;
+        text-align: center;
+        color: #fd7400;
+        text-transform: uppercase;
+        &:hover, &:focus {
+            background: #ffffff;
+            box-shadow: none;
+            border-radius: 0;
+            border-radius: 60px;
+            border: 0 none;
+            color: #fd7400;
+        }
+        @media #{$screen-xs} {
+            display: block;
+            width: 100%;
         }
     }
 }
