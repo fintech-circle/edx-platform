@@ -89,24 +89,19 @@ site_status_msg = get_site_status_msg(course_id)
             % if not user.is_authenticated():
               % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
                 % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                  <li class="item nav-global-04">
+                  <li class="item nav-global-05">
                     <a class="btn-neutral btn-register btn-orange" href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}">${_("Register")}</a>
                   </li>
                 % elif static.get_value('ALLOW_PUBLIC_ACCOUNT_CREATION', settings.FEATURES.get('ALLOW_PUBLIC_ACCOUNT_CREATION')):
-                  <li class="item nav-global-04">
+                  <li class="item nav-global-06">
                     <a class="btn-neutral btn-register btn-orange" href="/register${login_query()}">${_("Register")}</a>
                   </li>
                 % endif
               % endif
-              % if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
-                <li class="item">
-                  <a href="${reverse('sysadmin')}">Sysadmin</a>
-                </li>
-              % endif
             % else:
             <%block name="navigation_global_links_authenticated">
               %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
-                <li class="item">
+                <li class="item nav-global-07">
                   <a href="${reverse('sysadmin')}">Sysadmin</a>
                 </li>
               % endif
@@ -131,8 +126,6 @@ site_status_msg = get_site_status_msg(course_id)
           </li>
         </ol>
         % endif
-        <ol class="left nav-global list-inline authenticated">
-        </ol>
       % else:
       <ol class="right nav-courseware list-inline">
         <%block name="navigation_sign_in">
