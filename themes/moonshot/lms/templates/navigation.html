@@ -69,7 +69,7 @@ site_status_msg = get_site_status_msg(course_id)
             %>
             <span class="course-name">${display_name}</span>
           </div>
-          % endif
+        % endif
       </h1>
 
       <ol class="left list-inline nav-global">
@@ -98,11 +98,12 @@ site_status_msg = get_site_status_msg(course_id)
                   </li>
                 % endif
               % endif
-                %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
+              % if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
                 <li class="item">
                   <a href="${reverse('sysadmin')}">Sysadmin</a>
                 </li>
-            %endif
+              % endif
+            % endif
         </%block>
       </ol>
 
@@ -128,7 +129,7 @@ site_status_msg = get_site_status_msg(course_id)
             <li class="item">
               <a href="${reverse('sysadmin')}">Sysadmin</a>
             </li>
-          %endif
+          % endif
         </%block>
         </ol>
       % endif
