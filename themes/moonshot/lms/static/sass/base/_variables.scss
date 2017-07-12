@@ -1,2 +1,9 @@
 // Theming overrides for sample theme
 $intive-width: 300px;
+
+.transition {
+  @include transition-property(all);
+  @include transition-duration(250ms);
+  //@include transition-function(ease-in-out);
+  @include transition-delay(0);
+}
