@@ -72,6 +72,12 @@ header {
             .logo {
                 margin: 0;
                 padding: 0;
+                a {
+                    display: block;
+                    width: 149px;
+                    height: 40px;
+                    background: url("../images/finetech-logo-white.png") 0 0 no-repeat;
+                }
             }
             ol {
                 &.left {
@@ -168,6 +174,152 @@ header {
                 }
             }
         }
+    }
+}
+
+body {
+    &.is-authenticated {
+
+        header {
+            height: auto;
+            &.header-global {
+                position: absolute;
+                background: 0 none;
+                border: 0 none;
+                box-shadow: none;
+                //-webkit-filter: blur(10px);
+                //filter: blur(10px);
+                //background-color: rgba(0, 0, 0, 0.6);
+
+
+                background: #fff;
+                @media #{$screen-xs} {
+                    position: relative;
+                    height: auto;
+                    padding: 10px 15px 10px 15px;
+                }
+                .wrapper-header {
+                    max-width: 1140px;
+                    height: auto;
+                    padding: 0;
+
+                    .logo {
+                        margin: 0;
+                        padding: 0;
+                        a {
+                            display: block;
+                            width: 149px;
+                            height: 35px;
+                            background: url("../images/ftci-logo-black.png") 0 0 no-repeat;
+                        }
+                    }
+
+                    ol {
+                        &.left {
+                            float: right;
+                            &.authenticated {
+                                float: left;
+                            }
+                        }
+                        &.user {
+                            .dropdown-menu {
+                                min-width: 125px;
+                                li {
+                                    a {
+                                        font-family: 'Open Sans';
+                                        font-size: 12px;
+                                        font-weight: bold;
+                                        letter-spacing: 1.2px;
+                                        text-align: left;
+                                        color: #4a4a4a;
+                                        text-transform: uppercase;
+                                    }
+                                }
+                            }
+                        }
+                        &.list-inline {
+                            margin: 0;
+                            padding: 0;
+                            &.nav-global, &.nav-courseware {
+                                margin: 0;
+                                padding: 0;
+                            }
+                            li {
+                                margin :0;
+                                a {
+                                    color: #000000;
+                                    &:hover {
+                                        background: 0 none;
+                                        box-shadow: none;
+                                        border: 0 none;
+                                    }
+                                    &.btn-login, &.btn-register {
+                                        background: 0 none;
+                                        box-shadow: none;
+                                        border: 0 none;
+                                    }
+                                    &.btn-orange {
+                                        padding: 14px 25px;
+                                        border-radius: 30px;
+                                        background-color: #fd7400;
+                                        @media #{$screen-xxs} {
+                                            padding: 14px 10px;
+                                        }
+                                    }
+                                    @media #{$screen-xxs} {
+                                        padding: 14px 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .course-search {
+                        float: right;
+                        display: inline-block;
+                        @media #{$screen-xs} {
+                            clear: both;
+                            padding: 10px 0 0;
+                        }
+                        .form-inline {
+                            border-radius: 30px;
+                            background-color: rgba(245, 245, 245, 0.8);
+                            .form-group {
+                                display: inline-block !important;
+                                margin-bottom: 0 !important;
+                                vertical-align: middle !important;
+                                input {
+                                    background: 0 none;
+                                    box-shadow: none;
+                                    border: 0 none;
+                                    height: 40px;
+
+                                    font-family: 'Open Sans';
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    letter-spacing: 1.2px;
+                                    text-align: left;
+                                    color: #4a4a4a;
+                                    font-style: normal;
+                                }
+                            }
+                            button {
+                                &.search-button {
+                                    background: 0 none;
+                                    box-shadow: none;
+                                    border: 0 none;
+                                    &:hover {
+                                        background: 0 none;
+                                        box-shadow: none;
+                                        border: 0 none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
 
