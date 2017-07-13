@@ -535,8 +535,11 @@ body {
     }
 }
 
-.home {
+.home, .find-courses {
+    padding: 0;
+    background: 0 none;
     .courses-container {
+        padding: 0;
         .highlighted-courses {
             margin-bottom: 20px;
         }
