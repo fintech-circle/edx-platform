@@ -96,6 +96,7 @@ header {
                     li {
                         margin :0;
                         a {
+                            margin: 0;
                             padding: 14px 15px;
                             font-family: 'Open Sans';
                             font-size: 12px;
@@ -178,7 +179,7 @@ header {
 }
 
 body {
-    &.is-authenticated {
+    &.is-authenticated, &.authenticated-views {
 
         header {
             height: auto;
@@ -221,10 +222,58 @@ body {
                             }
                         }
                         &.user {
+                            li {
+                                &.primary {
+                                    position: relative;
+                                }
+                                a {
+                                    &.user-link {
+                                        padding: 0;
+                                    }
+                                }
+                            }
+                            .user-menu {
+                                position: relative;
+                                button {
+                                    &.dropdown {
+                                        padding: 0;
+                                    }
+                                    span {
+                                        &.fa-user {
+                                            background: #f2f2f2;
+                                            border-radius: 40px;
+                                            font-size: 20px;
+                                            color: #1d1c1b;
+                                            height: 40px;
+                                            line-height: 40px;
+                                            width: 40px;
+                                        }
+                                    }
+                                }
+                            }
+                            .user-image-frame {
+                                float: left;
+                            }
+                            .label-username {
+                                float: left;
+                                font-family: 'Open Sans';
+                                font-size: 10px;
+                                color: #9b9b9b;
+                            }
                             .dropdown-menu {
                                 min-width: 125px;
+                                left: -122px;
+                                position: absolute;
+                                right: auto;
+                                top: 36px;
+                                z-index: 10000;
+                                padding: 5px 0;
                                 li {
+                                    margin: 0;
                                     a {
+                                        position: relative;
+                                        margin: 0;
+                                        padding: 8px 15px 8px 50px;
                                         font-family: 'Open Sans';
                                         font-size: 12px;
                                         font-weight: bold;
@@ -232,6 +281,58 @@ body {
                                         text-align: left;
                                         color: #4a4a4a;
                                         text-transform: uppercase;
+                                        &::before {
+                                            position: absolute;
+                                            display: block;
+                                            width: 20px;
+                                            height: 20px;
+                                            background: url("../images/ic-settings-24-px.png") 0 0 no-repeat;
+                                            content: "";
+                                            left: 15px;
+                                            //top: 13px;
+                                            //left: 14px;
+                                            //display: block;
+                                            //content: "\f068";
+                                            //font-family: 'FontAwesome';
+                                            //font-size: 20px;
+                                            //font-weight: normal;
+                                        }
+                                    }
+                                    &:first-child {
+                                        a {
+                                            &::before {
+                                                position: absolute;
+                                                display: block;
+                                                width: 20px;
+                                                height: 17px;
+                                                background: url("../images/ic-home-24-px.png") 0 0 no-repeat;
+                                                //top: 13px;
+                                                //left: 14px;
+                                                //display: block;
+                                                //content: "\f015";
+                                                //font-family: 'FontAwesome';
+                                                //font-size: 20px;
+                                                //font-weight: normal;
+                                            }
+                                        }
+                                    }
+                                    &:last-child {
+                                        a {
+                                            &::before {
+                                                position: absolute;
+                                                display: block;
+                                                width: 20px;
+                                                height: 20px;
+                                                background: url("../images/ic-do-not-disturb-alt-24-px.png") 0 0 no-repeat;
+                                                //top: 13px;
+                                                //left: 14px;
+                                                //display: block;
+                                                //content: "\f068";
+                                                //font-family: 'FontAwesome';
+                                                //font-size: 20px;
+                                                //font-weight: normal;
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -480,6 +581,7 @@ body {
                                     .learn-more {
                                         @extend .transition;
                                         display: none;
+                                        //display: block;
                                         background: rgba(0, 0, 0, 0.6);
                                         opacity: 0.95;
                                         top: 36px;
@@ -495,6 +597,16 @@ body {
                                             //border-bottom: 60px solid transparent;
                                             //border-left: 60px solid #fd7400;
                                         }
+                                        //&::before {
+                                        //    position: absolute;
+                                        //    top: 13px;
+                                        //    left: 14px;
+                                        //    display: block;
+                                        //    content: "\f144";
+                                        //    font-family: 'FontAwesome';
+                                        //    font-size: 6px;
+                                        //    font-weight: normal;
+                                        //}
                                     }
                                 }
                             }
@@ -774,7 +886,6 @@ body {
     height: 400px;
     min-height: 400px;
     padding: 75px 0;
-
     //.container {
     //    background: 0 none !important;
     //    margin-right: auto !important;
