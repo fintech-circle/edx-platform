@@ -141,6 +141,31 @@ def user_groups(user):
     return group_names
 
 
+def find_all_tags():
+    """
+    Find all currently used tags
+    """
+    # TODO: Make this more efficient, store it in in the model, etc.
+    tag_list = set()
+    courses_list = get_courses()
+    for course in courses_list:
+        tags = course.short_description
+        if tags:
+            tag_list.update(tags.split(' '))
+    return list(tag_list)
+
+
+def find_popular_courses():
+    """
+    Finds four most popular courses by enrollment count.
+    :return:
+    """
+    courses = CourseOverview.get_all_courses()
+    courses_zip = [(course, CourseEnrollment.objects.enrollment_counts(course.id)['total']) for course in courses]
+    popular_courses = list(sorted(courses_zip, key=lambda x: x[1]))[:4]
+    return zip(*popular_courses)[0]
+
+
 @ensure_csrf_cookie
 @cache_if_anonymous()
 def courses(request):
@@ -169,14 +194,8 @@ def courses(request):
     if program_types:
         programs_list = get_programs_with_type(program_types)
 
-    # Find all currently used tags
-    # TODO: Make this more efficient, store it in in the model, etc.
-    tag_list = set()
-    courses_list = get_courses()
-    for course in courses_list:
-        tags = course.short_description
-        if tags:
-            tag_list.update(tags.split(' '))
+    tag_list = find_all_tags()
+    popular_courses = find_popular_courses()
 
     return render_to_response(
         "courseware/courses.html",
@@ -184,7 +203,8 @@ def courses(request):
             'courses': courses_list,
             'course_discovery_meanings': course_discovery_meanings,
             'programs_list': programs_list,
-            'tag_list': list(tag_list)
+            'popular_courses': popular_courses,
+            'tag_list': tag_list
         }
     )
 
@@ -272,14 +292,8 @@ def course_info(request, course_id):
                 return url
         return None
 
-    # Find all currently used tags
-    # TODO: Make this more efficient, store it in in the model, etc.
-    tag_list = set()
-    courses_list = get_courses()
-    for course in courses_list:
-        tags = course.short_description
-        if tags:
-            tag_list.update(tags.split(' '))
+    tag_list = find_all_tags()
+    popular_courses = find_popular_courses()
 
     course_key = CourseKey.from_string(course_id)
 
@@ -361,7 +375,8 @@ def course_info(request, course_id):
             'url_to_enroll': url_to_enroll,
             'upgrade_link': check_and_get_upgrade_link(request, user, course.id),
             'upgrade_price': get_cosmetic_verified_display_price(course),
-            'tag_list': list(tag_list)
+            'popular_courses': popular_courses,
+            'tag_list': tag_list
         }
 
         # Get the URL of the user's last position in order to display the 'where you were last' message
@@ -698,14 +713,8 @@ def course_about(request, course_id):
         # CCX only CCX coach can enroll students.
         return redirect(reverse('dashboard'))
 
-    # Find all currently used tags
-    # TODO: Make this more efficient, store it in in the model, etc.
-    tag_list = set()
-    courses_list = get_courses()
-    for course in courses_list:
-        tags = course.short_description
-        if tags:
-            tag_list.update(tags.split(' '))
+    tag_list = find_all_tags()
+    popular_courses = find_popular_courses()
 
     with modulestore().bulk_operations(course_key):
         permission = get_permission_for_course_about()
@@ -817,7 +826,8 @@ def course_about(request, course_id):
             'cart_link': reverse('shoppingcart.views.show_cart'),
             'pre_requisite_courses': pre_requisite_courses,
             'course_image_urls': overview.image_urls,
-            'tag_list': list(tag_list)
+            'popular_courses': popular_courses,
+            'tag_list': tag_list
         }
         inject_coursetalk_keys_into_context(context, course_key)
 
