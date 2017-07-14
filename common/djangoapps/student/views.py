@@ -247,6 +247,8 @@ def index(request, extra_context=None, user=AnonymousUser()):
     context["programs_list"] = programs_list
 
     popular_courses = find_popular_courses()
+    tag_list = find_all_tags()
+    context['tag_list'] = tag_list
     context['popular_courses'] = popular_courses
 
     return render_to_response('index.html', context)

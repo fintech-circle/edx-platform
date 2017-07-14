@@ -263,7 +263,7 @@ from pipeline_mako import render_require_js_path_overrides
                                                                   <span class="course-tags">${course.short_description}</span>
                                                                   <span class="course-title">${course.display_name}</span>
                                                               </h2>
-                                                              <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="${course.start}" data-string="Starts: {date}"></div>
+                                                              <div class="course-date localized_datetime" aria-hidden="true"">Starts: ${course.start.strftime('%Y-%m-%dT')}</div>
                                                           </div>
                                                       </a>
                                                   </article>
