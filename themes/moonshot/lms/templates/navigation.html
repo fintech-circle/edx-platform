@@ -72,7 +72,7 @@ site_status_msg = get_site_status_msg(course_id)
         % endif
       </h1>
 
-      <ol class="left list-inline nav-global">
+      <ol class="list-inline nav-global">
         <%block name="navigation_global_links">
             <li class="item nav-global-01">
               <a href="${marketing_link('COURSES')}">Courses</a>
@@ -86,19 +86,7 @@ site_status_msg = get_site_status_msg(course_id)
             <li class="item nav-global-04">
               <a href="${marketing_link('CONTACT')}">Contact</a>
             </li>
-            % if not user.is_authenticated():
-              % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
-                % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                  <li class="item nav-global-05">
-                    <a class="btn-neutral btn-register btn-orange" href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}">${_("Register")}</a>
-                  </li>
-                % elif static.get_value('ALLOW_PUBLIC_ACCOUNT_CREATION', settings.FEATURES.get('ALLOW_PUBLIC_ACCOUNT_CREATION')):
-                  <li class="item nav-global-06">
-                    <a class="btn-neutral btn-register btn-orange" href="/register${login_query()}">${_("Register")}</a>
-                  </li>
-                % endif
-              % endif
-            % else:
+            % if user.is_authenticated():
             <%block name="navigation_global_links_authenticated">
               %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
                 <li class="item nav-global-07">
@@ -112,15 +100,6 @@ site_status_msg = get_site_status_msg(course_id)
 
       % if user.is_authenticated():
       <%include file="user_dropdown.html"/>
-
-        <ol class="left list-inline nav-global">
-            <li>
-                <a href="${get_online_help_info(online_help_token)['doc_url']}"
-                   target="_blank"
-                   class="doc-link">${_("Help")}</a>
-            </li>
-        </ol>
-
         % if should_display_shopping_cart_func() and not (course and static.is_request_in_themed_site()): # see shoppingcart.context_processor.user_has_cart_context_processor
         <ol class="user">
           <li class="primary">
@@ -142,6 +121,19 @@ site_status_msg = get_site_status_msg(course_id)
               % endif
             % endif
           </li>
+        </%block>
+        <%block name="navigation_register">
+            % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+              % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+                <li class="item nav-global-05">
+                  <a class="btn-neutral btn-register btn-orange" href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}">${_("Register")}</a>
+                </li>
+              % elif static.get_value('ALLOW_PUBLIC_ACCOUNT_CREATION', settings.FEATURES.get('ALLOW_PUBLIC_ACCOUNT_CREATION')):
+                <li class="item nav-global-06">
+                  <a class="btn-neutral btn-register btn-orange" href="/register${login_query()}">${_("Register")}</a>
+                </li>
+              % endif
+            % endif
         </%block>
       </ol>
       % endif
