@@ -911,8 +911,7 @@ def dashboard(request):
 
     # Find most popular courses by enrollment count
     courses = CourseOverview.get_all_courses()
-    enrollment_counts = [CourseEnrollment.objects.enrollment_counts(course.id)['total'] for course in courses]
-    courses_zip = zip(courses, enrollment_counts)
+    courses_zip = [(course, CourseEnrollment.objects.enrollment_counts(course.id)['total']) for course in courses]
     popular_courses = sorted(courses_zip, key=lambda x: x[1])[:4]
 
     context = {
