@@ -253,24 +253,17 @@ from pipeline_mako import render_require_js_path_overrides
                                                       <a href="/courses/${course.id}/about">
                                                           <header class="course-image">
                                                               <div class="cover-image">
-                                                                  <img src="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@images_course_image.jpg" alt="${course.display_name}">
+                                                                  <img src="${course.course_image_url}" alt="${course.display_name}">
                                                                   <div class="learn-more" aria-hidden="true"></div>
                                                               </div>
                                                           </header>
                                                           <div class="course-info" aria-hidden="true">
                                                               <h2 class="course-name">
                                                                   <span class="course-organization">${course.org}</span>
-                                                                  <span class="course-tags">${course.short_desc}</span>
+                                                                  <span class="course-tags">${course.short_description}</span>
                                                                   <span class="course-title">${course.display_name}</span>
                                                               </h2>
-
-                                                              <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="${course.start_date}" data-string="Starts: {date}">${course.start_date}</div>
-                                                          </div>
-                                                          <div class="sr">
-                                                              <ul>
-                                                                  <li>${course.display_name}</li>
-                                                                  <li>Starts: <time class="localized_datetime" itemprop="startDate" data-format="shortDate" data-datetime="${course.start_date}">${course.start_date}</time></li>
-                                                              </ul>
+                                                              <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="${course.start}" data-string="Starts: {date}"></div>
                                                           </div>
                                                       </a>
                                                   </article>
