@@ -103,7 +103,11 @@ from openedx.core.djangoapps.theming import helpers as theming_helpers
     <header class="wrapper-header-courses">
       <h2 class="header-courses">${_("My Courses")}</h2>
     </header>
-
+    Popular courses:
+    % for course, enrollment_count in popular_courses:
+    <p>${course.id}</p>
+    <p>${enrollment_count}</p>
+    % endfor
 
     % if len(course_enrollments) > 0:
       <ul class="listing-courses">

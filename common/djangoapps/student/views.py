@@ -73,6 +73,7 @@ from lms.djangoapps.verify_student.models import SoftwareSecurePhotoVerification
 from notification_prefs.views import enable_notifications
 from openedx.core.djangoapps import monitoring_utils
 from openedx.core.djangoapps.catalog.utils import get_programs_with_type
+from openedx.core.djangoapps.content.course_overviews.models import CourseOverview
 from openedx.core.djangoapps.credit.email_utils import get_credit_provider_display_names, make_providers_strings
 from openedx.core.djangoapps.embargo import api as embargo_api
 from openedx.core.djangoapps.external_auth.login_and_register import login as external_auth_login
@@ -908,6 +909,12 @@ def dashboard(request):
         if tags:
             tag_list.update(tags.split(' '))
 
+    # Find most popular courses by enrollment count
+    courses = CourseOverview.get_all_courses()
+    enrollment_counts = [CourseEnrollment.objects.enrollment_counts(course.id)['total'] for course in courses]
+    courses_zip = zip(courses, enrollment_counts)
+    popular_courses = sorted(courses_zip, key=lambda x: x[1])[:4]
+
     context = {
         'enterprise_message': enterprise_message,
         'enrollment_message': enrollment_message,
@@ -944,6 +951,7 @@ def dashboard(request):
         'disable_courseware_js': True,
         'display_course_modes_on_dashboard': enable_verified_certificates and display_course_modes_on_dashboard,
         'display_sidebar_on_dashboard': display_sidebar_on_dashboard,
+        'popular_courses': popular_courses,
         'tag_list': list(tag_list)
     }
 
