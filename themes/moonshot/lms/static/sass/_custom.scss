@@ -585,7 +585,7 @@ body {
                                         @extend .transition;
                                         display: none;
                                         //display: block;
-                                        background: rgba(0, 0, 0, 0.6);
+                                        background: rgba(0, 0, 0, 0.65);
                                         opacity: 0.95;
                                         top: 36px;
                                         left: calc(50% - 26px);
@@ -593,7 +593,13 @@ body {
                                         height: 52px;
                                         border-radius: 26px;
                                         &:before {
+                                            position: relative;
+                                            top: 16px;
                                             content: "";
+                                            display: block;
+                                            width: 16px;
+                                            height: 20px;
+                                            background: url("../images/triangle.png") 0 0 no-repeat;
                                             //width: 0;
                                             //height: 0;
                                             //border-top: 60px solid transparent;
@@ -774,6 +780,92 @@ body {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+.course-info {
+    header {
+        &.course-profile {
+            height: auto;
+            margin: 0;
+            padding: 0;
+            .intro-inner-wrapper {
+                .intro {
+                    padding: 20px 0;
+                }
+                .hero {
+                    border: 0 none !important;
+                }
+                border: 0 none;
+                h1 {
+                    font-family: 'Open Sans';
+                    font-size: 30px;
+                    font-weight: bold;
+                    color: #4a4a4a;
+                    letter-spacing: 0.9px;
+                    button {
+                        background: 0 none;
+                        border: 0 none;
+                        box-shadow: none;
+                        padding: 0;
+                        text-shadow: none;
+                        color: #fd7400;
+                    }
+                }
+                .main-cta {
+                    a {
+                        &.register {
+                            padding: 14px 25px !important;
+                            border-radius: 30px !important;
+                            background-color: #fd7400 !important;
+
+                            border: 0 none !important;
+                            font-family: 'Open Sans' !important;
+                            font-size: 12px !important;
+                            font-weight: 600 !important;
+                            letter-spacing: 1.2px !important;
+                            color: #ffffff !important;
+                            background-image: none !important;
+                            text-shadow: none !important;
+                            box-shadow: none !important;
+                            &:hover {
+                                color: #ffffff !important;
+                                border: 0 none !important;
+                                background-color: #fd7400 !important;
+                                background-image: none !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .container {
+        padding: 0;
+        border: 0 none;
+        h2 {
+            font-family: 'Open Sans';
+            font-size: 20px;
+            font-weight: bold;
+            color: #4a4a4a;
+            letter-spacing: 0.9px;
+        }
+        h3 {
+            font-family: 'Open Sans';
+            font-size: 18px;
+            font-weight: bold;
+            color: #4a4a4a;
+            letter-spacing: 0.9px;
+        }
+        p {
+            font-family: 'Open Sans';
+            font-size: 12px;
+            letter-spacing: 0.9px;
+            color: #9b9b9b;
+            a {
+                color: #fd7400;
             }
         }
     }
