@@ -10,4 +10,4 @@ class Command(BaseCommand):
 
         users = User.objects.all()
         user_emails = [user.email for user in users]
-        self.stdout.write(user_emails)
+        self.stdout.write('\n'.join(user_emails))
