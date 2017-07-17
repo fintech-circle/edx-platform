@@ -58,7 +58,7 @@ header {
         background: -o-linear-gradient(#000000, rgba(0, 0, 0, 0)); /* For Opera 11.1 to 12.0 */
         background: -moz-linear-gradient(#000000, rgba(0, 0, 0, 0)); /* For Firefox 3.6 to 15 */
         background: linear-gradient(#000000, rgba(0, 0, 0, 0)); /* Standard syntax */
-        padding: 20px 15px 0 15px;
+        padding: 20px 15px 15px 15px;
         @media #{$screen-xs} {
             position: relative;
             height: auto;
@@ -69,7 +69,7 @@ header {
             height: auto;
             padding: 0;
             .logo {
-                margin: 0;
+                margin: 0 20px 0 0;
                 padding: 0;
                 a {
                     display: block;
@@ -96,7 +96,7 @@ header {
                         margin :0;
                         a {
                             margin: 0;
-                            padding: 14px 15px;
+                            padding: 13px 15px;
                             font-family: 'Open Sans';
                             font-size: 12px;
                             font-weight: 600;
@@ -131,7 +131,7 @@ header {
                 }
             }
             .course-search {
-                float: right;
+                float: left;
                 display: inline-block;
                 @media #{$screen-xs} {
                     clear: both;
@@ -203,7 +203,7 @@ body {
                     padding: 0;
 
                     .logo {
-                        margin: 0;
+                        margin: 0 20px 0 0;
                         padding: 0;
                         a {
                             display: block;
@@ -373,7 +373,7 @@ body {
                         }
                     }
                     .course-search {
-                        float: right;
+                        float: left;
                         display: inline-block;
                         @media #{$screen-xs} {
                             clear: both;
@@ -1021,13 +1021,13 @@ body {
         h3 {
             margin-bottom: 30px;
             font-family: 'Open Sans';
-            font-size: 54px;
+            font-size: 40px;
             font-weight: bold;
             letter-spacing: 1px;
             text-align: center;
             color: #ffffff;
             @media #{$screen-sm} {
-                font-size: 48px;
+                font-size: 40px;
             }
             @media #{$screen-xs} {
                 font-size: 32px;
@@ -1035,12 +1035,12 @@ body {
             span {
                 display: inline;
                 border-bottom: 4px solid #fd7400;
-                font-size: 54px;
+                font-size: 40px;
                 letter-spacing: 0.6px;
                 text-align: center;
                 color: #ffffff;
                 @media #{$screen-sm} {
-                    font-size: 48px;
+                    font-size: 40px;
                 }
                 @media #{$screen-xs} {
                     font-size: 32px;
