@@ -162,11 +162,12 @@ def find_popular_courses():
     If there is a settings override, uses it instead.
     :return:
     """
-    all_courses = CourseOverview.get_all_courses()
     if settings.POPULAR_COURSES_OVERRIDE:
-        popular_courses = [course for course in all_courses if course.id in settings.POPULAR_COURSES_OVERRIDE]
+        course_keys = [CourseKey.from_string(course_id) for course_id in settings.POPULAR_COURSES_OVERRIDE]
+        popular_courses = CourseOverview.get_select_courses(course_keys)
         return popular_courses
     else:
+        all_courses = CourseOverview.get_all_courses()
         courses_zip = [(course, CourseEnrollment.objects.enrollment_counts(course.id)['total']) for course in all_courses]
         popular_courses = list(sorted(courses_zip, key=lambda x: x[1]))[:4]
         popular_courses = zip(*popular_courses)[0]
