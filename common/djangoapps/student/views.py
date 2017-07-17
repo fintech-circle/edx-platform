@@ -73,6 +73,7 @@ from lms.djangoapps.verify_student.models import SoftwareSecurePhotoVerification
 from notification_prefs.views import enable_notifications
 from openedx.core.djangoapps import monitoring_utils
 from openedx.core.djangoapps.catalog.utils import get_programs_with_type
+from openedx.core.djangoapps.content.course_overviews.models import CourseOverview
 from openedx.core.djangoapps.credit.email_utils import get_credit_provider_display_names, make_providers_strings
 from openedx.core.djangoapps.embargo import api as embargo_api
 from openedx.core.djangoapps.external_auth.login_and_register import login as external_auth_login
@@ -160,6 +161,31 @@ def csrf_token(context):
             ' name="csrfmiddlewaretoken" value="%s" /></div>' % (token))
 
 
+def find_all_tags():
+    """
+    Find all currently used tags
+    """
+    # TODO: Make this more efficient, store it in in the model, etc.
+    tag_list = set()
+    courses_list = get_courses()
+    for course in courses_list:
+        tags = course.short_description
+        if tags:
+            tag_list.update(tags.split(' '))
+    return list(tag_list)
+
+
+def find_popular_courses():
+    """
+    Finds four most popular courses by enrollment count.
+    :return:
+    """
+    courses = CourseOverview.get_all_courses()
+    courses_zip = [(course, CourseEnrollment.objects.enrollment_counts(course.id)['total']) for course in courses]
+    popular_courses = list(sorted(courses_zip, key=lambda x: x[1]))[:4]
+    return zip(*popular_courses)[0]
+
+
 # NOTE: This view is not linked to directly--it is called from
 # branding/views.py:index(), which is cached for anonymous users.
 # This means that it should always return the same thing for anon
@@ -219,6 +245,11 @@ def index(request, extra_context=None, user=AnonymousUser()):
         programs_list = get_programs_with_type(program_types)
 
     context["programs_list"] = programs_list
+
+    popular_courses = find_popular_courses()
+    tag_list = find_all_tags()
+    context['tag_list'] = tag_list
+    context['popular_courses'] = popular_courses
 
     return render_to_response('index.html', context)
 
@@ -657,14 +688,7 @@ def categories(request):
         The dashboard response.
 
     """
-    # Find all currently used tags
-    # TODO: Make this more efficient, store it in in the model, etc.
-    tag_list = set()
-    courses_list = get_courses()
-    for course in courses_list:
-        tags = course.short_description
-        if tags:
-            tag_list.update(tags.split(' '))
+    tag_list = find_all_tags()
 
     context = {
         'tag_list': tag_list
@@ -899,14 +923,8 @@ def dashboard(request):
     valid_verification_statuses = ['approved', 'must_reverify', 'pending', 'expired']
     display_sidebar_on_dashboard = len(order_history_list) or verification_status in valid_verification_statuses
 
-    # Find all currently used tags
-    # TODO: Make this more efficient, store it in in the model, etc.
-    tag_list = set()
-    courses_list = get_courses()
-    for course in courses_list:
-        tags = course.short_description
-        if tags:
-            tag_list.update(tags.split(' '))
+    tag_list = find_all_tags()
+    popular_courses = find_popular_courses()
 
     context = {
         'enterprise_message': enterprise_message,
@@ -944,7 +962,8 @@ def dashboard(request):
         'disable_courseware_js': True,
         'display_course_modes_on_dashboard': enable_verified_certificates and display_course_modes_on_dashboard,
         'display_sidebar_on_dashboard': display_sidebar_on_dashboard,
-        'tag_list': list(tag_list)
+        'popular_courses': popular_courses,
+        'tag_list': tag_list
     }
 
     ecommerce_service = EcommerceService()

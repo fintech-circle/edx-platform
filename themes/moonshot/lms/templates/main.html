@@ -235,7 +235,7 @@ from pipeline_mako import render_require_js_path_overrides
               </div>
           </div>
       </div>
-
+      % if popular_courses:
       <div class="section-popular-courses">
           <div class="container-bs">
               <div class="row-bs">
@@ -247,118 +247,28 @@ from pipeline_mako import render_require_js_path_overrides
                                   <section class="highlighted-courses">
                                       <section class="courses">
                                           <ul class="courses-listing">
+                                              % for course in popular_courses:
                                               <li class="courses-listing-item">
-                                                  <article class="course" id="course-v1:edX+DemoX+Demo_Course" role="region" aria-label="edX Demonstration Course">
-                                                      <a href="/courses/course-v1:edX+DemoX+Demo_Course/about">
+                                                  <article class="course" id="${course.id}" role="region" aria-label="${course.display_name}">
+                                                      <a href="/courses/${course.id}/about">
                                                           <header class="course-image">
                                                               <div class="cover-image">
-                                                                  <img src="/asset-v1:edX+DemoX+Demo_Course+type@asset+block@images_course_image.jpg" alt="edX Demonstration Course DemoX">
+                                                                  <img src="${course.course_image_url}" alt="${course.display_name}">
                                                                   <div class="learn-more" aria-hidden="true"></div>
                                                               </div>
                                                           </header>
                                                           <div class="course-info" aria-hidden="true">
                                                               <h2 class="course-name">
-                                                                  <span class="course-organization">edX</span>
-                                                                  <span class="course-tags">None</span>
-                                                                  <span class="course-title">edX Demonstration Course</span>
+                                                                  <span class="course-organization">${course.org}</span>
+                                                                  <span class="course-tags">${course.short_description}</span>
+                                                                  <span class="course-title">${course.display_name}</span>
                                                               </h2>
-
-                                                              <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="2013-02-05T05:00:00+0000" data-string="Starts: {date}">Starts: Feb 5, 2013</div>
-                                                          </div>
-                                                          <div class="sr">
-                                                              <ul>
-                                                                  <li>edX</li>
-                                                                  <li>DemoX</li>
-                                                                  <li>Starts: <time class="localized_datetime" itemprop="startDate" data-format="shortDate" data-datetime="2013-02-05T05:00:00+0000">Feb 5, 2013</time></li>
-                                                              </ul>
+                                                              <div class="course-date localized_datetime" aria-hidden="true"">Starts: ${course.start.strftime('%b %-d, %Y')}</div>
                                                           </div>
                                                       </a>
                                                   </article>
                                               </li>
-                                              <li class="courses-listing-item">
-                                                  <article class="course" id="course-v1:Company+C1+TestCourse" role="region" aria-label="TestCourse">
-                                                      <a href="/courses/course-v1:Company+C1+TestCourse/about">
-                                                          <header class="course-image">
-                                                              <div class="cover-image">
-                                                                  <img src="/asset-v1:Company+C1+TestCourse+type@asset+block@images_course_image.jpg" alt="TestCourse C1">
-                                                                  <div class="learn-more" aria-hidden="true"></div>
-                                                              </div>
-                                                          </header>
-                                                          <div class="course-info" aria-hidden="true">
-                                                              <h2 class="course-name">
-                                                                  <span class="course-organization">Company</span>
-                                                                  <span class="course-tags">None</span>
-                                                                  <span class="course-title">TestCourse</span>
-                                                              </h2>
-
-                                                              <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="2030-01-01T00:00:00+0000" data-string="Starts: {date}">Starts: Jan 1, 2030</div>
-                                                          </div>
-                                                          <div class="sr">
-                                                              <ul>
-                                                                  <li>Company</li>
-                                                                  <li>C1</li>
-                                                                  <li>Starts: <time class="localized_datetime" itemprop="startDate" data-format="shortDate" data-datetime="2030-01-01T00:00:00+0000">Jan 1, 2030</time></li>
-                                                              </ul>
-                                                          </div>
-                                                      </a>
-                                                  </article>
-                                              </li>
-                                              <li class="courses-listing-item">
-                                                  <article class="course" id="course-v1:Intive+C1+Testcourse" role="region" aria-label="Testcourse">
-                                                      <a href="/courses/course-v1:Intive+C1+Testcourse/about">
-                                                          <header class="course-image">
-                                                              <div class="cover-image">
-                                                                  <img src="/asset-v1:Intive+C1+Testcourse+type@asset+block@images_course_image.jpg" alt="Testcourse C1">
-                                                                  <div class="learn-more" aria-hidden="true"></div>
-                                                              </div>
-                                                          </header>
-                                                          <div class="course-info" aria-hidden="true">
-                                                              <h2 class="course-name">
-                                                                  <span class="course-organization">Intive</span>
-                                                                  <span class="course-tags">None</span>
-                                                                  <span class="course-title">Testcourse</span>
-                                                              </h2>
-
-                                                              <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="2030-01-01T00:00:00+0000" data-string="Starts: {date}">Starts: Jan 1, 2030</div>
-                                                          </div>
-                                                          <div class="sr">
-                                                              <ul>
-                                                                  <li>Intive</li>
-                                                                  <li>C1</li>
-                                                                  <li>Starts: <time class="localized_datetime" itemprop="startDate" data-format="shortDate" data-datetime="2030-01-01T00:00:00+0000">Jan 1, 2030</time></li>
-                                                              </ul>
-                                                          </div>
-                                                      </a>
-                                                  </article>
-                                              </li>
-                                              <li class="courses-listing-item">
-                                                  <article class="course" id="course-v1:Intive+C1+Testcourse" role="region" aria-label="Testcourse">
-                                                      <a href="/courses/course-v1:Intive+C1+Testcourse/about">
-                                                          <header class="course-image">
-                                                              <div class="cover-image">
-                                                                  <img src="/asset-v1:Intive+C1+Testcourse+type@asset+block@images_course_image.jpg" alt="Testcourse C1">
-                                                                  <div class="learn-more" aria-hidden="true"></div>
-                                                              </div>
-                                                          </header>
-                                                          <div class="course-info" aria-hidden="true">
-                                                              <h2 class="course-name">
-                                                                  <span class="course-organization">Intive</span>
-                                                                  <span class="course-tags">None</span>
-                                                                  <span class="course-title">Testcourse</span>
-                                                              </h2>
-
-                                                              <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="2030-01-01T00:00:00+0000" data-string="Starts: {date}">Starts: Jan 1, 2030</div>
-                                                          </div>
-                                                          <div class="sr">
-                                                              <ul>
-                                                                  <li>Intive</li>
-                                                                  <li>C1</li>
-                                                                  <li>Starts: <time class="localized_datetime" itemprop="startDate" data-format="shortDate" data-datetime="2030-01-01T00:00:00+0000">Jan 1, 2030</time></li>
-                                                              </ul>
-                                                          </div>
-                                                      </a>
-                                                  </article>
-                                              </li>
+                                              % endfor
                                           </ul>
                                       </section>
                                   </section>
@@ -368,6 +278,7 @@ from pipeline_mako import render_require_js_path_overrides
                   </div>
               </div>
           </div>
+          % endif
           <!--<a href="" title="" class="btn btn-orange">View more</a>-->
       </div>
       % if tag_list:
