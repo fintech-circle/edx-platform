@@ -3192,3 +3192,6 @@ COURSE_ENROLLMENT_MODES = {
 ############## Settings for the Discovery App ######################
 
 COURSES_API_CACHE_TIMEOUT = 3600  # Value is in seconds
+
+############## FTC Settings ###############
+POPULAR_COURSES_OVERRIDE = []

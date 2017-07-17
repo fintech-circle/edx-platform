@@ -158,12 +158,20 @@ def find_all_tags():
 def find_popular_courses():
     """
     Finds four most popular courses by enrollment count.
+
+    If there is a settings override, uses it instead.
     :return:
     """
-    courses = CourseOverview.get_all_courses()
-    courses_zip = [(course, CourseEnrollment.objects.enrollment_counts(course.id)['total']) for course in courses]
-    popular_courses = list(sorted(courses_zip, key=lambda x: x[1]))[:4]
-    return zip(*popular_courses)[0]
+    all_courses = CourseOverview.get_all_courses()
+    if settings.POPULAR_COURSES_OVERRIDE:
+        popular_courses = [course for course in all_courses if course.id in settings.POPULAR_COURSES_OVERRIDE]
+        return popular_courses
+    else:
+        courses_zip = [(course, CourseEnrollment.objects.enrollment_counts(course.id)['total']) for course in all_courses]
+        popular_courses = list(sorted(courses_zip, key=lambda x: x[1]))[:4]
+        popular_courses = zip(*popular_courses)[0]
+        # Put the two most popular in the middle
+        return [popular_courses[2], popular_courses[0], popular_courses[1], popular_courses[3]]
 
 
 @ensure_csrf_cookie
