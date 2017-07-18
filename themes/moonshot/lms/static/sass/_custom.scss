@@ -68,6 +68,7 @@ header {
             max-width: 1140px;
             height: auto;
             padding: 0;
+            width: auto;
             .logo {
                 margin: 0 20px 0 0;
                 padding: 0;
@@ -201,7 +202,7 @@ body {
                     max-width: 1140px;
                     height: auto;
                     padding: 0;
-
+                    width: auto;
                     .logo {
                         margin: 0 20px 0 0;
                         padding: 0;
@@ -1239,6 +1240,11 @@ body {
 .section-newsletter {
     padding: 40px 0;
     background: #f6a623;
+    .container-bs {
+        @media #{$screen-md} {
+            width: 100%;
+        }
+    }
     h5 {
         margin-top: 0;
         margin-bottom: 5px;
