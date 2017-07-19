@@ -8,3 +8,156 @@
 // }
 
 // --------------------
+
+.wrapper {
+  &.wrapper-view {
+    background: #fff;
+    .courses {
+      .list-courses {
+        background: 0 none;
+        border: 0 none;
+        li {
+          background: #fff;
+          border: 1px solid #dcdcdc;
+          margin: 0 0 20px 0;
+          h3 {
+            font-family: 'Open Sans';
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.1px;
+            text-align: left;
+            color: #4a4a4a;
+          }
+          .course-metadata {
+            span {
+              font-family: 'Open Sans';
+              font-size: 10px;
+              letter-spacing: 0.7px;
+              text-align: left;
+              color: #4a4a4a;
+            }
+          }
+        }
+      }
+    }
+    .content-supplementary {
+      h3 {
+        margin: 0 0 20px 0;
+        font-family: 'Open Sans';
+        font-size: 18px;
+        letter-spacing: 0.9px;
+        color: #4a4a4a;
+      }
+      p {
+        font-family: 'Open Sans';
+        font-size: 12px;
+        letter-spacing: 0.9px;
+        color: #4a4a4a;
+      }
+      ol {
+        li {
+          a {
+            font-family: 'Open Sans';
+            font-size: 12px;
+            letter-spacing: 0.9px;
+            color: #4990e2;
+          }
+        }
+      }
+    }
+
+
+
+  }
+}
+
+.section-info {
+  position: relative;
+  text-align: center;
+
+  background: url("../images/banner-studio.png") center 0 no-repeat;
+  display: block;
+  min-height: 220px;
+  //padding: 85px 0;
+  //.container {
+  //    background: 0 none !important;
+  //    margin-right: auto !important;
+  //    margin-left: auto !important;
+  //    max-width: none !important;
+  //    min-width: 0 !important;
+  //    width: auto !important;
+  //    .row {
+  //        background: 0 none;
+  //        border: 0 none;
+  //        box-shadow: none;
+  //        display: block;
+  //        table-layout: auto;
+  //    }
+  //}
+  //
+  //.container {
+  //    max-width: none;
+  //    min-width: 0;
+  //}
+  //.row {
+  //    width: auto;
+  //    max-width: none;
+  //}
+  img {
+    margin: 0 auto;
+  }
+  .item {
+    text-align: center;
+    text-shadow: none;
+    h3 {
+      margin-top: 95px;
+      margin-bottom: 30px;
+      //font-family: 'Open Sans';
+      font-size: 40px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-align: center;
+      color: #ffffff;
+      @media #{$screen-sm} {
+        font-size: 40px;
+      }
+      @media #{$screen-xs} {
+        font-size: 32px;
+      }
+      span {
+        display: inline;
+        border-bottom: 4px solid #fd7400;
+        font-size: 40px;
+        letter-spacing: 0.6px;
+        text-align: center;
+        color: #ffffff;
+        @media #{$screen-sm} {
+          font-size: 40px;
+        }
+        @media #{$screen-xs} {
+          font-size: 32px;
+        }
+      }
+    }
+  }
+}
+
+.wrapper-footer {
+  &.wrapper {
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px 0;
+    p {
+      //font-family: 'Open Sans';
+      font-size: 8px;
+      text-align: left;
+      color: #4a4a4a;
+      a {
+        //font-family: 'Open Sans';
+        font-size: 8px;
+        text-align: left;
+        color: #4a4a4a;
+      }
+    }
+  }
+}
