@@ -179,7 +179,7 @@ header {
 }
 
 body {
-    &.is-authenticated, &.authenticated-views {
+    &.is-authenticated, &.authenticated-views, &.view-login {
 
         header {
             height: auto;
