@@ -7,3 +7,13 @@ $intive-width: 300px;
   //@include transition-function(ease-in-out);
   @include transition-delay(0);
 }
+
+
+@mixin clearfix {
+  &:after {
+    content:"";
+    display:table;
+    clear:both;
+  }
+}
+

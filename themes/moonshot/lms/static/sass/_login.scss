@@ -1,0 +1,42 @@
+body.view-login {
+
+    header.header-global {
+        background: transparent;
+
+        .wrapper-header {
+            .logo a {
+                background: url("../images/finetech-logo-black.png") 0 0 no-repeat;
+            }
+
+            ol.list-inline li a {
+                color: black;
+            }
+        }
+    }
+
+
+    div#carousel-example-generic,
+    .section-quote, 
+    .section-info, 
+    .section-newsletter {
+        display: none !important;
+    }
+
+    .window-wrap .content-wrapper {
+        padding-top: 50px;
+    }
+
+    section.login .form-actions button[type="submit"] {
+        padding: 14px 25px;
+        border-radius: 30px;
+        background-color: #fd7400;
+        border: 0 none;
+        font-family: 'Open Sans';
+        font-size: 12px; 
+        font-weight: 600;
+        letter-spacing: 1.2px; 
+        color: #ffffff;
+    }
+    
+
+}
