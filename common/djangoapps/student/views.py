@@ -192,7 +192,10 @@ def find_popular_courses():
         popular_courses = list(sorted(courses_zip, key=lambda x: x[1]))[:4]
         popular_courses = zip(*popular_courses)[0]
         # Put the two most popular in the middle
-        return [popular_courses[2], popular_courses[0], popular_courses[1], popular_courses[3]]
+        if len(popular_courses) == 4:
+            return [popular_courses[2], popular_courses[0], popular_courses[1], popular_courses[3]]
+        else:
+            return popular_courses
 
 
 # NOTE: This view is not linked to directly--it is called from
