@@ -9,9 +9,49 @@
 
 // --------------------
 
+.btn-orange {
+  padding: 14px 25px;
+  border-radius: 30px;
+  background-color: #fd7400;
+
+  border: 0 none;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  color: #ffffff;
+  &:hover {
+    color: #ffffff;
+    border: 0 none;
+    text-decoration: none;
+  }
+}
+
 .wrapper {
   &.wrapper-view {
     background: #fff;
+    .wrapper-header {
+      padding: 20px 15px 15px;
+      h1 {
+        padding: 0;
+        margin: 0;
+      }
+      .wrapper {
+        nav {
+          padding: 0;
+          top: 0;
+          ol {
+            li {
+              span {
+                &.label {
+                  color: #000000;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     .courses {
       .list-courses {
         background: 0 none;
@@ -145,6 +185,102 @@
             font-size: 32px;
           }
         }
+      }
+    }
+  }
+}
+
+
+.view-howitworks {
+  &.not-signedin {
+    .content-features {
+      .feature {
+        .copy {
+          width: 50%;
+          padding: 0 15px;
+          h3 {
+            font-family: 'Open Sans';
+            font-size: 20px;
+            line-height: 26px;
+            color: #4a4a4a;
+            letter-spacing: 0.9px;
+          }
+          p {
+            font-family: 'Open Sans';
+            font-size: 12px;
+            line-height: 15px;
+            color: #4a4a4a;
+            letter-spacing: 0.9px;
+          }
+          ul {
+            &.list-proofpoints {
+              li {
+                &.proofpoint-ft {
+                  width: 100%;
+                  min-height: 0;
+                  padding: 15px 0;
+                  &:hover {
+                    background: 0 none;
+                    border: 0 none;
+                    box-shadow: none;
+                    top: 0;
+                    h4 {
+                      font-family: 'Open Sans';
+                      font-size: 18px;
+                      line-height: 22px;
+                      color: #4a4a4a;
+                      letter-spacing: 0.9px;
+                    }
+                    p {
+                      font-family: 'Open Sans';
+                      font-size: 12px;
+                      line-height: 15px;
+                      color: #9b9b9b;
+                      letter-spacing: 0.9px;
+                    }
+                  }
+                  h4 {
+                    font-family: 'Open Sans';
+                    font-size: 18px;
+                    line-height: 22px;
+                    color: #4a4a4a;
+                    letter-spacing: 0.9px;
+                  }
+                  p {
+                    font-family: 'Open Sans';
+                    font-size: 12px;
+                    line-height: 15px;
+                    color: #9b9b9b;
+                    letter-spacing: 0.9px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .content-cta {
+      position:relative;
+      border: 0 none;
+      padding-bottom: 65px;
+      h2 {
+        font-family: 'Open Sans';
+        font-size: 18px;
+        letter-spacing: 0.9px;
+        color: #4a4a4a;
+      }
+      a {
+        position: absolute;
+        bottom: -65px;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: table;
+        margin: 0 auto;
+        padding: 14px 50px;
+        line-height: 22px;
       }
     }
   }
