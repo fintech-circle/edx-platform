@@ -2,6 +2,34 @@
 .ms-categories.container.categories {
     border: none;
 
+    .find-courses-button {
+        text-align: center;
+        height: 0;
+
+        .button-wrapper {
+            position: relative;
+            top: -52px;
+
+            a {
+                width: 166px;
+                height: 50px;
+                margin-top: 45px;
+                padding: 16px 15px;
+                border-radius: 60px;
+                background-color: #fd7400;
+                font-family: 'Open Sans';
+                font-size: 12px;
+                line-height: 18px;
+                font-weight: bold;
+                letter-spacing: 1.2px;
+                text-align: center;
+                color: #ffffff;
+                text-transform: uppercase;
+                border: 0 none;
+            } 
+        }
+    }
+
     header.wrapper-header-categories {
         font-family: 'Open Sans';
         margin-bottom: 15px;
