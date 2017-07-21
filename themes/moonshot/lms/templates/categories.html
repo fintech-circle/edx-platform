@@ -5,6 +5,9 @@
 <%block name="pagetitle">"Categories"</%block>
 <%block name="bodyclass">view-categories is-authenticated</%block>
 
+<%!
+from django.utils.translation import ugettext as _
+%>
 
 <%block name="header_extras">
   % for template_name in ["course_card", "filter_bar", "filter", "facet", "facet_option"]:
@@ -20,10 +23,17 @@
   </%static:require_module>
 </%block>
 
-<section class="container categories" id="categories-main">
-<main id="main" aria-label="Content" tabindex="-1">
+<section class="container categories ms-categories" id="categories-main">
 
-  <section class="my-categories find-courses" id="my-categories">
+  <section class="find-courses-button">
+    <p class="button-wrapper">
+      <a href="#">${_("FIND COURSES")}</a>
+    </p>
+  </section>
+
+  <main id="main" aria-label="Content" tabindex="-1">
+
+  <section class="find-courses" id="my-categories">
     <header class="wrapper-header-categories">
       <h2 class="header-categories">Categories</h2>
     </header>
@@ -57,6 +67,7 @@
         </ul>
       </div>
   </section> -->
-</main>
+  </main>
+</section>
 
 
