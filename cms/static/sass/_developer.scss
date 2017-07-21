@@ -121,10 +121,14 @@
   .section-info {
     position: relative;
     text-align: center;
-
-    background: url("../images/banner-studio.png") center 0 no-repeat;
+    background-image: url("../images/lecturer_centre_small.jpg");
     display: block;
+    width: 100%;
     min-height: 220px;
+    background-size: cover;
+    background-position: center 0;
+    background-repeat: no-repeat;
+
     //padding: 85px 0;
     //.container {
     //    background: 0 none !important;
