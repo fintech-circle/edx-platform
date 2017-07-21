@@ -1,33 +1,39 @@
-.category-tabs {
-    margin-left: 0;
+.my-categories {
+    .category-tabs {
+        margin-left: 0;
 
-    li.category-tab {
-        border-bottom: 1px solid;
-        border-bottom-color: #ffffff;
-        margin-right: 5px;
-        margin-left: 5px;
-        position: relative;
+        li.category-tab {
+            border-bottom: 1px solid;
+            border-bottom-color: #ffffff;
+            margin-right: 5px;
+            margin-left: 5px;
+            position: relative;
 
-        &.active {
-            top: 1px;
+            &.active {
+                top: 1px;
+            }
+
+            a {
+                margin-right: 0;
+            }
+
+            &.active {
+                box-shadow: 7px 0 15px -4px rgb(216, 216, 216), -7px 0 8px -4px rgba(216, 216, 216, 0.8);
+            }
+
+            &.first-tab {
+                margin-left: 15px;
+            }
+
+            &.last-tab {
+                margin-right: 15px;
+            }
         }
 
-        a {
-            margin-right: 0;
-        }
 
-        &.active {
-            box-shadow: 7px 0 15px -4px rgb(216, 216, 216), -7px 0 8px -4px rgba(216, 216, 216, 0.8);
-        }
-
-        &.first-tab {
-            margin-left: 15px;
-        }
-
-        &.last-tab {
-            margin-right: 15px;
-        }
     }
 
+    
 
 }
+
