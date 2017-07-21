@@ -1,4 +1,4 @@
-body.view-login {
+body.view-login, body.view-register {
 
     header.header-global {
         position: relative !important;
@@ -47,6 +47,11 @@ body.view-login {
                 height: 51px;
                 background-color: #f3f3f3;
                 border: none;
+            }
+
+
+            :after {
+                color: #fd7400;
             }
         }
 
@@ -109,7 +114,7 @@ body.view-login {
                     transition: margin 0.4s;
                 }
                 input.cmn-toggle-round:checked + label:before {
-                    background-color: #8ce196;
+                    background-color: #fd7400;
                 }
                 input.cmn-toggle-round:checked + label:after {
                     margin-left: 20px;
