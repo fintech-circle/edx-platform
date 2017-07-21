@@ -8,6 +8,14 @@ from student.models import UserProfile
 
 <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf_token }">
 
+<div class="header">
+  <h1 class="title">
+    <span class="title-super">${_("Sign Up for Lecturer Centre")}</span>
+  </h1>
+  <p class="title-text">${_("Ready to start creating online courses? Sign up below and start creating your first the FINTECH Circle Institute course today. Required fields are noted by bold text and an asterisk (*).")}</p>
+  <p class="title-text-tip">${_("Required fields are noted by bold text and an asterisk (*).")}</p>
+</div>
+
 <!-- status messages -->
 <div role="alert" class="status message">
   <h3 class="message-title">${_("We're sorry, but this version of your browser is not supported. Try again using a different browser or a newer version of your browser.")}</h3>
@@ -18,57 +26,6 @@ from student.models import UserProfile
   <ul class="message-copy"> </ul>
 </div>
 
-% if third_party_auth.is_enabled():
-
-  % if not running_pipeline:
-
-  <div class="form-actions form-third-party-auth">
-
-  % for enabled in provider.Registry.displayed_for_login():
-    ## Translators: provider_name is the name of an external, third-party user authentication service (like Google or LinkedIn).
-    <button type="submit" class="button button-primary button-${enabled.provider_id} register-${enabled.provider_id}" onclick="thirdPartySignin(event, '${pipeline_urls[enabled.provider_id]}');">
-      % if enabled.icon_class:
-      <span class="icon fa ${enabled.icon_class}" aria-hidden="true"></span>
-      % else:
-      <span class="icon" aria-hidden="true"><img class="icon-image" src="${enabled.icon_image.url}" alt="${enabled.name} icon" /></span>
-      % endif
-      ${_('Sign up with {provider_name}').format(provider_name=enabled.name)}
-    </button>
-  % endfor
-
-  </div>
-
-  <span class="deco-divider">
-    ## Developers: this is a sentence fragment, which is usually frowned upon.  The design of the pags uses this fragment to provide an "else" clause underneath a number of choices.  It's OK to leave it.
-    ## Translators: this is the last choice of a number of choices of how to log in to the site.
-    <span class="copy">${_('or')}</span>
-  </span>
-
-  <p class="instructions">
-    ${_('Create your own {platform_name} account below').format(platform_name=platform_name)}
-    <span class="note">${_('Required fields are noted by <strong class="indicator">bold text and an asterisk (*)</strong>.')}</span>
-  </p>
-
-
-  % else:
-
-  <p class="instructions">
-    ## Translators: selected_provider is the name of an external, third-party user authentication service (like Google or LinkedIn).
-    ${_("You've successfully signed in with {selected_provider}.").format(selected_provider='<strong>%s</strong>' % selected_provider)}<br />
-    ${_("We just need a little more information before you start learning with {platform_name}.").format(platform_name=settings.PLATFORM_NAME)}
-  </p>
-
-  % endif
-
-% else:
-
-<p class="instructions">
-  ${_("Please complete the following fields to register for an account. ")}<br />
-  ${_('Required fields are noted by <strong class="indicator">bold text and an asterisk (*)</strong>.')}
-</p>
-
-% endif
-
 <div class="group group-form group-form-requiredinformation">
   <h2 class="sr">${_('Required Information')}</h2>
 
@@ -77,17 +34,17 @@ from student.models import UserProfile
   <ol class="list-input">
     <li class="field required text" id="field-email">
       <label for="email">${_('E-mail')}</label>
-      <input class="" id="email" type="email" name="email" value="${email}" placeholder="${_('example: username@domain.com')}" required aria-required="true" />
+      <input class="" id="email" type="email" name="email" value="${email}" required aria-required="true" />
     </li>
 
     <li class="field required text" id="field-name">
       <label for="name">${_('Full Name')}</label>
-      <input id="name" type="text" name="name" value="${name}" placeholder="${_('example: Jane Doe')}" required aria-required="true" aria-describedby="name-tip" />
+      <input id="name" type="text" name="name" value="${name}" required aria-required="true" aria-describedby="name-tip" />
       <span class="tip tip-input" id="name-tip">${_("Your legal name, used for any certificates you earn.")}</span>
     </li>
     <li class="field required text" id="field-username">
       <label for="username">${_('Public Username')}</label>
-      <input id="username" type="text" name="username" value="${username}" placeholder="${_('example: JaneDoe')}" required aria-required="true" aria-describedby="username-tip"/>
+      <input id="username" type="text" name="username" value="${username}" required aria-required="true" aria-describedby="username-tip"/>
       <span class="tip tip-input" id="username-tip">${_('Will be shown in any discussions or forums you participate in')} <strong>(${_('cannot be changed later')})</strong></span>
     </li>
 
@@ -235,10 +192,14 @@ from student.models import UserProfile
 
   <ol class="list-input">
     <li class="field-group">
-
       % if has_extauth_info is UNDEFINED or ask_for_tos :
+      <div class="btn-group ms-checkbox" data-toggle="buttons">
+        <label class="btn btn-warning active">
+          <input type="checkbox" autocomplete="off" id="tos-yes" type="checkbox" name="terms_of_service" value="true" required aria-required="true">
+          <span class="glyphicon glyphicon-ok"></span>
+        </label>
+      </div>
       <div class="field required checkbox" id="field-tos">
-        <input id="tos-yes" type="checkbox" name="terms_of_service" value="true" required aria-required="true" />
         <label for="tos-yes">${_('I agree to the {link_start}Terms of Service{link_end}').format(
           link_start='<a href="{url}" class="new-vp" tabindex="-1">'.format(url=marketing_link('TOS')),
           link_end='</a>')}</label>
@@ -264,5 +225,5 @@ from student.models import UserProfile
 </div>
 
 <div class="form-actions">
-  <button name="submit" type="submit" id="submit" class="action action-primary action-update register-button">${_('Register')} <span class="orn-plus">+</span> ${_('Create My Account')}</button>
+  <button name="submit" type="submit" id="submit" class="action action-primary action-update register-button">${_('CREATE AN ACCOUNT')}</button>
 </div>

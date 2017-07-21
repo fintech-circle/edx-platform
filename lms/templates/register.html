@@ -86,39 +86,29 @@ import calendar
           removeClass('is-disabled').
           attr('aria-disabled', false).
           prop('disabled', false).
-          html("${_('Submit')}");
+          html("${_('CREATE AN ACCOUNT')}");
       }
       else {
         $submitButton.
           addClass('is-disabled').
           prop('disabled', true).
-          text("${_('Processing your account information')}");
+          text("${_('Processing...')}");
       }
     }
   </script>
 </%block>
 
-<section class="introduction">
-  <header>
-    <h1 class="title">
-      <span class="title-super">${_("Welcome!")}</span>
-      <span class="title-sub">${_("Register below to create your {platform_name} account").format(platform_name=platform_name)}</span>
-    </h1>
-  </header>
-</section>
-
-<section class="register container">
-  <section role="main" class="content">
-    <form role="form" id="register-form" method="post" data-remote="true" action="/create_account" novalidate>
+<section class="register ms-register container-bs">
+  <section role="main" class="main row-bs">
+    <form class="col-xs-12 col-sm-6" role="form" id="register-form" method="post" data-remote="true" action="/create_account" novalidate>
 <%
   # allow for theming override on the registration form
   registration_form = static.get_template_path('register-form.html')
 %>
       <%include file="${registration_form}" />
     </form>
-  </section>
 
-  <aside role="complementary">
+    <div class="col-xs-12 col-sm-6 register-sidebar" role="complementary">
 
 <%
   # allow for theming overrides on the registration sidebars, otherwise default to pre-existing ones
@@ -127,5 +117,8 @@ import calendar
 
     <%include file="${sidebar_file}" />
 
-  </aside>
+    </div>
+  </section>
+
+
 </section>
