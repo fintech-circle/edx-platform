@@ -10,17 +10,10 @@ from openedx.core.djangolib.markup import HTML, Text
     %if settings.FEATURES.get('DISPLAY_ANALYTICS_ENROLLMENTS'):
       ## Translators: 'track' refers to the enrollment type ('honor', 'verified', or 'audit')
       <% modes = section_data['enrollment_count'] %>
-        <table>
-            <caption class="tip">${_("Number of enrollees (admins, staff, and students) by track")}</caption>
-            <tr style="color:green;border-top:1px solid #000">
-                <th scope="row" style="padding-top:10px;">
-                    <strong>${_("Total")}</strong>
-                </th>
-                <td style="padding-top:10px;">
-                    <strong>${modes['total']}</strong>
-                </td>
-            </tr>
-        </table>
+        <div>
+            <caption class="tip">${_("Number of enrollees (admins, staff, and students): ")}</caption>
+            <strong>${modes['total']}</strong>
+        </div>
       %elif section_data.get('enrollment_message'):
         <p>${section_data['enrollment_message']}</p>
       %endif
