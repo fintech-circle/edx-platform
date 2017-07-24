@@ -59,7 +59,7 @@
       @include box-sizing(border-box);
       box-shadow: 0 1px 2px $shadow-l1;
       border-radius: 2px;
-      width: 100%;
+      //width: 100%; moonshot remove to allow proper display
       border: 1px solid $gray-l2;
       padding: $baseline ($baseline*1.5);
       background: $white;
