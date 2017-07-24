@@ -2261,6 +2261,7 @@ MKTG_URL_LINK_MAP = {
     'HONOR': 'honor',  # If your site does not have an honor code, simply delete this line.
     'PRIVACY': 'privacy',
     'PRESS': 'press',
+    'HELP': 'help',
     'SITEMAP.XML': 'sitemap_xml',
     'CATEGORIES': 'categories',
     'LECTURERS': 'lecturers',
