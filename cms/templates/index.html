@@ -70,18 +70,18 @@ from openedx.core.djangolib.markup import HTML, Text
                   ## Translators: This is an example name for a new course, seen when
                   ## filling out the form to create a new course.
                   <input class="new-course-name" id="new-course-name" type="text" name="new-course-name" required placeholder="${_('e.g. Introduction to Computer Science')}" aria-describedby="tip-new-course-name tip-error-new-course-name" />
-                  <span class="tip" id="tip-new-course-name">${Text(_("The public display name for your course. {strong_start}Note: The course name is part of the course URL.{strong_end} This cannot be changed, but you can set a different display name in Advanced Settings later.")).format(
+                  <span class="tip" id="tip-new-course-name">${Text(_("The public display name for your course. {strong_start}Note: The course name is part of the course URL.{strong_end} This cannot be changed, no spaces or any other special characters are allowed, please use underscores instead to separate words.")).format(
                       strong_start=HTML('<strong>'),
                       strong_end=HTML('</strong>'),
                   )}</span>
                   <span class="tip tip-error is-hiding" id="tip-error-new-course-name"></span>
                 </li>
                 <li class="field text required" id="field-organization">
-                  <label for="new-course-org">${_("Organization")}</label>
+                  <label for="new-course-org">${_("Surname")}</label>
                   ## Translators: This is an example for the name of the organization sponsoring a course, seen when filling out the form to create a new course. The organization name cannot contain spaces.
                   ## Translators: "e.g. UniversityX or OrganizationX" is a placeholder displayed when user put no data into this field.
                   <input class="new-course-org" id="new-course-org" type="text" name="new-course-org" required placeholder="${_('e.g. UniversityX or OrganizationX')}" aria-describedby="tip-new-course-org tip-error-new-course-org" />
-                  <span class="tip" id="tip-new-course-org">${Text(_("The name of the organization sponsoring the course. {strong_start}Note: The organization name is part of the course URL.{strong_end} This cannot be changed, but you can set a different display name in Advanced Settings later.")).format(
+                  <span class="tip" id="tip-new-course-org">${Text(_("The surname of the Lecturer. {strong_start}Note: The organization name is part of the course URL.{strong_end} This cannot be changed.")).format(
                       strong_start=HTML('<strong>'),
                       strong_end=HTML('</strong>'),
                   )}</span>
