@@ -1,0 +1,210 @@
+body.view-signin, body.view-register {
+
+    min-width: initial;
+
+    header.header-global {
+        position: relative !important;
+    }
+
+    .wrapper.content-wrapper {
+        padding-top: 55px;
+    }
+
+    section.ms-login {
+        font-family: 'Open Sans';
+        border: 1px solid #c8c8c8;
+        border-radius: 10px;
+        display: block;
+        max-width: 555px;
+        margin-bottom: 30px;
+
+        &.content {
+            min-width: initial;
+            padding: 0;
+
+            .content-primary {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+
+        .main {
+            margin-top: 50px;
+        }
+
+        .header {
+            text-align: center;
+
+            .title {
+                margin-top: 0;
+                margin-bottom: 49px;
+                
+                .title-super {
+                    font-family: 'Open Sans';
+                    font-size: 18px;
+                    font-weight: bold;
+                    letter-spacing: 1.3px;
+                    text-align: left;
+                    color: #4a4a4a;
+                }
+            }
+        }
+
+        form {
+            box-shadow: none;
+            border: none;
+            padding: 0;
+
+            .field.required {
+                margin-bottom: 10px;
+
+                label {
+                    font-family: 'Open Sans';
+                    font-size: 10px;
+                    text-align: left;
+                    color: #4a4a4a;
+                }
+
+                input {
+                    height: 51px;
+                    background-color: #f3f3f3;
+                    border: none;
+                }
+
+
+                :after {
+                    color: #fd7400;
+                }
+            }
+        }
+
+        .switch {
+            display: flex;
+            margin-top: 22px;
+
+            .switch-label {
+                margin: 10px;
+                font-family: 'Open Sans';
+                font-size: 12px;
+                letter-spacing: 0.9px;
+                text-align: left;
+                color: #4a4a4a;
+            }
+
+                        .switch-remember-me {
+
+                .cmn-toggle {
+                    position: absolute;
+                    margin-left: -9999px;
+                    visibility: hidden;
+                }
+                .cmn-toggle + label {
+                    display: block;
+                    position: relative;
+                    cursor: pointer;
+                    outline: none;
+                    user-select: none;
+                    margin: 0;
+                }
+
+                input.cmn-toggle-round + label {
+                    padding: 2px;
+                    width: 50px;
+                    height: 30px;
+                    background-color: #dddddd;
+                    border-radius: 30px;
+                }
+                input.cmn-toggle-round + label:before,
+                input.cmn-toggle-round + label:after {
+                    display: block;
+                    position: absolute;
+                    top: 1px;
+                    left: 1px;
+                    bottom: 1px;
+                content: "";
+                }
+                input.cmn-toggle-round + label:before {
+                    right: 1px;
+                    background-color: #f1f1f1;
+                    border-radius: 30px;
+                    transition: background 0.4s;
+                }
+                input.cmn-toggle-round + label:after {
+                    width: 28px;
+                    background-color: #fff;
+                    border-radius: 100%;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+                    transition: margin 0.4s;
+                }
+                input.cmn-toggle-round:checked + label:before {
+                    background-color: #fd7400;
+                }
+                input.cmn-toggle-round:checked + label:after {
+                    margin-left: 20px;
+                }
+            }
+
+       }
+        
+        .form-actions {
+            top: 26px;
+            position: relative;
+            width: 166px;
+            height: 50px;
+            margin: 0 auto;
+            z-index: 10;
+        }
+
+        .register {
+            padding: 51px 0 35px 0;
+            text-align: center;
+            min-height: 130px;
+            background: #f3f3f3;
+
+            .register-info {
+                font-size: 12px;
+                letter-spacing: 0.9px;
+                text-align: center;
+                color: #4a4a4a;
+                margin-bottom: 10px;
+ 
+                .register-link {
+                    font-weight: bold;
+                }
+            }
+
+            .forgot-password-info {
+                font-size: 12px;
+                letter-spacing: 0.9px;
+                text-align: center;
+                color: #4a4a4a;
+
+                .forgot-password-link {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+
+    div#carousel-example-generic,
+    .section-quote, 
+    .section-info, 
+    .section-newsletter {
+        display: none !important;
+    }
+
+    section.ms-login .form-actions button[type="submit"] {
+        padding: 14px 25px;
+        border-radius: 30px;
+        background-color: #fd7400;
+        border: 0 none;
+        font-family: 'Open Sans';
+        font-size: 12px; 
+        font-weight: 600;
+        letter-spacing: 1.2px; 
+        color: #ffffff;
+    }
+
+}
+
