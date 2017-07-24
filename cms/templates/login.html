@@ -12,43 +12,58 @@ from openedx.core.djangolib.js_utils import js_escaped_string
 
 <%block name="content">
 
-<div class="wrapper-content wrapper">
-  <section class="content">
-    <header>
-      <h1 class="title title-1">${_("Sign In to {studio_name}").format(studio_name=settings.STUDIO_NAME)}</h1>
-      % if static.get_value('ALLOW_PUBLIC_ACCOUNT_CREATION', settings.FEATURES.get('ALLOW_PUBLIC_ACCOUNT_CREATION')):
-          <a href="${reverse('signup')}" class="action action-signin">${_("Don't have a {studio_name} Account? Sign up!").format(studio_name=settings.STUDIO_SHORT_NAME)}</a>
-      % endif
-    </header>
+<div class="content-wrapper wrapper">
+  <section class="content ms-login container-bs">
+    <article class="content-primary main bs-row" role="main">
+      <div class="header col-xs-12 col-md-10 col-md-offset-1">
+        <h1 class="title">
+          <span class="title-super">${_("Sign In to the Lecturer Centre")}</span>
+        </h1>
+      </div>
+      <form class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2" id="login_form" method="post" action="login_post" onsubmit="return false;">
 
-    <article class="content-primary" role="main">
-      <form id="login_form" method="post" action="login_post" onsubmit="return false;">
+        <legend class="sr">${_("Required Information to Sign In to {studio_name}").format(studio_name=settings.STUDIO_NAME)}</legend>
+        <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf }" />
 
-        <fieldset>
-          <legend class="sr">${_("Required Information to Sign In to {studio_name}").format(studio_name=settings.STUDIO_NAME)}</legend>
-          <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf }" />
+        <ol class="list-input">
+          <li class="field text required" id="field-email">
+            <label for="email">${_("E-mail")}</label>
+            <input id="email" type="email" name="email"/>
+          </li>
 
-          <ol class="list-input">
-            <li class="field text required" id="field-email">
-              <label for="email">${_("E-mail")}</label>
-              <input id="email" type="email" name="email" placeholder="${_('example: username@domain.com')}"/>
-            </li>
+          <li class="field text required" id="field-password">
+            <label for="password">${_("Password")}</label>
+            <input id="password" type="password" name="password" />
+          </li>
+        </ol>
 
-            <li class="field text required" id="field-password">
-              <label for="password">${_("Password")}</label>
-              <input id="password" type="password" name="password" />
-              <a href="${forgot_password_link}" class="action action-forgotpassword">${_("Forgot password?")}</a>
-            </li>
-          </ol>
-        </fieldset>
+        <div class="switch">
+          <div class="switch-remember-me">
+            <input id="remember-yes" class="cmn-toggle cmn-toggle-round" type="checkbox" name="remember" value="true">
+            <label for="remember-yes"></label>
+          </div>
+          <label class="switch-label">${_('Remember me')}</label>
+        </div>
 
         <div class="form-actions">
-          <button type="submit" id="submit" name="submit" class="action action-primary">${_("Sign In to {studio_name}").format(studio_name=settings.STUDIO_NAME)}</button>
+          <button type="submit" id="submit" name="submit" class="action action-primary">${_("LOGIN").format(studio_name=settings.STUDIO_NAME)}</button>
         </div>
 
         <!-- no honor code for CMS, but need it because we're using the lms student object -->
         <input name="honor_code" type="checkbox" value="true" checked="true" hidden="true">
       </form>
+
+      <div class="register col-xs-12" role="complementary">
+        <p class="register-info">
+          <span class="register-text">${_("Don't have a Fintech Circle Institute Account?")}
+          <span class="register-link"><a href="${reverse('signup')}">${_("Sign up!")}</a><span>
+        </p>
+        <p class="forgot-password-info">
+          <span class="forgot-password-link">
+            <a href="${forgot_password_link}" rel="leanModal" class="pwd-reset action action-forgotpw" id="forgot-password-link" role="button" aria-haspopup="true">${_('Forgot your password?')}</a>
+          </span>
+        </p>
+    </div>
     </article>
   </section>
 </div>
