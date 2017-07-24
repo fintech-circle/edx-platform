@@ -12,18 +12,6 @@ from openedx.core.djangolib.markup import HTML, Text
       <% modes = section_data['enrollment_count'] %>
         <table>
             <caption class="tip">${_("Number of enrollees (admins, staff, and students) by track")}</caption>
-            <tr>
-                <th scope="row">${_("Verified")}</th><td>${modes['verified']}</td>
-            </tr>
-            <tr>
-                <th scope="row">${_("Audit")}</th><td>${modes['audit']}</td>
-            </tr>
-            <tr>
-                <th scope="row">${_("Honor")}</th><td>${modes['honor']}</td>
-            </tr>
-            <tr>
-                <th scope="row">${_("Professional")}</th><td>${modes['professional'] + modes['no-id-professional']}</td>
-            </tr>
             <tr style="color:green;border-top:1px solid #000">
                 <th scope="row" style="padding-top:10px;">
                     <strong>${_("Total")}</strong>
