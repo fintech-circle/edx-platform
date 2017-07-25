@@ -157,7 +157,9 @@ body.view-login, body.view-register {
                 margin-bottom: 10px;
  
                 .register-link {
-                    font-weight: bold;
+                    a {
+                        font-weight: bold;
+                    }
                 }
             }
 
@@ -168,7 +170,9 @@ body.view-login, body.view-register {
                 color: #4a4a4a;
 
                 .forgot-password-link {
-                    font-weight: bold;
+                    a {
+                        font-weight: bold;
+                    }
                 }
             }
         }

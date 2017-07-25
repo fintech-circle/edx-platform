@@ -21,21 +21,22 @@ from openedx.core.djangolib.js_utils import js_escaped_string
         </h1>
       </div>
       <form class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2" id="login_form" method="post" action="login_post" onsubmit="return false;">
+        <fieldset>
+          <legend class="sr">${_("Required Information to Sign In to {studio_name}").format(studio_name=settings.STUDIO_NAME)}</legend>
+          <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf }" />
 
-        <legend class="sr">${_("Required Information to Sign In to {studio_name}").format(studio_name=settings.STUDIO_NAME)}</legend>
-        <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf }" />
+          <ol class="list-input">
+            <li class="field text required" id="field-email">
+              <label for="email">${_("E-mail")}</label>
+              <input id="email" type="email" name="email"/>
+            </li>
 
-        <ol class="list-input">
-          <li class="field text required" id="field-email">
-            <label for="email">${_("E-mail")}</label>
-            <input id="email" type="email" name="email"/>
-          </li>
-
-          <li class="field text required" id="field-password">
-            <label for="password">${_("Password")}</label>
-            <input id="password" type="password" name="password" />
-          </li>
-        </ol>
+            <li class="field text required" id="field-password">
+              <label for="password">${_("Password")}</label>
+              <input id="password" type="password" name="password" />
+            </li>
+          </ol>
+        </fieldset>
 
         <div class="switch">
           <div class="switch-remember-me">

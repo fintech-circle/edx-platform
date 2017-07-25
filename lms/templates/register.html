@@ -100,7 +100,7 @@ import calendar
 
 <section class="register ms-register container-bs">
   <section role="main" class="main row-bs">
-    <form class="col-xs-12 col-sm-6" role="form" id="register-form" method="post" data-remote="true" action="/create_account" novalidate>
+    <form class="ccol-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2" role="form" id="register-form" method="post" data-remote="true" action="/create_account" novalidate>
 <%
   # allow for theming override on the registration form
   registration_form = static.get_template_path('register-form.html')
@@ -108,7 +108,7 @@ import calendar
       <%include file="${registration_form}" />
     </form>
 
-    <div class="col-xs-12 col-sm-6 register-sidebar" role="complementary">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 register-sidebar" role="complementary">
 
 <%
   # allow for theming overrides on the registration sidebars, otherwise default to pre-existing ones
