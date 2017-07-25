@@ -96,6 +96,7 @@ define(['js/views/validation', 'codemirror', 'underscore', 'jquery', 'jquery.ui'
                    this.$el.find('#' + this.fieldToSelectorMap.description).val(this.model.get('description'));
 
                    this.$el.find('#' + this.fieldToSelectorMap['short_description']).val(this.model.get('short_description'));
+                   this.$el.find('#' + this.fieldToSelectorMap['display_name']).val(this.model.get('display_name'));
 
                    this.$el.find('.current-course-introduction-video iframe').attr('src', this.model.videosourceSample());
                    this.$el.find('#' + this.fieldToSelectorMap['intro_video']).val(this.model.get('intro_video') || '');
@@ -165,6 +166,7 @@ define(['js/views/validation', 'codemirror', 'underscore', 'jquery', 'jquery.ui'
                    'duration': 'course-duration',
                    'description': 'course-description',
                    'short_description': 'course-short-description',
+                   'display_name': 'course-display-name',
                    'intro_video': 'course-introduction-video',
                    'effort': 'course-effort',
                    'course_image_asset_path': 'course-image-url',

@@ -424,6 +424,27 @@ body {
 
 .banner-main-page {
     position: relative;
+    .background {
+        width: 100%;
+        min-height: 400px;
+        //background-color: rgba(0, 0, 0, 0);
+        //background-image: linear-gradient(180deg, #32325c, rgba(34, 52, 99, 0)), url("/public/img/hero-background_v2.jpg");
+        background-size: cover;
+        background-position: center 0;
+        background-repeat: no-repeat;
+        @media #{$screen-sm} {
+            background-position: 75% 0;
+        }
+        &.first {
+            background-image: url("../images/banner_fintech_expert.jpg");
+        }
+        &.second {
+            background-image: url("../images/banner_become_enterprenour.jpg");
+        }
+        &.third {
+            background-image: url("../images/banner_future_finance.jpg");
+        }
+    }
     img {
         opacity: 0.9;
         margin: 0 auto;
@@ -983,7 +1004,7 @@ body {
     position: relative;
     text-align: center;
 
-    background: url("../images/banner04.png") center 0 no-repeat;
+    background: url("../images/become_lecturer.jpg") center 0 no-repeat;
     display: block;
     min-height: 421px;
     padding: 85px 0;
