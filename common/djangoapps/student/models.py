@@ -346,7 +346,7 @@ class UserProfile(models.Model):
         self.set_meta(meta)
         self.save()
 
-    def requires_parental_consent(self, date=None, age_limit=None, default_requires_consent=True):
+    def requires_parental_consent(self, date=None, age_limit=None, default_requires_consent=False):
         """Returns true if this user requires parental consent.
 
         Args:

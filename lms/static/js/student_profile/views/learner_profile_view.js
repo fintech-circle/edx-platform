@@ -91,6 +91,17 @@
                 renderFields: function() {
                     var view = this;
 
+                    if (this.options.ownProfile) {
+                        var fieldView = this.options.accountPrivacyFieldView,
+                            settings = this.options.accountSettingsModel;
+                        fieldView.profileIsPrivate = false;
+                        fieldView.requiresParentalConsent = false;
+                        fieldView.isAboveMinimumAge = true;
+                        fieldView.undelegateEvents();
+                        this.$('.wrapper-profile-field-account-privacy').append(fieldView.render().el);
+                        fieldView.delegateEvents();
+                    }
+
                     this.$('.profile-section-one-fields').append(this.options.usernameFieldView.render().el);
 
                     var imageView = this.options.profileImageFieldView;
