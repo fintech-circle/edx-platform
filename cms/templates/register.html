@@ -13,7 +13,7 @@ from django.core.urlresolvers import reverse
 <div class="wrapper-content wrapper">
   <section class="content">
     <header>
-      <h1 class="title title-1">${_("Sign Up for {studio_name}").format(studio_name=settings.STUDIO_NAME)}</h1>
+      <h1 class="title title-1">${_("Sign Up for the {studio_name}").format(studio_name=settings.STUDIO_NAME)}</h1>
       <a href="${reverse('login')}" class="action action-signin">${_("Already have a {studio_name} Account? Sign in").format(studio_name=settings.STUDIO_SHORT_NAME)}</a>
     </header>
 
@@ -25,7 +25,7 @@ from django.core.urlresolvers import reverse
         </div>
 
         <fieldset>
-          <legend class="sr">${_("Required Information to Sign Up for {studio_name}").format(studio_name=settings.STUDIO_NAME)}</legend>
+          <legend class="sr">${_("Required Information to Sign Up for the {studio_name}").format(studio_name=settings.STUDIO_NAME)}</legend>
 
           <ol class="list-input">
             <li class="field text required" id="field-email">

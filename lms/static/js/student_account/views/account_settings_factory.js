@@ -42,7 +42,7 @@
                                 title: gettext('Username'),
                                 valueAttribute: 'username',
                                 helpMessage: StringUtils.interpolate(
-                                    gettext('The name that identifies you throughout {platform_name}. You cannot change your username.'),  // eslint-disable-line max-len
+                                    gettext('The name that identifies you throughout the {platform_name}. You cannot change your username.'),  // eslint-disable-line max-len
                                     {platform_name: platformName}
                                 )
                             })
@@ -53,7 +53,7 @@
                                 title: gettext('Full Name'),
                                 valueAttribute: 'name',
                                 helpMessage: gettext(
-                                    'The name that is used for ID verification and appears on your certificates (if applicable). Other learners never see your full name. Make sure to enter your name exactly as it appears on your government-issued photo ID, including any non-Roman characters.'  // eslint-disable-line max-len
+                                    'The name that is used for ID verification and appears on your certificates (if applicable). Other learners never see your full name. Make sure to enter your name exactly as it appears on your government-issued photo ID.'  // eslint-disable-line max-len
                                 ),
                                 persistChanges: true
                             })
@@ -64,7 +64,7 @@
                                 title: gettext('Email Address'),
                                 valueAttribute: 'email',
                                 helpMessage: StringUtils.interpolate(
-                                    gettext('The email address you use to sign in. Communications from {platform_name} and your courses are sent to this address.'),  // eslint-disable-line max-len
+                                    gettext('The email address you use to sign in. Communications from the {platform_name} and your courses are sent to this address.'),  // eslint-disable-line max-len
                                     {platform_name: platformName}
                                 ),
                                 persistChanges: true
@@ -104,8 +104,8 @@
                 {
                     title: gettext('Linked Accounts'),
                     subtitle: StringUtils.interpolate(
-                        gettext('You can link your social media accounts to simplify signing in to {platform_name}.'),
-                        {platform_name: platformName}
+                        gettext('Use your {provider_name} account to simply sign in to your {platform_name} account.'),
+                        {provider_name: provider.name, platform_name: platformName}
                     ),
                     fields: _.map(authData.providers, function(provider) {
                         return {
@@ -137,7 +137,7 @@
                 {
                     title: gettext('My Orders'),
                     subtitle: StringUtils.interpolate(
-                        gettext('This page contains information about orders that you have placed with {platform_name}.'),  // eslint-disable-line max-len
+                        gettext('This page contains information about orders that you have placed with the {platform_name}.'),  // eslint-disable-line max-len
                         {platform_name: platformName}
                     ),
                     fields: _.map(ordersHistoryData, function(order) {
