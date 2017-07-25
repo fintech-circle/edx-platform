@@ -252,7 +252,7 @@ class UserProfile(models.Model):
     # Optional demographic data we started capturing from Fall 2012
     this_year = datetime.now(UTC).year
     VALID_YEARS = range(this_year, this_year - 120, -1)
-    year_of_birth = models.IntegerField(blank=True, null=True, db_index=True)
+    year_of_birth = models.IntegerField(blank=True, default=1970, db_index=True)
     GENDER_CHOICES = (
         ('m', ugettext_noop('Male')),
         ('f', ugettext_noop('Female')),
@@ -346,7 +346,7 @@ class UserProfile(models.Model):
         self.set_meta(meta)
         self.save()
 
-    def requires_parental_consent(self, date=None, age_limit=None, default_requires_consent=True):
+    def requires_parental_consent(self, date=None, age_limit=None, default_requires_consent=False):
         """Returns true if this user requires parental consent.
 
         Args:

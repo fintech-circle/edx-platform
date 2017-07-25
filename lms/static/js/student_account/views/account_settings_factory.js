@@ -104,8 +104,8 @@
                 {
                     title: gettext('Linked Accounts'),
                     subtitle: StringUtils.interpolate(
-                        gettext('Use your {provider_name} account to simply sign in to your {platform_name} account.'),
-                        {provider_name: provider.name, platform_name: platformName}
+                        gettext('Use your third-party login to simply sign in to your {platform_name} account.'),
+                        {platform_name: platformName}
                     ),
                     fields: _.map(authData.providers, function(provider) {
                         return {

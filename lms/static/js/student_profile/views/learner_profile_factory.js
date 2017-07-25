@@ -78,6 +78,20 @@
                     options: options.country_options,
                     helpMessage: '',
                     persistChanges: true
+                }),
+                new AccountSettingsFieldViews.LanguageProficienciesFieldView({
+                    model: accountSettingsModel,
+                    screenReaderTitle: gettext('Preferred Language'),
+                    titleVisible: false,
+                    required: false,
+                    editable: editable,
+                    showMessages: false,
+                    iconName: 'fa-comment',
+                    placeholderValue: gettext('Add language'),
+                    valueAttribute: 'language_proficiencies',
+                    options: options.language_options,
+                    helpMessage: '',
+                    persistChanges: true
                 })
             ];
 
@@ -144,6 +158,11 @@
                 learnerProfileView.render();
             };
 
+            if (options.has_preferences_access) {
+                if (accountSettingsModel.get('requires_parental_consent')) {
+                    accountPreferencesModel.set('account_privacy', 'private');
+                }
+            }
             showLearnerProfileView();
 
             return {
