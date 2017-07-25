@@ -306,6 +306,7 @@ define(['js/views/validation', 'codemirror', 'underscore', 'jquery', 'jquery.ui'
                    case 'course-duration':
                    case 'course-description':
                    case 'course-short-description':
+                   case 'course-display-name':
                        this.setField(event);
                        break;
                    default: // Everything else is handled by datepickers and CodeMirror.
