@@ -1,4 +1,5 @@
 <%inherit file="base.html" />
+<%namespace name='static' file='static_content.html'/>
 <%def name="online_help_token()"><% return "register" %></%def>
 <%!
 from django.utils.translation import ugettext as _
@@ -11,16 +12,20 @@ from django.core.urlresolvers import reverse
 <%block name="content">
 
 <div class="wrapper-content wrapper">
-  <section class="content">
-    <header>
-      <h1 class="title title-1">${_("Sign Up for the {studio_name}").format(studio_name=settings.STUDIO_NAME)}</h1>
-      <a href="${reverse('login')}" class="action action-signin">${_("Already have a {studio_name} Account? Sign in").format(studio_name=settings.STUDIO_SHORT_NAME)}</a>
-    </header>
+  <section class="content register ms-register container-bs">
+    <section class="content-primary main row-bs" role="main">
 
-    <p class="introduction">${_("Ready to start creating online courses? Sign up below and start creating your first {platform_name} course today.").format(platform_name=settings.PLATFORM_NAME)}</p>
+      <form id="register_form" method="post" class="col-xs-12 col-sm-6">
+        <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf_token }">
 
-    <article class="content-primary" role="main">
-      <form id="register_form" method="post">
+        <div class="header">
+          <h1 class="title">
+            <span class="title-super">${_("Sign Up for the Lecturer Centre")}</span>
+          </h1>
+          <p class="title-text">${_("Ready to start creating online courses? Sign up below and start creating your first the FINTECH Circle Institute course today. Required fields are noted by bold text and an asterisk (*).")}</p>
+          <p class="title-text-tip">${_("Required fields are noted by bold text and an asterisk (*).")}</p>
+        </div>
+
         <div id="register_error" name="register_error" class="message message-status message-status error">
         </div>
 
@@ -31,20 +36,21 @@ from django.core.urlresolvers import reverse
             <li class="field text required" id="field-email">
               <label for="email">${_("E-mail")}</label>
               ## Translators: This is the placeholder text for a field that requests an email address.
-              <input id="email" type="email" name="email" placeholder="${_("example: username@domain.com")}" />
+              <input id="email" type="email" name="email" />
             </li>
 
             <li class="field text required" id="field-name">
               <label for="name">${_("Full Name")}</label>
               ## Translators: This is the placeholder text for a field that requests the user's full name.
-              <input id="name" type="text" name="name" placeholder="${_("example: Jane Doe")}" />
+              <input id="name" type="text" name="name" />
+              <span class="tip tip-input" id="name-tip">${_("Your legal name, used for any certificates you earn.")}</span>
             </li>
 
             <li class="field text required" id="field-username">
               <label for="username">${_("Public Username")}</label>
               ## Translators: This is the placeholder text for a field that asks the user to pick a username
-              <input id="username" type="text" name="username" placeholder="${_("example: JaneDoe")}" />
-              <span class="tip tip-stacked">${_("This will be used in public discussions with your courses and in our edX101 support forums")}</span>
+              <input id="username" type="text" name="username" />
+              <span class="tip tip-input" id="username-tip">${_('Will be shown in any discussions or forums you participate in')} <strong>(${_('cannot be changed later')})</strong></span>
             </li>
 
             <li class="field text required" id="field-password">
@@ -59,46 +65,73 @@ from django.core.urlresolvers import reverse
               </div>
             </li>
 
-            <li class="field checkbox required" id="field-tos">
-              <input id="tos" name="terms_of_service" type="checkbox" value="true" />
-              <label for="tos">
-                ${_("I agree to the {a_start} Terms of Service {a_end}").format(a_start='<a data-rel="edx.org" href="{}">'.format(marketing_link('TOS')), a_end="</a>")}
-              </label>
+            <li class="field-group">
+              % if has_extauth_info is UNDEFINED or ask_for_tos :
+              <div class="btn-group ms-checkbox" data-toggle="buttons">
+                <label class="btn btn-warning active">
+                  <input type="checkbox" autocomplete="off" id="tos-yes" type="checkbox" name="terms_of_service" value="true" required aria-required="true" checked>
+                  <span class="glyphicon glyphicon-ok"></span>
+                </label>
+              </div>
+              <div class="field required checkbox" id="field-tos">
+                <label for="tos-yes">${_('I agree to the {link_start}Terms of Service{link_end}').format(
+                  link_start='<a href="{url}" class="new-vp" tabindex="-1">'.format(url=marketing_link('TOS')),
+                  link_end='</a>')}</label>
+              </div>
+              % endif
             </li>
           </ol>
         </fieldset>
 
         <div class="form-actions">
-          <button type="submit" id="submit" name="submit" class="action action-primary">${_("Create My Account &amp; Start Authoring Courses")}</button>
+          <button type="submit" id="submit" name="submit" class="action action-primary">${_("CREATE AN ACCOUNT")}</button>
         </div>
 
         <!-- no honor code for CMS, but need it because we're using the lms student object -->
         <input name="honor_code" type="checkbox" value="true" checked="true" hidden="true">
       </form>
-    </article>
+      <div class="col-xs-12 col-sm-6 register-sidebar" role="complementary">
 
-    <aside class="content-supplementary" role="complementary">
-      <h2 class="sr">${_("Common {studio_name} Questions").format(studio_name=settings.STUDIO_SHORT_NAME)}</h2>
+        % if has_extauth_info is UNDEFINED:
 
-      <div class="bit">
-        <h3 class="title-3">${_("Who is {studio_name} for?").format(studio_name=settings.STUDIO_SHORT_NAME)}</h3>
-        <p>${_("{studio_name} is for anyone that wants to create online courses that leverage the global {platform_name} platform. Our users are often faculty members, teaching assistants and course staff, and members of instructional technology groups.").format(
-          studio_name=settings.STUDIO_SHORT_NAME, platform_name=settings.PLATFORM_NAME,
-        )}</p>
+        <div class="login">
+          <h3 class="title">${_("Already registered?")}</h3>
+          <p class="instructions">
+            <a class="btn-login-action" href="${reverse('signup')}">
+              ${_("LOGIN")}
+            </a>
+          </p>
+        </div>
+
+        % endif
+
+        ## TODO: Use a %block tag or something to allow themes to
+        ##       override in a more generalizable fashion.
+        <div class="help">
+          <div class="cta cta-welcome">
+            <h3>${_("Who is the Lecturer Centre for?").format(platform_name=settings.PLATFORM_NAME)}</h3>
+            <p>${_("The Lecturer Centre is for anyone that wants to create online courses on the global {platform_name} platform. Our users are often faculty members, FinTech entrepreneurs, experts, investors and FinTech thought leaders.").format(platform_name=settings.PLATFORM_NAME)}</p>
+          </div>
+
+          <div class="cta cta-nextsteps">
+            <h3>${_("How technically savvy do I need to be to create courses in the Lecturer Centre?")}</h3>
+              <p>${_("The Lecturer Centre is designed to be easy to use. We will guide you through the process of setting up your own course within 15 minutes. In addition to your own class videos, you will be able to add research papers and a chat forum to engage with your students.").format(platform_name=settings.PLATFORM_NAME)}</p>
+          </div>
+
+          <div class="cta cta-help">
+              <h3>${_("I've never developed an online course before. Is there help?")}</h3>
+              <p>${_("Absolutely. We have created a class design template and also a guide to help you create your first online course. Additionally, we're always here to help, just drop us a note on").format(platform_name=settings.PLATFORM_NAME)}
+                <a href="mailto:help@FINTECHCircle.com" target="_top">
+                    ${_("help@FINTECHCircle.com")}
+                </a>
+              </p>
+            </div>
+        </div>
+
       </div>
-
-      <div class="bit">
-        <h3 class="title-3">${_("How technically savvy do I need to be to create courses in {studio_name}?").format(studio_name=settings.STUDIO_SHORT_NAME)}</h3>
-        <p>${_("{studio_name} is designed to be easy to use by almost anyone familiar with common web-based authoring environments (Wordpress, Moodle, etc.). No programming knowledge is required, but for some of the more advanced features, a technical background would be helpful. As always, we are here to help, so don't hesitate to dive right in.").format(
-          studio_name=settings.STUDIO_SHORT_NAME,
-        )}</p>
-      </div>
-
-      <div class="bit">
-        <h3 class="title-3">${_("I've never authored a course online before. Is there help?")}</h3>
-        <p>${_("Absolutely. We have created an online course, edX101, that describes some best practices: from filming video, creating exercises, to the basics of running an online course. Additionally, we're always here to help, just drop us a note.")}</p>
-      </div>
-    </aside>
+    </section>
+    
+   
   </section>
 </div>
 </%block>

@@ -1,10 +1,12 @@
-body.view-register {
+body.view-signup {
+
+    min-width: initial;
 
     header.header-global {
         position: relative !important;
     }
 
-    .window-wrap .content-wrapper {
+    .wrapper.content-wrapper {
         padding-top: 55px;
     }
 
@@ -16,6 +18,16 @@ body.view-register {
 
         .main {
             margin-top: 50px;
+        }
+
+        &.content {
+            min-width: initial;
+            padding: 0;
+
+            .content-primary {
+                width: 100%;
+                margin-right: 0;
+            }
         }
 
         .header {
@@ -43,30 +55,43 @@ body.view-register {
             }
         }
 
-        form .field.required {
-            margin-bottom: 10px;
+        form {
+            box-shadow: none;
+            border: none;
+            padding: 0 30px;
+            margin-bottom: 30px;
+            
+            .field {
+                margin-bottom: 10px;
 
-            label {
-                font-family: 'Open Sans';
-                font-size: 10px;
-                text-align: left;
-                color: #4a4a4a;
+                label {
+                    font-family: 'Open Sans';
+                    font-size: 10px;
+                    text-align: left;
+                    color: #4a4a4a;
+                }
+
+                input {
+                    height: 51px;
+                    background-color: #f3f3f3;
+                    border: none;
+                    background-image: initial;
+                    max-width: 360px;
+                }
+
+                .required:after {
+                    color: #fd7400;
+                }
+
+                span.tip.tip-input {
+                    font-size: 8px;
+                    text-align: left;
+                    color: #9b9b9b;
+                }
             }
 
-            input {
-                height: 51px;
-                background-color: #f3f3f3;
-                border: none;
-            }
-
-            :after {
-                color: #fd7400;
-            }
-
-            span.tip.tip-input {
-                font-size: 8px;
-                text-align: left;
-                color: #9b9b9b;
+            #field-tos {
+                float: left;
             }
         }
 
@@ -108,7 +133,6 @@ body.view-register {
         }
 
         .register-sidebar{
-            display: none;
             border: 1px solid #c8c8c8;
             border-radius: 10px;
 
