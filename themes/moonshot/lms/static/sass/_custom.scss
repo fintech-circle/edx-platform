@@ -667,7 +667,7 @@ body {
                                             text-align: left;
                                             color: #fd7400;
                                         }
-                                        &.course-code, &.course-tags {
+                                        &.course-code, &.course-title {
                                             height: 44px;
                                             overflow: hidden;
                                             line-height: 22px;
@@ -679,7 +679,7 @@ body {
                                             text-align: left;
                                             color: #4a4a4a;
                                         }
-                                        &.course-title {
+                                        &.course-tags {
                                             overflow: hidden;
                                             height: 28px;
                                             padding: 0;
