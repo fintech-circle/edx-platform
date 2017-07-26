@@ -242,15 +242,10 @@ CMS.URL.UPLOAD_ASSET = '${upload_asset_url | n, js_escaped_string}'
                   <input type="text" id="course-title" data-display-name="${context_course.display_name}">
                   <span class="tip tip-stacked">${_("Displayed as title on the course details page. Limit to 50 characters.")}</span>
                 </li>
-                <li class="field text" id="field-course-duration">
-                  <label for="course-duration">${_("Course Duration")}</label>
-                  <input type="text" id="course-duration">
-                  <span class="tip tip-stacked">${_("Displayed on the course details page. Limit to 50 characters.")}</span>
-                </li>
-                <li class="field text" id="field-course-description">
-                  <label for="course-description">${_("Course Description")}</label>
-                  <textarea class="text" id="course-description"></textarea>
-                  <span class="tip tip-stacked">${_("Displayed on the course details page. Limit to 1000 characters.")}</span>
+                <li class="field text" id="field-course-effort">
+                  <label for="course-effort">${_("Course Duration")}</label>
+                  <input type="text" class="short time" id="course-effort" placeholder="HH:MM" />
+                  <span class="tip tip-inline">${_("The total length of the course.")}</span>
                 </li>
                 % endif
 
@@ -431,61 +426,6 @@ CMS.URL.UPLOAD_ASSET = '${upload_asset_url | n, js_escaped_string}'
                   <span class="icon fa fa-plus icon-inline" aria-hidden="true"></span>${_("Add Instructor")}
                 </button>
               </div>
-            </div>
-          % endif
-
-          % if about_page_editable or is_prerequisite_courses_enabled or is_entrance_exams_enabled:
-            <hr class="divide" />
-
-            <div class="group-settings requirements">
-              <header>
-                <h2 class="title-2">${_("Requirements")}</h2>
-                <span class="tip">${_("Expectations of the students taking this course")}</span>
-              </header>
-
-              <ol class="list-input">
-                % if about_page_editable:
-                <li class="field text" id="field-course-effort">
-                  <label for="course-effort">${_("Hours of Effort per Week")}</label>
-                  <input type="text" class="short time" id="course-effort" placeholder="HH:MM" />
-                  <span class="tip tip-inline">${_("Time spent on all course work")}</span>
-                </li>
-                % endif
-                % if is_prerequisite_courses_enabled:
-                <li class="field field-select" id="field-pre-requisite-course">
-                    <label for="pre-requisite-course">${_("Prerequisite Course")}</label>
-                    <select class="input" id="pre-requisite-course">
-                        <option value="">${_("None")}</option>
-                        % for course_info in sorted(possible_pre_requisite_courses, key=lambda s: s['display_name'].lower() if s['display_name'] is not None else ''):
-                        <option value="${course_info['course_key']}">${course_info['display_name']}</option>
-                        % endfor
-                    </select>
-                    <span class="tip tip-inline">${_("Course that students must complete before beginning this course")}</span>
-                    <button type="submit" class="sr" name="submit" value="submit">${_("set pre-requisite course")}</button>
-                </li>
-                % endif
-                % if is_entrance_exams_enabled:
-                <li>
-                    <h3 id="heading-entrance-exam">${_("Entrance Exam")}</h3>
-                    <div class="show-data">
-                        <div class="heading">
-                            <input type="checkbox" id="entrance-exam-enabled" />
-                            <label for="entrance-exam-enabled">${_("Require students to pass an exam before beginning the course.")}</label>
-                        </div>
-                         <div class="div-grade-requirements" hidden="hidden">
-                          <p><span class="tip tip-inline">
-                            ${Text(_("You can now view and author your course entrance exam from the {link_start}Course Outline{link_end}.")).format(
-                              link_start=HTML("<a href='{course_handler_url}'>").format(course_handler_url=course_handler_url),
-                              link_end=HTML("</a>")
-                            )}</span></p>
-                          <p><h3>${_("Grade Requirements")}</h3></p>
-                          <p><div><input type="text" id="entrance-exam-minimum-score-pct" aria-describedby="min-score-format"><span id="min-score-format" class="tip tip-inline">${_(" %")}</span></div></p>
-                          <p><span class="tip tip-inline">${_("The score student must meet in order to successfully complete the entrance exam. ")}</span></p>
-                        </div>
-                    </div>
-                </li>
-                % endif
-              </ol>
             </div>
           % endif
 
