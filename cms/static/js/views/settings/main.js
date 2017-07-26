@@ -85,12 +85,7 @@ define(['js/views/validation', 'codemirror', 'underscore', 'jquery', 'jquery.ui'
                    this.$el.find('#' + this.fieldToSelectorMap['overview']).val(this.model.get('overview'));
                    this.codeMirrorize(null, $('#course-overview')[0]);
 
-                   if (this.model.get('title') !== '') {
-                       this.$el.find('#' + this.fieldToSelectorMap.title).val(this.model.get('title'));
-                   } else {
-                       var displayName = this.$el.find('#' + this.fieldToSelectorMap.title).attr('data-display-name');
-                       this.$el.find('#' + this.fieldToSelectorMap.title).val(displayName);
-                   }
+                   this.$el.find('#' + this.fieldToSelectorMap.display_name).val(this.model.get('display_name'));
                    this.$el.find('#' + this.fieldToSelectorMap.subtitle).val(this.model.get('subtitle'));
                    this.$el.find('#' + this.fieldToSelectorMap.duration).val(this.model.get('duration'));
                    this.$el.find('#' + this.fieldToSelectorMap.description).val(this.model.get('description'));
@@ -160,7 +155,7 @@ define(['js/views/validation', 'codemirror', 'underscore', 'jquery', 'jquery.ui'
                    'enrollment_start': 'enrollment-start',
                    'enrollment_end': 'enrollment-end',
                    'overview': 'course-overview',
-                   'title': 'course-title',
+                   'display_name': 'course-display_name',
                    'subtitle': 'course-subtitle',
                    'duration': 'course-duration',
                    'description': 'course-description',
