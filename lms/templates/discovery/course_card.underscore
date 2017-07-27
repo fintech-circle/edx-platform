@@ -11,6 +11,7 @@
                 <span class="course-organization"><%- org %></span>
                 <span class="course-tags"><%- content.short_description %></span>
                 <span class="course-title"><%- content.display_name %></span>
+                <span class="course-length"><%- content.effort %></span>
             </h2>
             <div class="course-date" aria-hidden="true">
                 <%- interpolate(

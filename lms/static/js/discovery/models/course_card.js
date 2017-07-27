@@ -11,7 +11,8 @@
                 content: {
                     overview: '',
                     display_name: '',
-                    number: ''
+                    number: '',
+                    effort: ''
                 },
                 start: '',
                 image_url: '',

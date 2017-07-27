@@ -155,7 +155,7 @@ define(['js/views/validation', 'codemirror', 'underscore', 'jquery', 'jquery.ui'
                    'enrollment_start': 'enrollment-start',
                    'enrollment_end': 'enrollment-end',
                    'overview': 'course-overview',
-                   'display_name': 'course-display_name',
+                   'display_name': 'course-display-name',
                    'subtitle': 'course-subtitle',
                    'duration': 'course-duration',
                    'description': 'course-description',
