@@ -522,7 +522,7 @@ def _enrich_with_image(courses_iter):
     for i in range(len(courses_iter)):
         course_key = CourseKey.from_string(courses_iter[i]['course_key'])
         course_overview = CourseOverview.get_from_id(course_key)
-        course_image = course_overview['image_urls']['small']
+        course_image = course_overview.image_urls['small']
         courses_iter[i]['image_url'] = course_image
     return courses_iter
 
