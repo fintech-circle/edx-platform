@@ -12,11 +12,11 @@
                     overview: '',
                     display_name: '',
                     number: '',
-                    effort: ''
                 },
                 start: '',
                 image_url: '',
                 org: '',
+                effort: '',
                 id: ''
             }
         });
