@@ -270,11 +270,12 @@ from openedx.core.djangolib.markup import HTML, Text
           %for course_info in sorted(courses, key=lambda s: s['display_name'].lower() if s['display_name'] is not None else ''):
           <li class="course-item" data-course-key="${course_info['course_key']}">
             <a class="course-link" href="${course_info['url']}">
+              <img class="course-image" src="${course_info['image_url']}"/>
               <h3 class="course-title">${course_info['display_name']}</h3>
 
               <div class="course-metadata">
                 <span class="course-org metadata-item">
-                  <span class="label">${_("Organization:")}</span> <span class="value">${course_info['org']}</span>
+                  <span class="label">${_("Lecturer:")}</span> <span class="value">${course_info['org']}</span>
                 </span>
               </div>
             </a>

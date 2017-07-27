@@ -53,6 +53,7 @@ from models.settings.course_grading import CourseGradingModel
 from models.settings.course_metadata import CourseMetadata
 from models.settings.encoder import CourseSettingsEncoder
 from openedx.core.djangoapps.content.course_structures.api.v0 import api, errors
+from openedx.core.djangoapps.content.course_overviews.models import CourseOverview
 from openedx.core.djangoapps.credit.api import get_credit_requirements, is_credit_course
 from openedx.core.djangoapps.credit.tasks import update_credit_course_requirements
 from openedx.core.djangoapps.models.course_details import CourseDetails
@@ -499,8 +500,10 @@ def course_listing(request):
     courses_iter = _remove_in_process_courses(courses_iter, in_process_course_actions)
     in_process_course_actions = [format_in_process_course_view(uca) for uca in in_process_course_actions]
 
+    courses_iter = _enrich_with_image(list(courses_iter))
+
     return render_to_response(u'index.html', {
-        u'courses': list(courses_iter),
+        u'courses': courses_iter,
         u'in_process_course_actions': in_process_course_actions,
         u'libraries_enabled': LIBRARIES_ENABLED,
         u'libraries': [format_library_for_view(lib) for lib in libraries],
@@ -510,8 +513,17 @@ def course_listing(request):
         u'course_creator_status': _get_course_creator_status(user),
         u'rerun_creator_status': GlobalStaff().has_user(user),
         u'allow_unicode_course_id': settings.FEATURES.get(u'ALLOW_UNICODE_COURSE_ID', False),
-        u'allow_course_reruns': settings.FEATURES.get(u'ALLOW_COURSE_RERUNS', True),
+        u'allow_course_reruns': settings.FEATURES.get(u'ALLOW_COURSE_RERUNS', True)
     })
+
+
+def _enrich_with_image(courses_iter):
+    """ Adds image_url from CourseOverview to each course item """
+    for i in range(len(courses_iter)):
+        course_overview = CourseOverview.get_from_id(courses_iter[i]['course_key'])
+        course_image = course_overview['image_urls']['medium']
+        courses_iter[i]['image_url'] = course_image
+    return courses_iter
 
 
 def _get_rerun_link_for_item(course_key):
