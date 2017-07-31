@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# encoding:utf-8
 """
 Courseware views functions
 """
@@ -631,7 +631,7 @@ def get_course_prices(course, verified_only=False):
             settings.PAID_COURSE_REGISTRATION_CURRENCY[0]
         )
 
-    currency_symbol = '£'
+    currency_symbol = '£'.decode('utf-8')
 
     if registration_price > 0:
         price = registration_price
