@@ -211,6 +211,10 @@ body.view-signup {
         font-weight: 600;
         letter-spacing: 1.2px; 
         color: #ffffff;
+        &:hover {
+            background-color: #fd7400;
+            opacity: 0.9;
+        }
     }
 
 }
