@@ -24,6 +24,7 @@ class CourseMetadata(object):
         'xml_attributes',
         'start',
         'end',
+        'display_name',
         'enrollment_start',
         'enrollment_end',
         'tabs',
