@@ -1,52 +1,62 @@
-<%!
-from django.utils.translation import ugettext as _
-from django.core.urlresolvers import reverse
-%>
+<%namespace name='static' file='../static_content.html'/>
 
-<div class="wrapper-footer wrapper">
-  <footer class="primary" role="contentinfo">
+<footer class="footer-main" id="footer-edx-v3" role="contentinfo" aria-label="Page Footer">
+  <div class="top-section">
+    <div class="footer-content-wrapper">
 
-    <div class="footer-content-primary">
-      <div class="colophon">
-        <p>&copy; ${settings.COPYRIGHT_YEAR} <a data-rel="edx.org" href="${marketing_link('ROOT')}" rel="external">${settings.PLATFORM_NAME}</a>.</p>
-      </div>
-
-      % if is_any_marketing_link_set(['TOS', 'PRIVACY']):
-        <nav class="nav-peripheral">
-          <ol>
-            % if is_marketing_link_set('TOS'):
-              <li class="nav-item nav-peripheral-tos">
-                <a data-rel="edx.org" href="${marketing_link('TOS')}">${_("Terms of Service")}</a>
-              </li>
-            % endif
-            % if is_marketing_link_set('PRIVACY'):
-              <li class="nav-item nav-peripheral-pp">
-                <a data-rel="edx.org" href="${marketing_link('PRIVACY')}">${_("Privacy Policy")}</a>
-              </li>
-            % endif
-          </ol>
+      <div class="site-details">
+        <nav class="site-nav" aria-label="About edX">
+          <ul class="about-links">
+            <li class="list-item">
+              <a href="/about">About</a>
+            </li>
+            <li class="list-item">
+              <a href="/press">Press</a>
+            </li>
+            <li class="list-item">
+              <a href="/lecturer">Become a Lecturer</a>
+            </li>
+            <li class="list-item">
+              <a href="/contact">Contact</a>
+            </li>
+            <li class="list-item">
+              <a href="/faq">Help</a>
+            </li>
+          </ul>
         </nav>
-      % endif
-    </div>
 
-    <div class="footer-content-secondary" aria-label="{_('Legal')}">
-      <div class="footer-about-copyright">
-        ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-        <p>
-          ## Translators: 'EdX', 'edX', 'Studio', and 'Open edX' are trademarks of 'edX Inc.'. Please do not translate any of these trademarks and company names.
-          ${_("EdX, Open edX, Studio, and the edX and Open edX logos are registered trademarks or trademarks of {link_start}edX Inc.{link_end}").format(
-            link_start=u"<a data-rel='edx.org' href='https://www.edx.org/'>",
-            link_end=u"</a>"
-          )}
+        <div class="logo-section">
+          <div class="footer-logo pull-left">
+            <a href="/">
+              <img alt="edX Home Page" class="img-responsive" src="${static.url('images/finetech-logo-black.png')}">
+            </a>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <p class="copyright">© FINTECH Circle Institute. All rights reserved except where noted. EdX, Open edX and the edX and Open EdX logos
+          are registered trademarks or trademarks of edX Inc.
         </p>
       </div>
-
-      <!--<div class="footer-about-openedx">-->
-        <!--<a href="http://open.edx.org" title="${_("Powered by Open edX")}">-->
-          <!--<img alt="${_("Powered by Open edX")}" src="https://files.edx.org/openedx-logos/edx-openedx-logo-tag.png">-->
-        <!--</a>-->
-      <!--</div>-->
     </div>
-  </footer>
-</div>
+  </div>
 
+  <div class="bottom-section">
+    <div class="footer-content-wrapper">
+      <div class="site-details">
+        <nav class="legal-notices" aria-label="Legal">
+          <ul class="legal-links">
+            <li class="list-item">
+              <a href="/privacy">Privacy Policy</a>
+            </li>
+            <li class="list-item">
+              <a href="/tos">Terms of Service</a>
+            </li>
+            <li class="list-item">
+              <a href="#">FINTECH Circle</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,120 @@
+$intive-width: 300px;
+
+.view-howitworks.not-signedin .content, .wrapper-header header.primary {
+    max-width: 1140px;
+}
+
+.btn-normalize {
+    font-weight: normal;
+    color: #fff !important;
+    margin-left: 10px;
+}
+
+footer#footer-edx-v3 {
+    &.footer-main {
+        //background: url("../images/footer-background.png") top left repeat!important;
+        background: none;
+        padding: 0;
+        border-top: 0 none;
+        .top-section {
+            padding: 15px 15px 10px 15px;
+            background-color: #f7f7f7;
+            margin-top: 40px;
+        }
+        .bottom-section {
+            padding: 1px 15px;
+            background-color: #9b9b9b;
+        }
+        .footer-content-wrapper {
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+            .site-details {
+                width: 100%;
+                nav {
+                    margin: 20px 0;
+                    &.site-nav {
+                        ul {
+                            li {
+                                margin-right: 54px;
+                                display: inline-block;
+                                @media #{$screen-xs} {
+                                    margin-right: 15px;
+                                }
+                                a, a:visited {
+                                    font-family: 'Open Sans';
+                                    font-size: 12px;
+                                    line-height: 17px;
+                                    letter-spacing: 1.2px;
+                                    text-align: left;
+                                    color: #4a4a4a;
+                                    text-transform: uppercase;
+                                }
+                            }
+                        }
+                    }
+                    &.legal-notices {
+                        margin: 15px 0;
+                        ul {
+                            li {
+                                margin-right: 34px;
+                                display: inline-block;
+                                @media #{$screen-xs} {
+                                    margin-right: 15px;
+                                }
+                                a, a:visited {
+                                    font-family: 'Open Sans';
+                                    font-size: 10px;
+                                    line-height: 14px;
+                                    text-align: left;
+                                    color: #ffffff;
+                                    letter-spacing: 1px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .logo-section {
+                    float: left;
+                    width: 100%;
+                    margin-bottom: 25px;
+                    .footer-logo {
+                        margin: 0;
+                        width: auto;
+                        height: auto;
+                    }
+                    .openedx-link {
+                        margin: 0;
+                        width: auto;
+                        height: auto;
+                    }
+                    .footer-logo, .openedx-link {
+                        a {
+                            img {
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+                p {
+                    margin: 0 0 10px 0;
+                    font-family: 'Open Sans';
+                    font-size: 8px;
+                    line-height: 11px;
+                    text-align: left;
+                    color: #4a4a4a;
+                    letter-spacing: 1.2px;
+                    a {
+                        font-family: 'Open Sans';
+                        font-size: 8px;
+                        line-height: 11px;
+                        text-align: left;
+                        color: #4a4a4a;
+                        letter-spacing: 1.2px;
+                    }
+                }
+            }
+        }
+    }
+}
