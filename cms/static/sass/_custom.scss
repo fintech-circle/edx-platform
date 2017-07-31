@@ -10,6 +10,12 @@ $intive-width: 300px;
     margin-left: 10px;
 }
 
+.notice-incontext {
+    box-shadow: none;
+    border: 1px solid #9b9b9b;
+    background: none;
+}
+
 footer#footer-edx-v3 {
     &.footer-main {
         //background: url("../images/footer-background.png") top left repeat!important;
