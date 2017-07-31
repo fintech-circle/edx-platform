@@ -28,7 +28,7 @@ from openedx.core.djangolib.markup import HTML, Text
       <ul>
         <li class="nav-item">
           % if course_creator_status=='granted':
-          <a href="#" class="btn-neutral btn-register btn-orange"><span class="icon fa fa-plus icon-inline" aria-hidden="true"></span>
+          <a href="#" class="button new-button new-course-button"><span class="icon fa fa-plus icon-inline" aria-hidden="true"></span>
               ${_("New Course")}</a>
           % elif course_creator_status=='disallowed_for_this_site' and settings.FEATURES.get('STUDIO_REQUEST_EMAIL',''):
           <a href="mailto:${settings.FEATURES.get('STUDIO_REQUEST_EMAIL','')}">${_("Email staff to create course")}</a>
@@ -317,7 +317,7 @@ from openedx.core.djangolib.markup import HTML, Text
 
           <ul class="list-actions">
             <li class="action-item">
-              <a href="#" class="btn-neutral btn-register btn-orange"><span class="icon fa fa-plus icon-inline" aria-hidden="true"></span> ${_('Create Your First Course')}</a>
+              <a href="#" class="action-primary action-create action-create-course new-course-button"><span class="icon fa fa-plus icon-inline" aria-hidden="true"></span> ${_('Create Your First Course')}</a>
             </li>
           </ul>
         </div>
