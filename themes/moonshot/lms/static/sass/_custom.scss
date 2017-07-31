@@ -901,6 +901,7 @@ body {
 }
 
 #content.content-wrapper {
+    margin-top: 40px;
     max-width: 1140px;
     .container {
         h1 {
@@ -913,6 +914,8 @@ body {
         }
     }
 }
+
+
 
 .section-quote {
     background: #f7f7f7 url("../images/quote.png") 45% 20% no-repeat;
