@@ -85,12 +85,12 @@ define(['js/views/validation', 'codemirror', 'underscore', 'jquery', 'jquery.ui'
                    this.$el.find('#' + this.fieldToSelectorMap['overview']).val(this.model.get('overview'));
                    this.codeMirrorize(null, $('#course-overview')[0]);
 
-                   this.$el.find('#' + this.fieldToSelectorMap.display_name).val(this.model.get('display_name'));
                    this.$el.find('#' + this.fieldToSelectorMap.subtitle).val(this.model.get('subtitle'));
                    this.$el.find('#' + this.fieldToSelectorMap.duration).val(this.model.get('duration'));
                    this.$el.find('#' + this.fieldToSelectorMap.description).val(this.model.get('description'));
 
                    this.$el.find('#' + this.fieldToSelectorMap['short_description']).val(this.model.get('short_description'));
+                   this.$el.find('#' + this.fieldToSelectorMap['display_name']).val(this.model.get('display_name'));
 
                    this.$el.find('.current-course-introduction-video iframe').attr('src', this.model.videosourceSample());
                    this.$el.find('#' + this.fieldToSelectorMap['intro_video']).val(this.model.get('intro_video') || '');
