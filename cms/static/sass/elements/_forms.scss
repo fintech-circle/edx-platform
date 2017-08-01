@@ -454,7 +454,7 @@ input.search {
   @include box-sizing(border-box);
   border: 1px solid $darkGrey;
   border-radius: 20px;
-  background: url('#{$static-path}/images/search-icon.png') no-repeat 8px 7px #edf1f5;
+  background: url('#{$static-path}/images/search-icon.png') no-repeat 8px 7px #f7f7f7;
   font-family: 'Open Sans', sans-serif;
   color: $baseFontColor;
   outline: 0;
@@ -487,6 +487,6 @@ code {
   padding: 10px;
   @include box-sizing(border-box);
   border: 1px solid $mediumGrey;
-  background-color:  #edf1f5;
+  background-color:  #f7f7f7;
   font-family: Monaco, monospace;
 }
