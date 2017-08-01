@@ -206,7 +206,7 @@
       <li class="course-settings-learning-fields"></li>
     </ol>
     <div class="actions">
-      <button type="button" class="action action-primary button new-button add-course-learning-info">
+      <button type="button" class="action action-primary button new-button add-course-learning-info new-course-button">
         <span class="icon fa fa-plus icon-inline" aria-hidden="true"></span>Add Learning Outcome
       </button>
     </div>
@@ -221,7 +221,7 @@
     <li class="course-instructor-details-fields"></li>
   </ol>
   <div class="actions">
-    <button type="button" class="action action-primary button new-button add-course-instructor-info">
+    <button type="button" class="action action-primary button new-button add-course-instructor-info new-course-button">
       <span class="icon fa fa-plus icon-inline" aria-hidden="true"></span>Add Instructor
     </button>
   </div>
