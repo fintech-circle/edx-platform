@@ -33,9 +33,22 @@ form-create .list-input .field input, .form-create .list-input .field textarea {
     background: none;
 }
 
+
+
+.wrapper-mast .mast.has-actions .page-header {
+    width: 42.93617%;
+}
+
+.wrapper-mast .mast.has-actions .nav-actions  {
+    width: 53.93617%;
+}
+
 .info-course-new {
     max-width: 1140px;
     margin: 0 auto; 
+    font-size: 15px;
+    padding-top: 20px;
+    text-decoration: none;
     .course-title {
         color: #000;
     }
