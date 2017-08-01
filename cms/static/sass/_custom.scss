@@ -29,12 +29,18 @@ $intive-width: 300px;
     margin-top:5px;
 }
 
+form-create .list-input .field input, .form-create .list-input .field textarea {
+    background: none;
+}
+
 
 .new-course-button {
     padding: 14px 25px !important;
     border-radius: 30px !important;
     background-color: #fd7400 !important;
     border: none !important;
+    box-shadow: none !important;
+    background-image: none !important;
 }
 
 .new-course-button-gray {
@@ -43,6 +49,8 @@ $intive-width: 300px;
     background-color: #f3f3f3 !important;
     color: #000 !important;
     border: none !important;
+    box-shadow: none !important;
+    background-image: none !important;
 }
 
 
