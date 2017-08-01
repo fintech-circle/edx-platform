@@ -327,7 +327,9 @@
 %no-content {
   @extend %ui-well;
   padding: ($baseline*2);
-  background-color: $gray-l4;
+  background-color: none;
+  box-shadow: none !important;
+  border: 1px solid #b5b1b1;
   text-align: center;
   color: $gray;
 
