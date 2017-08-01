@@ -51,6 +51,10 @@ form-create .list-input .field input, .form-create .list-input .field textarea {
     border: none !important;
     box-shadow: none !important;
     background-image: none !important;
+    label {
+        color: #000 !important;
+        font-size: 1.4rem !important;
+    }
 }
 
 
