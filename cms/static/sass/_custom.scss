@@ -33,6 +33,15 @@ form-create .list-input .field input, .form-create .list-input .field textarea {
     background: none;
 }
 
+.info-course-new {
+    max-width: 1140px;
+    margin: 0 auto; 
+    .course-title {
+        color: #000;
+    }
+
+}
+
 
 .new-course-button {
     padding: 14px 25px !important;
@@ -51,7 +60,7 @@ form-create .list-input .field input, .form-create .list-input .field textarea {
     border: none !important;
     box-shadow: none !important;
     background-image: none !important;
-    label {
+    .label {
         color: #000 !important;
         font-size: 1.4rem !important;
     }
