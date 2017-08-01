@@ -7,14 +7,33 @@
   from openedx.core.djangoapps.lang_pref.api import header_language_selector_is_enabled, released_languages
 %>
 <div class="wrapper-header wrapper" id="view-top">
-  <header class="primary" role="banner">
+  <header role="banner" class="primary header-global">
 
-    <div class="wrapper wrapper-l">
+    <div class="wrapper wrapper-l wrapper-header-new">
       <h1 class="branding">
         <a class="brand-link" href="/">
           <img class="brand-image" src="${static.url('images/ftci-logo-black.png')}" alt="${settings.STUDIO_NAME}" />
         </a>
       </h1>
+
+      <ol class="list-inline nav-global">
+        
+            <li class="item nav-global-01">
+              <a href="https://institute.fintechcircle.com/courses">Courses</a>
+            </li>
+            <li class="item nav-global-02">
+              <a href="https://institute.fintechcircle.com/about">About</a>
+            </li>
+            <li class="item nav-global-03">
+              <a href="https://institute.fintechcircle.com/lecturers">Lecturers</a>
+            </li>
+            <li class="item nav-global-04">
+              <a href="https://institute.fintechcircle.com/contact">Contact</a>
+            </li>
+            
+            
+        
+      </ol>
 
       % if context_course:
       <%

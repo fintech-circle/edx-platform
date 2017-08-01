@@ -16,6 +16,20 @@ $intive-width: 300px;
     background: none;
 }
 
+.nav-global {
+    display: flex;
+    z-index: 2;
+    position: relative;
+    margin-top: 13px;
+    margin-left: 30px !important;
+}
+
+
+.nav-not-signedin {
+    margin-top:5px;
+}
+
+
 .new-course-button {
     padding: 14px 25px !important;
     border-radius: 30px !important;
@@ -23,6 +37,35 @@ $intive-width: 300px;
     border: none !important;
 }
 
+
+.header-global .wrapper-header-new .list-inline .item {
+    font-weight: 600;
+    display: inline-block;
+    font-size: 0.875em;
+    text-transform: uppercase;
+}
+
+.header-global .wrapper-header-new ol.list-inline li a {
+    margin: 0;
+    padding: 13px 15px;
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-align: left;
+    background: 0 none;
+    border: 0 none;
+    color: #000000;
+    
+}
+
+.wrapper-header-new {
+    max-width: 1140px;
+    height: auto;
+    padding: 0;
+    width: auto;
+    display: flex;
+}
 
 footer#footer-edx-v3 {
     &.footer-main {
