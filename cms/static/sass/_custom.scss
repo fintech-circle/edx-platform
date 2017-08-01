@@ -37,6 +37,21 @@ form-create .list-input .field input, .form-create .list-input .field textarea {
     background: none;
 }
 
+.navigation-new {
+    margin: 0;
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-align: left;
+    background: 0 none;
+    border: 0 none;
+    color: #000000;
+    text-transform: uppercase;
+    display: flex;
+    position: relative;
+    top: 9px;
+}
 
 
 .wrapper-mast .mast.has-actions .page-header {
