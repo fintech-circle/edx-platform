@@ -266,7 +266,7 @@ if (is_proctored_exam) {
             <% if (childType) { %>
             <% if (xblockInfo.isChildAddable()) { %>
                 <div class="add-<%- childType %> add-item">
-                    <a href="#" class="button button-new" data-category="<%- childCategory %>"
+                    <a href="#" class="button button-new button view-button view-live-button new-course-button-gray" data-category="<%- childCategory %>"
                        data-parent="<%- xblockInfo.get('id') %>" data-default-name="<%- defaultNewChildName %>"
                        title="<%- interpolate(
                              gettext('Click to add a new %(xblock_type)s'), { xblock_type: defaultNewChildName }, true
