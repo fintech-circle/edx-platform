@@ -54,13 +54,7 @@
             if settings.FEATURES.get("CERTIFICATES_HTML_VIEW") and context_course.cert_html_view_enabled:
                 certificates_url = reverse('contentstore.views.certificates.certificates_list_handler', kwargs={'course_key_string': unicode(course_key)})
       %>
-      <h2 class="info-course">
-        <span class="sr">${_("Current Course:")}</span>
-        <a class="course-link" href="${index_url}">
-          <span class="course-org">${context_course.display_org_with_default}</span>
-          <span class="course-title" title="${context_course.display_name_with_default}">${context_course.display_name_with_default}</span>
-        </a>
-      </h2>
+ 
 
       <nav class="nav-course nav-dd ui-left" aria-label="${_('Course')}">
         <h2 class="sr">${_("Course Navigation")}</h2>
@@ -118,7 +112,13 @@
             lib_users_url = reverse('contentstore.views.manage_library_users', kwargs={'library_key_string': unicode(library_key)})
             export_url = reverse('contentstore.views.export_handler', kwargs={'course_key_string': unicode(library_key)})
       %>
-      
+      <h2 class="info-course">
+        <span class="sr">${_("Current Library:")}</span>
+        <a class="course-link" href="${index_url}">
+          <span class="course-org">${context_library.display_org_with_default}</span><span class="course-number">${context_library.display_number_with_default}</span>
+          <span class="course-title" title="${context_library.display_name_with_default}">${context_library.display_name_with_default}</span>
+        </a>
+      </h2>
 
       <nav class="nav-course nav-dd ui-left" aria-label="${_('Course')}">
         <h2 class="sr">${_("Course Navigation")}</h2>
