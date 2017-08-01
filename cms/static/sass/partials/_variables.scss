@@ -131,7 +131,7 @@ $pink-u1: desaturate($pink,15%) !default;
 $pink-u2: desaturate($pink,30%) !default;
 $pink-u3: desaturate($pink,45%) !default;
 
-$red: rgb(178, 6, 16) !default;  // #b20610;
+$red: #fd7400 !default;  // #b20610;
 $red-l1: tint($red,20%) !default;
 $red-l2: tint($red,40%) !default;
 $red-l3: tint($red,60%) !default;
@@ -264,7 +264,7 @@ $disabledGreen: rgb(124, 206, 153) !default;
 $darkGreen: rgb(52, 133, 76) !default;
 $lightBluishGrey: rgb(197, 207, 223) !default;
 $lightBluishGrey2: rgb(213, 220, 228) !default;
-$error-red: rgb(253, 87, 87) !default;
+$error-red: #fd7400 !default;
 
 
 //carryover from LMS for xmodules

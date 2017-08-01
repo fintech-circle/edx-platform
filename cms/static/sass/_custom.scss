@@ -25,7 +25,7 @@ $intive-width: 300px;
 }
 
 
-.nav-not-signedin {
+.nav-not-signedin, .nav-signedin {
     margin-top:5px;
 }
 
@@ -36,6 +36,15 @@ $intive-width: 300px;
     background-color: #fd7400 !important;
     border: none !important;
 }
+
+.new-course-button-gray {
+    padding: 14px 25px !important;
+    border-radius: 30px !important;
+    background-color: #f3f3f3 !important;
+    color: #000;
+    border: none !important;
+}
+
 
 
 .header-global .wrapper-header-new .list-inline .item {
@@ -62,7 +71,7 @@ $intive-width: 300px;
 .wrapper-header-new {
     max-width: 1140px;
     height: auto;
-    padding: 0;
+    padding: 0 0 15px 0px;
     width: auto;
     display: flex;
 }

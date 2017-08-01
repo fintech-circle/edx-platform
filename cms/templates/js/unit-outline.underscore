@@ -15,7 +15,7 @@
             </ol>
             <% if (childType) { %>
                 <div class="add-<%= childType %> add-item">
-                    <a href="#" class="button button-new" data-category="<%= childCategory %>"
+                    <a href="#" class="button button-new new-course-button" data-category="<%= childCategory %>"
                        data-parent="<%= xblockInfo.get('id') %>" data-default-name="<%= defaultNewChildName %>">
                         <span class="icon fa fa-plus" aria-hidden="true"></span><%= addChildLabel %>
                     </a>

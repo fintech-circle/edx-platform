@@ -17,12 +17,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="button button-new" data-category="chapter" data-parent="mock-course" data-default-name="Section" title="Click to add a new section">
+                        <a href="#" class="button button-new new-course-button" data-category="chapter" data-parent="mock-course" data-default-name="Section" title="Click to add a new section">
                             <span class="icon fa fa-plus" aria-hidden="true"></span>New Section
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a title="Reindex current course" data-category="reindex" class="button button-reindex" href="#">
+                        <a title="Reindex current course" data-category="reindex" class="button button-reindex new-course-button-gray" href="#">
                             <span class="icon-arrow-right" aria-hidden="true"></span>Reindex
                         </a>
                     </li>
@@ -41,7 +41,7 @@
                     <article class="outline outline-course" data-locator="mock-course" data-course-key="slashes:MockCourse">
                         <div class="no-content add-xblock-component">
                             <p>You haven't added any content to this course yet.
-                                <a href="#" class="button button-new" data-category="chapter" data-parent="mock-course" data-default-name="Section" title="Click to add a new section">
+                                <a href="#" class="button button-new new-course-button" data-category="chapter" data-parent="mock-course" data-default-name="Section" title="Click to add a new section">
                                     <span class="icon fa fa-plus" aria-hidden="true"></span>Add Section
                                 </a>
                             </p>
