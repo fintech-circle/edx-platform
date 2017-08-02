@@ -1,0 +1,78 @@
+<%!
+  import json
+  from django.utils.translation import ugettext as _
+  from openedx.core.djangolib.js_utils import dump_js_escaped_json
+%>
+<%inherit file="../main.html" />
+<%
+  course_discovery_enabled = settings.FEATURES.get('ENABLE_COURSE_DISCOVERY')
+%>
+
+<%namespace name='static' file='../static_content.html'/>
+
+% if course_discovery_enabled:
+<%block name="header_extras">
+  % for template_name in ["course_card", "filter_bar", "filter", "facet", "facet_option"]:
+  <script type="text/template" id="${template_name}-tpl">
+      <%static:include path="discovery/${template_name}.underscore" />
+  </script>
+  % endfor
+  <%static:require_module module_name="js/discovery/discovery_factory" class_name="DiscoveryFactory">
+    DiscoveryFactory(
+      ${course_discovery_meanings | n, dump_js_escaped_json},
+      getParameterByName('search_query'),
+      "${user_language}",
+      "${user_timezone}"
+    );
+  </%static:require_module>
+</%block>
+% endif
+
+<%block name="pagetitle">${_("Courses")}</%block>
+
+<section class="container categories ms-categories" id="categories-main">
+
+  <section class="find-courses-button">
+    <p class="button-wrapper">
+      <a href="#">${_("FIND COURSES")}</a>
+    </p>
+  </section>
+
+  <main id="main" aria-label="Content" tabindex="-1">
+
+  <section class="find-courses" id="my-categories">
+    <header class="wrapper-header-categories">
+      <h2 class="header-categories">Categories</h2>
+    </header>
+
+    <ul id="category-tabs" class="nav nav-tabs category-tabs">
+      <li class="category-tab first-tab active">
+          <a href="#">Fintech General</a>
+      </li>
+      <li class="category-tab"><a href="#">InsurTECH</a></li>
+      <li class="category-tab"><a href="#">WealthTECH</a></li>
+      <li class="category-tab"><a href="#">InsurTECH</a></li>
+      <li class="category-tab last-tab"><a href="#">RegTECH</a></li>
+    </ul>
+
+    <section class="courses-container">
+      <div class="courses">
+        <ul class="courses-listing">
+        </ul>
+      </div>
+    </section>
+  </section>
+  <!-- <section class="my-categories" id="my-categories">
+    <header class="wrapper-header-categories">
+      <h2 class="header-categories">All Categories</h2>
+    </header>
+      <div class="section-tag categories-tabs">
+        <ul>
+            % for index, tag in enumerate(tag_list):
+                <li><a href="${EDX_ROOT_URL}/courses?search_query=${tag}" title="">${tag}</a></li>
+            % endfor
+        </ul>
+      </div>
+  </section> -->
+  </main>
+</section>

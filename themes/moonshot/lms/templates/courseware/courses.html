@@ -1,0 +1,59 @@
+
+<%page expression_filter="h"/>
+<%inherit file="../main.html" />
+<%namespace name='static' file='../static_content.html'/>
+
+<%block name="pagetitle">"Categories"</%block>
+
+<%!
+from django.utils.translation import ugettext as _
+%>
+
+<%block name="header_extras">
+  % for template_name in ["course_card", "filter_bar", "filter", "facet", "facet_option"]:
+  <script type="text/template" id="${template_name}-tpl">
+      <%static:include path="discovery/${template_name}.underscore" />
+  </script>
+  % endfor
+  <%static:require_module module_name="js/categories/category_factory" class_name="CategoryFactory">
+    CategoryFactory(
+      "${user_language}",
+      "${user_timezone}"
+    );
+  </%static:require_module>
+</%block>
+
+<section class="container categories ms-categories" id="categories-main">
+
+  <section class="find-courses-button">
+    <p class="button-wrapper">
+      <a href="#">${_("FIND COURSES")}</a>
+    </p>
+  </section>
+
+  <main id="main" aria-label="Content" tabindex="-1">
+
+  <section class="find-courses" id="my-categories">
+    <header class="wrapper-header-categories">
+      <h2 class="header-categories">Categories</h2>
+    </header>
+
+    <ul id="category-tabs" class="nav nav-tabs category-tabs">
+      <li class="category-tab first-tab active">
+          <a href="#">Fintech General</a>
+      </li>
+      <li class="category-tab"><a href="#">InsurTECH</a></li>
+      <li class="category-tab"><a href="#">WealthTECH</a></li>
+      <li class="category-tab"><a href="#">InsurTECH</a></li>
+      <li class="category-tab last-tab"><a href="#">RegTECH</a></li>
+    </ul>
+
+    <section class="courses-container">
+      <div class="courses">
+        <ul class="courses-listing">
+        </ul>
+      </div>
+    </section>
+  </section>
+  </main>
+</section>
