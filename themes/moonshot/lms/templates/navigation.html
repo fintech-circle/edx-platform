@@ -152,17 +152,3 @@ site_status_msg = get_site_status_msg(course_id)
 <%include file="help_modal.html"/>
 
 
-
-% if course:
-          <div class="course-header">
-            <span class="provider">${course.display_org_with_default}:</span>
-            <%
-            display_name = course.display_name_with_default
-            if settings.FEATURES.get('CUSTOM_COURSES_EDX', False):
-              ccx = get_current_ccx(course.id)
-              if ccx:
-                display_name = ccx.display_name
-            %>
-            <span class="course-name">${display_name}</span>
-          </div>
-        % endif
