@@ -26,6 +26,15 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.container-no-paddig {
+    border: none !important;
+    padding: 0px !important;
+}
+
+body.view-in-course .header-global, body.view-in-course .header-global.slim {
+    width: 100%;
+}
+
 #content.content-wrapper {
     margin-top: 40px;
 }

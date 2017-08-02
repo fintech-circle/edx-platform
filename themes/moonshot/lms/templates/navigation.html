@@ -46,7 +46,7 @@ site_status_msg = get_site_status_msg(course_id)
 </div>
 % endif
 </%block>
-  <header id="global-navigation" class="header-global ${"slim" if course else ""}" >
+  <header id="global-navigation" class="header-global" >
     <nav class="wrapper-header" aria-label="${_('Global')}">
       <h1 class="hd logo-header">
         <div class="logo">
@@ -56,20 +56,6 @@ site_status_msg = get_site_status_msg(course_id)
             </%block>-->
           </a>
         </div>
-
-        % if course:
-          <div class="course-header">
-            <span class="provider">${course.display_org_with_default}:</span>
-            <%
-            display_name = course.display_name_with_default
-            if settings.FEATURES.get('CUSTOM_COURSES_EDX', False):
-              ccx = get_current_ccx(course.id)
-              if ccx:
-                display_name = ccx.display_name
-            %>
-            <span class="course-name">${display_name}</span>
-          </div>
-        % endif
       </h1>
 
       <ol class="list-inline nav-global">
@@ -162,4 +148,19 @@ site_status_msg = get_site_status_msg(course_id)
 <![endif]-->
 % endif
 
+% if course:
+          <div class="course-header">
+            <span class="provider">${course.display_org_with_default}:</span>
+            <%
+            display_name = course.display_name_with_default
+            if settings.FEATURES.get('CUSTOM_COURSES_EDX', False):
+              ccx = get_current_ccx(course.id)
+              if ccx:
+                display_name = ccx.display_name
+            %>
+            <span class="course-name">${display_name}</span>
+          </div>
+        % endif
+
+        
 <%include file="help_modal.html"/>
