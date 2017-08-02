@@ -237,11 +237,6 @@ CMS.URL.UPLOAD_ASSET = '${upload_asset_url | n, js_escaped_string}'
               <ol class="list-input">
 
                 % if enable_extended_course_details:
-                <li class="field text" id="field-course-display-name">
-                  <label for="course-display-name">${_("Course Display Name")}</label>
-                  <input type="text" id="course-display-name">
-                  <span class="tip tip-stacked">${_("Displayed as title on the course details page. Limit to 50 characters.")}</span>
-                </li>
                 <li class="field text" id="field-course-effort">
                   <label for="course-effort">${_("Course Duration")}</label>
                   <input type="text" class="short time" id="course-effort" placeholder="HH:MM" />

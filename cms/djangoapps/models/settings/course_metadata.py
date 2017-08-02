@@ -65,6 +65,8 @@ class CourseMetadata(object):
         """
         Filter fields based on feature flag, i.e. enabled, disabled.
         """
+        # We can only show display name in this tab
+        """
         # Copy the filtered list to avoid permanently changing the class attribute.
         filtered_list = list(cls.FILTERED_LIST)
 
@@ -103,6 +105,9 @@ class CourseMetadata(object):
             filtered_list.append('allow_unsupported_xblocks')
 
         return filtered_list
+        """
+        allowed_list = ['display_name']
+        return allowed_list
 
     @classmethod
     def fetch(cls, descriptor):
@@ -113,7 +118,7 @@ class CourseMetadata(object):
         result = {}
         metadata = cls.fetch_all(descriptor)
         for key, value in metadata.iteritems():
-            if key in cls.filtered_list():
+            if key not in cls.filtered_list():
                 continue
             result[key] = value
         return result
@@ -145,14 +150,14 @@ class CourseMetadata(object):
         filtered_list = cls.filtered_list()
         # Don't filter on the tab attribute if filter_tabs is False.
         if not filter_tabs:
-            filtered_list.remove("tabs")
+            filtered_list.append("tabs")
 
         # Validate the values before actually setting them.
         key_values = {}
 
         for key, model in jsondict.iteritems():
             # should it be an error if one of the filtered list items is in the payload?
-            if key in filtered_list:
+            if key not in filtered_list:
                 continue
             try:
                 val = model['value']
@@ -180,9 +185,9 @@ class CourseMetadata(object):
         """
         filtered_list = cls.filtered_list()
         if not filter_tabs:
-            filtered_list.remove("tabs")
+            filtered_list.append("tabs")
 
-        filtered_dict = dict((k, v) for k, v in jsondict.iteritems() if k not in filtered_list)
+        filtered_dict = dict((k, v) for k, v in jsondict.iteritems() if k in filtered_list)
         did_validate = True
         errors = []
         key_values = {}
