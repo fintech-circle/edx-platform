@@ -30,8 +30,12 @@ body {
     margin-top: 40px;
 }
 
+.my-new-container {
+    padding-top: 0px;
+}
+
 .category-tab a, .category-tab a:link, .category-tab a:visited {
-    color: #555;
+    color: #555 !important;
 }
 
 .btn-orange {
