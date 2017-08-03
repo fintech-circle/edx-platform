@@ -107,6 +107,346 @@ form-create .list-input .field input, .form-create .list-input .field textarea, 
     }
 }
 
+.center-btn {
+    width: 250px;
+    display: block;
+    top: -88px !important;
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    text-transform: uppercase;
+    &:hover {
+        color: #fff;
+    }
+}
+
+.header-rest {
+    display: block;
+}
+
+.header-main {
+    display: none;
+}
+
+ .banner-main-page {
+        display: none;
+    }
+
+.view-howitworks {
+
+
+
+   .header-rest {
+        display: none;
+    }
+
+    .header-main {
+        display: block;
+    }
+
+    .banner-main-page {
+        display: block;
+    }
+
+header {
+
+    .action-signin {
+        margin: 0;
+        padding: 13px 15px;
+        font-family: 'Open Sans';
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+        text-align: left;
+        color: #ffffff !important;
+        text-transform: uppercase;
+    }
+    .nav-not-signedin {
+        position: absolute;
+        right: 5px;
+        top:-5px;
+        font-family: 'Open Sans';
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+        text-align: left;
+        color: #ffffff;
+    }
+    height: auto;
+    &.header-global {
+        position: absolute;
+        z-index: 1;
+        background: 0 none;
+        border: 0 none;
+        box-shadow: none;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6); /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(#000000, rgba(0, 0, 0, 0)); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#000000, rgba(0, 0, 0, 0)); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#000000, rgba(0, 0, 0, 0)); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#000000, rgba(0, 0, 0, 0)); /* Standard syntax */
+        padding: 20px 15px 15px 15px;
+        @media #{$screen-xs} {
+            position: relative;
+            height: auto;
+            padding: 10px 15px 10px 15px;
+        }
+        .wrapper-header {
+            max-width: 1140px;
+            height: auto;
+            background: none !important;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            width: auto;
+            .logo {
+                margin: 0 20px 0 0;
+                padding: 0;
+                a {
+                    display: block;
+                    width: 149px;
+                    height: 40px;
+                    background: url("../images/finetech-logo-white.png") 0 0 no-repeat;
+                }
+            }
+            ol {
+                margin-top: 10px !important;
+                margin-left: 0px !important;
+                &.left {
+                    float: right;
+                    &.authenticated {
+                        float: left;
+                    }
+                }
+                &.list-inline {
+                    margin: 0;
+                    padding: 0;
+                    &.nav-global, &.nav-courseware {
+                        margin: 0;
+                        padding: 0;
+                    }
+                    li {
+                        margin :0;
+                        margin-right: 4px solid !important;
+                        text-transform: uppercase;
+                        a {
+                            margin: 0;
+                            padding: 13px 15px;
+                            font-family: 'Open Sans';
+                            font-size: 12px;
+                            font-weight: 600;
+                            letter-spacing: 1.2px;
+                            text-align: left;
+                            color: #ffffff;
+                            background: 0 none;
+                            border: 0 none;
+                            &:hover {
+                                background: 0 none;
+                                box-shadow: none;
+                                border: 0 none;
+                            }
+                            &.btn-login, &.btn-register {
+                                background: 0 none;
+                                box-shadow: none;
+                                border: 0 none;
+                            }
+                            &.btn-orange {
+                                padding: 14px 25px;
+                                border-radius: 30px;
+                                background-color: #fd7400;
+                                @media #{$screen-xxs} {
+                                    padding: 14px 10px;
+                                }
+                            }
+                            @media #{$screen-xxs} {
+                                padding: 14px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+            .course-search {
+                float: left;
+                display: inline-block;
+                @media #{$screen-xs} {
+                    clear: both;
+                    padding: 10px 0 0;
+                }
+                .form-inline {
+                    border-radius: 30px;
+                    background-color: rgba(245, 245, 245, 0.8);
+                    .form-group {
+                        display: inline-block !important;
+                        margin-bottom: 0 !important;
+                        vertical-align: middle !important;
+                        input {
+                            background: 0 none;
+                            box-shadow: none;
+                            border: 0 none;
+                            height: 40px;
+
+                            font-family: 'Open Sans';
+                            font-size: 12px;
+                            font-weight: 600;
+                            letter-spacing: 1.2px;
+                            text-align: left;
+                            color: #4a4a4a;
+                            font-style: normal;
+                        }
+                    }
+                    button {
+                        &.search-button {
+                            background: 0 none;
+                            box-shadow: none;
+                            border: 0 none;
+                            &:hover {
+                                background: 0 none;
+                                box-shadow: none;
+                                border: 0 none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.banner-main-page {
+    position: relative;
+    .background {
+        width: 100%;
+        min-height: 400px;
+        //background-color: rgba(0, 0, 0, 0);
+        //background-image: linear-gradient(180deg, #32325c, rgba(34, 52, 99, 0)), url("/public/img/hero-background_v2.jpg");
+        background-size: cover;
+        background-position: center 0;
+        background-repeat: no-repeat;
+        @media #{$screen-sm} {
+            background-position: 75% 0;
+        }
+        &.first {
+            background-image: url("../images/become_lecturer.jpg");
+        }
+        &.second {
+            background-image: url("../images/banner_become_enterprenour.jpg");
+        }
+        &.third {
+            background-image: url("../images/banner_future_finance.jpg");
+        }
+    }
+    img {
+        opacity: 0.9;
+        margin: 0 auto;
+    }
+    .carousel-indicators {
+        text-align: right;
+        li {
+            border: 1px solid #fff;
+            margin: 1px;
+        }
+    }
+    .carousel-caption {
+        left: 25%;
+        right: 25%;
+        bottom: 28%;
+        text-align: center;
+        text-shadow: none;
+        @media #{$screen-md} {
+            left: 15%;
+            right: 15%;
+            bottom: 12%;
+        }
+        @media #{$screen-sm} {
+            left: 7%;
+            right: 7%;
+            bottom: 3%;
+        }
+        @media #{$screen-xs} {
+            left: 5%;
+            right: 5%;
+            bottom: 15%;
+        }
+        @media #{$screen-xxs} {
+            left: 5%;
+            right: 5%;
+            bottom: 30%;
+        }
+        h2 {
+            margin-bottom: 30px;
+            font-family: 'Open Sans';
+            font-size: 52px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-align: center;
+            color: #ffffff;
+            @media #{$screen-sm} {
+                margin-bottom: 20px;
+                font-size: 36px;
+            }
+            @media #{$screen-xs} {
+                margin-bottom: 20px;
+            }
+            @media #{$screen-xs} {
+                margin-bottom: 10px;
+                font-size: 36px;
+            }
+            @media #{$screen-xxs} {
+                margin-bottom: 10px;
+                font-size: 20px;
+            }
+            span {
+                border-bottom: 4px solid #fd7400;
+                font-size: 52px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                text-align: left;
+                color: #ffffff;
+                @media #{$screen-xs} {
+                    font-size: 36px;
+                }
+                @media #{$screen-xxs} {
+                    font-size: 20px;
+                }
+            }
+        }
+        span {
+            font-family: 'Open Sans';
+            font-size: 20px;
+            letter-spacing: 1px;
+            text-align: left;
+            color: #ffffff;
+            @media #{$screen-xs} {
+                font-size: 12px;
+            }
+        }
+    }
+    .btn-orange {
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 16px 15px;
+        border-radius: 60px;
+        background-color: #fd7400;
+        font-family: 'Open Sans';
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: bold;
+        letter-spacing: 1.2px;
+        text-align: center;
+        color: #ffffff;
+        text-transform: uppercase;
+        border: 0 none;
+        &:hover {
+            color: #ffffff;
+            border: 0 none;
+        }
+    }
+}
+
+}
 
 
 .header-global .wrapper-header-new .list-inline .item {

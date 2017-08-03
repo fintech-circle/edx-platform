@@ -15,6 +15,9 @@
 
 <div class="wrapper-content-features wrapper">
   <section class="content content-features">
+
+    <a href="${reverse('signup')}" class="center-btn action action-primary btn-orange">${_("Register").format(platform_name=settings.PLATFORM_NAME)}</a>
+ 
     <header>
       <h2 class="sr">${_("{studio_name}'s Many Features").format(studio_name=settings.STUDIO_SHORT_NAME)}</h2>
     </header>
@@ -83,14 +86,6 @@
 
       </li>
     </ol>
-  </section>
-</div>
-
-<div class="wrapper-content-cta wrapper">
-  <section class="content content-cta text-center">
-    <h2 class="text-center">Create your Course for the FINTECH Circle Institute</h2>
-    <div class="claerfix"></div>
-    <a href="${reverse('signup')}" class="action action-primary btn-orange">${_("Register").format(platform_name=settings.PLATFORM_NAME)}</a>
   </section>
 </div>
 

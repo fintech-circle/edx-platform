@@ -6,7 +6,7 @@
   from django.utils.translation import ugettext as _
   from openedx.core.djangoapps.lang_pref.api import header_language_selector_is_enabled, released_languages
 %>
-<div class="wrapper-header wrapper" id="view-top">
+<div class="wrapper-header wrapper header-rest" id="view-top">
   <header role="banner" class="primary header-global">
 
     <div class="wrapper wrapper-l wrapper-header-new">
@@ -214,6 +214,51 @@
   </header>
 </div>
 
+<header id="global-navigation" class="header-global header-main" >
+    <nav class="wrapper-header" aria-label="${_('Global')}">
+      <h1 class="hd logo-header">
+        <div class="logo">
+          <a href="${marketing_link('ROOT')}">
+          </a>
+        </div>
+      </h1>
+      
+       <ol class="list-inline nav-global">
+        
+            <li class="item nav-global-01">
+              <a href="https://institute.fintechcircle.com/courses">Courses</a>
+            </li>
+            <li class="item nav-global-02">
+              <a href="https://institute.fintechcircle.com/about">About</a>
+            </li>
+            <li class="item nav-global-03">
+              <a href="https://institute.fintechcircle.com/lecturers">Lecturers</a>
+            </li>
+            <li class="item nav-global-04">
+              <a href="https://institute.fintechcircle.com/contact">Contact</a>
+            </li>
+      </ol>
+
+       <nav class="nav-not-signedin" aria-label="${_('Account')}">
+        <h2 class="sr-only">${_("Account Navigation")}</h2>
+        <ol>
+          <li class="nav-item nav-not-signedin-signin">
+            <a class="action action-signin" href="${reverse('login')}">${_("Sign In")}</a>
+          </li>
+          % if static.get_value('ALLOW_PUBLIC_ACCOUNT_CREATION', settings.FEATURES.get('ALLOW_PUBLIC_ACCOUNT_CREATION')):
+              <li class="nav-item nav-not-signedin-signup">
+                <a class="btn-neutral btn-register btn-orange btn-normalize" href="${reverse('signup')}">${_("REGISTER")}</a>
+              </li>
+          % endif
+        </ol>
+      </nav>
+  </div>
+
+  
+  </nav>
+</header>   
+
+
 
 <div class="section-info">
   <div class="container-bs">
@@ -238,3 +283,31 @@
         </a>
       </h2>
    % endif
+
+
+  <div id="carousel-example-generic" class="carousel slide banner-main-page" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+       
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                  <!--<img src="${static.url("images/banner01.png")}" alt="...">-->
+                  <div class="background first"></div>
+                  <div class="carousel-caption">
+                      <h2>Become a <span>Lecturer</span></h2>
+                      <span class="hidden-xxs">Sign up an create your Course </span>
+                  </div>
+              </div>
+             
+          </div>
+          <!--<a href="" title="" class="btn btn-orange">Find courses</a>-->
+      </div>
+      <script type="text/javascript">
+          $('.carousel').carousel({
+              interval: 15000
+          })
+      </script>
