@@ -40,12 +40,13 @@ body {
     .course-index .accordion .course-navigation .chapter-content-container .chapter-menu .menu-item.active a {
         background: none;
         border: 1px solid #c8c8c8;
+        border-radius: none;
     }
     
     .courseware-bookmarks-button {
         width: 100%;
         margin-bottom: 10px;
-        margin-top:6px;
+        margin-top:5px;
     }
 
     .search-field-wrapper {
@@ -55,8 +56,8 @@ body {
     }
 
     .wrapper-course-material .course-tabs li a.active {
-        color: #fd7400;
-        border-bottom-color: #fd7400;
+        color: #fd7400 !important; 
+        border-bottom-color: #fd7400 !important;
     }
 
     .courseware-search-bar {
@@ -64,13 +65,18 @@ body {
     }
 
     .search-bar .search-field {
-        border:radius 30%px;
+        border:radius 30px;
         text-transform: uppercase
     }
     .search-bar .search-button {
         border-radius: 30px;
         background-color: #fd7400;
         text-transform: uppercase
+    }
+
+    .breadcrumbs {
+        font-size: 1.2rem;
+        text-transform: uppercase;
     }
 }
 
