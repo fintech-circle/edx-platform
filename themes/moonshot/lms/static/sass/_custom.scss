@@ -76,7 +76,12 @@ body {
     .search-bar .search-button {
         border-radius: 30px;
         background-color: #fd7400;
-        text-transform: uppercase
+        text-transform: uppercase;
+        &:hover {
+            border-radius: 30px;
+            background-color: #fd7400;
+            text-transform: uppercase
+        }
     }
 
     .breadcrumbs {
