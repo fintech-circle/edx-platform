@@ -39,7 +39,7 @@ body {
 
     .course-index .accordion .course-navigation .chapter-content-container .chapter-menu .menu-item.active a {
         background: none;
-        border: 1px solid;
+        border: 1px solid #c8c8c8;
     }
     
     .courseware-bookmarks-button {
@@ -61,6 +61,16 @@ body {
 
     .courseware-search-bar {
         width: 100%;
+    }
+
+    .search-bar .search-field {
+        border:radius 30%px;
+        text-transform: uppercase
+    }
+    .search-bar .search-button {
+        border-radius: 30px;
+        background-color: #fd7400;
+        text-transform: uppercase
     }
 }
 
