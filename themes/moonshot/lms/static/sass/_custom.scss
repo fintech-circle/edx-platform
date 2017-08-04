@@ -31,6 +31,11 @@ body {
     padding: 0px !important;
 }
 
+.wrapper-course-material .course-tabs li a.active {
+    color: #fd7400 !important; 
+    border-bottom-color: #fd7400 !important;
+}
+
 .courseware {
     .container {
         padding: 0px !important;
