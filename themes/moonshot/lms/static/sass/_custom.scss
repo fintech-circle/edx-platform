@@ -42,6 +42,12 @@ body {
     color: #fd7400;
 }
 
+.xmodule_display.xmodule_SequenceModule .sequence-nav button.active {
+    border-bottom: 3px solid #fd7400 !important;
+}
+
+
+
 .new-course-button {
     padding: 14px 25px !important;
     border-radius: 30px !important;
