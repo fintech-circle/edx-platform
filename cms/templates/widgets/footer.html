@@ -1,10 +1,17 @@
+## mako
+<%!
+  import datetime
+
+  from django.utils.translation import ugettext as _
+  from openedx.core.djangoapps.lang_pref.api import footer_language_selector_is_enabled
+%>
 <%namespace name='static' file='../static_content.html'/>
-<footer class="footer-main" id="footer-edx-v3" role="contentinfo" aria-label="Page Footer">
+<footer class="footer-main" id="footer-edx-v3" role="contentinfo" aria-label="${_("Page Footer")}">
   <div class="top-section">
     <div class="footer-content-wrapper">
 
       <div class="site-details">
-        <nav class="site-nav" aria-label="About edX">
+        <nav class="site-nav" aria-label="${_("About edX")}">
           <ul class="about-links">
             <li class="list-item">
               <a href="https://institute.fintechcircle.com/about">About</a>
@@ -24,13 +31,34 @@
         <div class="logo-section">
           <div class="footer-logo pull-left">
             <a href="http://fintechcircle.com/">
-              <img alt="edX Home Page" class="img-responsive" src="${static.url('images/finetech-logo-black.png')}">
+              <img alt="${_('edX Home Page')}" class="img-responsive" src="${static.url("images/finetech-logo-black.png")}">
             </a>
           </div>
+
+          ## The OpenEdX link may be hidden when this view is served
+          ## through an API to partner sites (such as marketing sites or blogs),
+          ## which are not technically powered by OpenEdX.
+          % if false:
+          <!--<div class="openedx-link pull-right">
+              <a href="${footer['openedx_link']['url']}" title="${footer['openedx_link']['title']}">
+                  <img alt="${footer['openedx_link']['title']}" src="${static.url("images/openedx.png")}" class="img-responsive">
+              </a>
+          </div>-->
+          % endif
         </div>
+
+        % if context.get('include_language_selector', footer_language_selector_is_enabled()):
+        <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
+        % endif
+        
         <div class="clearfix"></div>
-        <p class="copyright">© FINTECH Circle Institute. All rights reserved except where noted. EdX, Open edX and the edX and Open EdX logos
-          are registered trademarks or trademarks of edX Inc.
+        
+        <p class="copyright">${_(
+        u"\u00A9 2012-{year} edX Inc.  All rights reserved except where noted.  "
+        u"EdX, Open edX and the edX and Open EdX logos are registered trademarks "
+        u"or trademarks of edX Inc."
+        ).format(year=datetime.datetime.now().year)}
+        ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}
         </p>
       </div>
     </div>
