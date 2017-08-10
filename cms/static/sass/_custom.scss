@@ -587,12 +587,16 @@ footer#footer-edx-v3 {
     }
 }
 
-.course-iamge-wrapper {
-    //
+.course-image-wrapper {
+    display: block;
+    float: left;
+    width: 180px;
+    height: 100px;
+    margin: 0 1em 0 0;
 }
 
 .course-image {
-    margin: 0 1em 0 0;
-    max-height: 100px;
-    float: left;
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
 }
