@@ -10,4 +10,8 @@ body.view-about {
     .section-newsletter {
         display: none !important;
     }
+
+    section.ms-about {
+        max-width: 720px;
+    }
 }
