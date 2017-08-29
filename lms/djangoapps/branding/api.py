@@ -176,7 +176,6 @@ def _footer_navigation_links():
             ("press", marketing_link("PRESS"), _("Press")),
             ("lecturer", marketing_link("LECTURER"), _("Become a Lecturer")),
             ("contact", marketing_link("CONTACT"), _("Contact")),
-            ("help", marketing_link("HELP"), _("Help")),
         ]
         if link_url and link_url != "#"
     ]
