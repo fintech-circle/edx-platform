@@ -150,9 +150,9 @@ def find_all_tags():
     tag_list = set()
     courses_list = get_courses()
     for course in courses_list:
-        tags = course.short_description.lower()
+        tags = course.short_description
         if tags:
-            tag_list.update(tags.split(' '))
+            tag_list.update(tags.lower().split(' '))
     return list(tag_list)
 
 
