@@ -1,0 +1,13 @@
+body.view-privacy { 
+    
+    header.header-global {
+        position: relative !important;
+    }
+    
+    div#carousel-example-generic,
+    .section-quote, 
+    .section-info, 
+    .section-newsletter {
+        display: none !important;
+    }
+}
