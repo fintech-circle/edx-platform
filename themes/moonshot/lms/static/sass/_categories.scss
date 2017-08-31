@@ -15,6 +15,7 @@ body.view-categories {
 
 .ms-categories.container.categories {
     border: none;
+    min-width: unset;
 
     .find-courses-button {
         text-align: center;
