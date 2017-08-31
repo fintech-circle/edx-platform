@@ -289,7 +289,7 @@ from pipeline_mako import render_require_js_path_overrides
                           <div class="item">
                               <ul>
                                   % for index, tag in enumerate(tag_list):
-                                      <li><a href="${EDX_ROOT_URL}/courses?search_query=${tag}" title="" ${'class="btn btn-tag-blue"' if index % 2 == 0 else 'class="btn btn-tag-green"'}>${tag.upper()}</a></li>
+                                      <li><a href="${EDX_ROOT_URL}/courses?search_query=${tag}" title="" class="btn btn-tag-orange">${tag.upper()}</a></li>
                                   % endfor
                               </ul>
                           </div>
