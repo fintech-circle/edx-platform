@@ -118,13 +118,6 @@ ${HTML(fragment.foot_html())}
     <div class="course-index">
 
       <div class="wrapper-course-modes">
-
-          <div class="courseware-bookmarks-button">
-              <a class="bookmarks-list-button new-course-button-small" href="${reverse('openedx.course_bookmarks.home', args=[course.id])}">
-                  ${_('Bookmarks')}
-              </a>
-          </div>
-
           % if settings.FEATURES.get('ENABLE_COURSEWARE_SEARCH'):
             <div id="courseware-search-bar" class="search-bar courseware-search-bar" role="search" aria-label="Course">
               <form>
