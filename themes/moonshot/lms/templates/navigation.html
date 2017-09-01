@@ -58,7 +58,7 @@ site_status_msg = get_site_status_msg(course_id)
         </div>
       </h1>
 
-      <ol class="list-inline nav-global">
+      <ol class="list-inline nav-global hidden-xs hidden-sm hidden-md">
         <%block name="navigation_global_links">
             <li class="item nav-global-01">
               <a href="${marketing_link('COURSES')}">Courses</a>
@@ -84,6 +84,14 @@ site_status_msg = get_site_status_msg(course_id)
         </%block>
       </ol>
 
+      <div class="right hidden-lg burger-wrapper">
+        <div class="button-burger" id="btn">
+          <div class="bar top"></div>
+          <div class="bar middle"></div>
+          <div class="bar bottom"></div>
+        </div>
+      </div>
+
       % if user.is_authenticated():
       <%include file="user_dropdown.html"/>
         % if should_display_shopping_cart_func() and not (course and static.is_request_in_themed_site()): # see shoppingcart.context_processor.user_has_cart_context_processor
@@ -96,7 +104,7 @@ site_status_msg = get_site_status_msg(course_id)
         </ol>
         % endif
       % else:
-      <ol class="right nav-courseware list-inline">
+      <ol class="right nav-courseware list-inline hidden-xs">
         <%block name="navigation_sign_in">
           <li class="item nav-courseware-01">
             % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:

@@ -262,7 +262,7 @@ from pipeline_mako import render_require_js_path_overrides
                                                                       <span class="course-tags">${course.short_description}</span>
                                                                       <span class="course-title">${course.display_name}</span>
                                                                   </h2>
-                                                                  <div class="course-date localized_datetime" aria-hidden="true"">Starts: ${course.start.strftime('%b %-d, %Y')}</div>
+                                                                  <div class="course-date localized_datetime" aria-hidden="true">Starts: ${course.start.strftime('%b %-d, %Y')}</div>
                                                               </div>
                                                           </a>
                                                       </article>
@@ -277,9 +277,10 @@ from pipeline_mako import render_require_js_path_overrides
                       </div>
                   </div>
               </div>
-              % endif
+              
               <!--<a href="" title="" class="btn btn-orange">View more</a>-->
           </div>
+          % endif
           % if tag_list:
           <div class="section-tag">
               <div class="container-bs">
@@ -327,6 +328,8 @@ from pipeline_mako import render_require_js_path_overrides
 % if not disable_window_wrap:
   </div>
 % endif
+
+  <%include file="navigation_sidebar.html" />
 
   <%block name="footer_extra"/>
   <%block name="js_extra"/>

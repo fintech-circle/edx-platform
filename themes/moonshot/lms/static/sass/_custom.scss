@@ -174,11 +174,11 @@ header {
         background: -moz-linear-gradient(#000000, rgba(0, 0, 0, 0)); /* For Firefox 3.6 to 15 */
         background: linear-gradient(#000000, rgba(0, 0, 0, 0)); /* Standard syntax */
         padding: 20px 15px 15px 15px;
-        @media #{$screen-xs} {
-            position: relative;
-            height: auto;
-            padding: 10px 15px 10px 15px;
-        }
+        // @media #{$screen-xs} {
+        //     position: relative;
+        //     height: auto;
+        //     padding: 10px 15px 10px 15px;
+        // }
         .wrapper-header {
             max-width: 1140px;
             height: auto;
