@@ -160,16 +160,16 @@ $learn-more-horizontal-position: calc(50% - 100px); // calculate the left positi
 
   @include media($bp-medium) {
     @include span-columns(4); // 4 of 8
-    @include omega(2n);
+    // @include omega(2n);
   }
 
   @include media($bp-large) {
     @include span-columns(4); // 4 of 12
-    @include omega(3n);
+    // @include omega(3n);
   }
 
   @include media($bp-huge) {
     @include span-columns(3); // 3 of 12
-    @include omega(4n);
+    // @include omega(4n);
   }
 }
