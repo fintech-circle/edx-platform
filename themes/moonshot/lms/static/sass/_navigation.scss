@@ -136,6 +136,14 @@ nav {
         }
 
         &:first-child {
+            -webkit-transition: all .7s .1s ease-in-out;
+            -moz-transition: all .7s .1s ease-in-out;
+            -ms-transition: all .7s .1s ease-in-out;
+            -o-transition: all .7s .1s ease-in-out;
+            transition: all .7s .1s ease-in-out;
+        }
+
+        &:nth-child(2) {
             -webkit-transition: all .7s .2s ease-in-out;
             -moz-transition: all .7s .2s ease-in-out;
             -ms-transition: all .7s .2s ease-in-out;
@@ -143,7 +151,15 @@ nav {
             transition: all .7s .2s ease-in-out;
         }
 
-        &:nth-child(2) {
+        &:nth-child(3) {
+            -webkit-transition: all .7s .3s ease-in-out;
+            -moz-transition: all .7s .3s ease-in-out;
+            -ms-transition: all .7s .3s ease-in-out;
+            -o-transition: all .7s .3s ease-in-out;
+            transition: all .7s .3s ease-in-out;
+        }
+
+        &:nth-child(4) {
             -webkit-transition: all .7s .4s ease-in-out;
             -moz-transition: all .7s .4s ease-in-out;
             -ms-transition: all .7s .4s ease-in-out;
@@ -151,7 +167,15 @@ nav {
             transition: all .7s .4s ease-in-out;
         }
 
-        &:nth-child(3) {
+        &:nth-child(5) {
+            -webkit-transition: all .7s .5s ease-in-out;
+            -moz-transition: all .7s .5s ease-in-out;
+            -ms-transition: all .7s .5s ease-in-out;
+            -o-transition: all .7s .5s ease-in-out;
+            transition: all .7s .5s ease-in-out;
+        }
+
+        &:nth-child(6) {
             -webkit-transition: all .7s .6s ease-in-out;
             -moz-transition: all .7s .6s ease-in-out;
             -ms-transition: all .7s .6s ease-in-out;
@@ -159,36 +183,12 @@ nav {
             transition: all .7s .6s ease-in-out;
         }
 
-        &:nth-child(4) {
-            -webkit-transition: all .7s .8s ease-in-out;
-            -moz-transition: all .7s .8s ease-in-out;
-            -ms-transition: all .7s .8s ease-in-out;
-            -o-transition: all .7s .8s ease-in-out;
-            transition: all .7s .8s ease-in-out;
-        }
-
-        &:nth-child(5) {
-            -webkit-transition: all .7s 1s ease-in-out;
-            -moz-transition: all .7s 1s ease-in-out;
-            -ms-transition: all .7s 1s ease-in-out;
-            -o-transition: all .7s 1s ease-in-out;
-            transition: all .7s 1s ease-in-out;
-        }
-
-        &:nth-child(6) {
-            -webkit-transition: all .7s 1.2s ease-in-out;
-            -moz-transition: all .7s 1.2s ease-in-out;
-            -ms-transition: all .7s 1.2s ease-in-out;
-            -o-transition: all .7s 1.2s ease-in-out;
-            transition: all .7s 1.2s ease-in-out;
-        }
-
         &:nth-child(7) {
-            -webkit-transition: all .7s 1.4s ease-in-out;
-            -moz-transition: all .7s 1.4s ease-in-out;
-            -ms-transition: all .7s 1.4s ease-in-out;
-            -o-transition: all .7s 1.4s ease-in-out;
-            transition: all .7s 1.4s ease-in-out;
+            -webkit-transition: all .7s .7s ease-in-out;
+            -moz-transition: all .7s .7s ease-in-out;
+            -ms-transition: all .7s .7s ease-in-out;
+            -o-transition: all .7s .7s ease-in-out;
+            transition: all .7s .7s ease-in-out;
         }
 
         &.active {
