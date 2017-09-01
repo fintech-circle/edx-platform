@@ -25,6 +25,7 @@ urlpatterns = (
     url(r'^jobs$', 'render', {'template': 'jobs.html'}, name="jobs"),
     url(r'^news$', 'render', {'template': 'news.html'}, name="news"),
     url(r'^press$', 'render', {'template': 'press.html'}, name="press"),
+    url(r'^lecturer', 'render', {'template': 'lecturer.html'}, name="lecturer"),
     url(r'^media-kit$', 'render', {'template': 'media-kit.html'}, name="media-kit"),
     url(r'^copyright$', 'render', {'template': 'copyright.html'}, name="copyright"),
 

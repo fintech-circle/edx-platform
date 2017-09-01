@@ -69,12 +69,6 @@ from openedx.features.course_experience import UNIFIED_COURSE_TAB_FLAG
                 <div class="section section-tools">
                     <h3 class="hd-6">${_("Course Tools")}</h3>
                     <ul class="list-unstyled">
-                        <li>
-                            <a href="${reverse('openedx.course_bookmarks.home', args=[course_key])}">
-                                <span class="icon fa fa-bookmark" aria-hidden="true"></span>
-                                ${_("Bookmarks")}
-                            </a>
-                        </li>
                         % if UNIFIED_COURSE_TAB_FLAG.is_enabled(course.id):
                             <li>
                                 <a href="${reverse('openedx.course_experience.course_updates', args=[course.id])}">
