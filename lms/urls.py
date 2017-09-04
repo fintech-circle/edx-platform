@@ -279,7 +279,9 @@ urlpatterns += (
     url(r'^calculate$', 'util.views.calculate'),
 
     url(r'^courses/?$', 'branding.views.courses', name="courses"),
-    url(r'^find_courses/?$', 'branding.views.find_courses', name="courses"),
+
+
+    url(r'^find_courses/?$', 'courseware.views.views.find_courses', name="find_courses"),
 
     #About the course
     url(
