@@ -1,7 +1,7 @@
 <%namespace name='static' file='../static_content.html'/>
 <%!
 from django.utils.translation import ugettext as _
-from django.utils.http import urlencode
+from django.utils.http import urlquote_plus
 from django.core.urlresolvers import reverse
 from django.conf import settings
 %>
@@ -25,7 +25,7 @@ from django.conf import settings
             account=static.get_value('course_about_twitter_account', settings.PLATFORM_TWITTER_ACCOUNT),
             image_url=u"https://{domain}{path}".format(
                 domain=site_domain,
-                path=urlencode(course_image_urls['small']]))
+                path=urlquote_plus(course_image_urls['small'])
             ),
             url=u"https://{domain}{path}".format(
                 domain=site_domain,
