@@ -215,6 +215,17 @@ nav {
             text-transform: uppercase;
             text-decoration: none;
         }
+
+        a.btn-orange {
+          color: #ffffff;
+          
+          &:visited,
+          &:hover,
+          &:active {
+            text-decoration: none;
+            color: #ffffff;
+          }
+        }
     }
 
 }
