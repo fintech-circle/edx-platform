@@ -6,6 +6,78 @@
 
 <%block name="bodyclass">view-contact</%block>
 
+<%block name="js_extra">
+  <script type="text/javascript">
+    $(function() {
+
+      // adding js class for styling with accessibility in mind
+      $('body').addClass('js');
+
+      // form field label styling on focus
+      $("form :input").focus(function() {
+        $("label[for='" + this.id + "']").parent().addClass("is-focused");
+      }).blur(function() {
+        $("label").parent().removeClass("is-focused");
+      });
+
+      $("#first-name").focus();
+    });
+
+    (function() {
+      toggleSubmitButton(true);
+
+      $('#login-form').on('submit', function() {
+        toggleSubmitButton(false);
+      });
+
+      $('#login-form').on('ajax:error', function(event, request, status_string) {
+        toggleSubmitButton(true);
+
+        $('.message.submission-success').removeClass('is-shown');
+
+        if (request.status === 403) {
+          $('.message.submission-error').removeClass('is-shown');
+        } else {
+          $('.message.submission-error').addClass('is-shown').focus();
+          $('.message.submission-error').html(gettext("Your request could not be completed.  Please try again."));
+        }
+      });
+
+      $('#login-form').on('ajax:success', function(event, json, xhr) {
+        if(json.success) {
+          $('.message.submission-success').addClass('is-shown').focus();
+          $('.message.submission-success .message-copy').html("Your message was sent successfully.");
+        } else {
+          toggleSubmitButton(true);
+          $('.message.submission-error').addClass('is-shown').focus();
+          $('.message.submission-error .message-copy').html(json.value);
+        }
+      });
+
+
+    })(this);
+
+    function toggleSubmitButton(enable) {
+      var $submitButton = $('form .form-actions #submit');
+
+      if(enable) {
+        $submitButton.
+          removeClass('is-disabled').
+          attr('aria-disabled', false).
+          prop('disabled', false).
+          html("${_('SEND')}");
+      }
+      else {
+        $submitButton.
+          addClass('is-disabled').
+          prop('disabled', true).
+          text("${_(u'PROCESSING...')}");
+      }
+    }
+
+  </script>
+</%block>
+
 <section class="login ms-contact container-bs">
     <section role="main" class="main row-bs">
         <div class="header col-xs-12 col-md-10 col-md-offset-1">
@@ -15,36 +87,40 @@
         </div>
         <form class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2" role="form" id="login-form" method="post" data-remote="true" action="/contact_ajax" novalidate>
 
-        
-        <div class="">
-            <ol class="list-input">
-                <li class="field required text" id="field-first-name">
-                    <label for="first-name">${_('First name')}</label>
-                    <input class="" id="first-name" type="text" name="first-name" value="" required aria-required="true" aria-described-by="first-name-tip" />
-                </li>
-                <li class="field required text" id="field-last-name">
-                    <label for="last-name">${_('Last name')}</label>
-                    <input class="" id="last-name" type="text" name="last-name" value="" required aria-required="true" aria-described-by="last-name-tip" />
-                </li>
-                <li class="field required text" id="field-email">
-                    <label for="email">${_('E-mail')}</label>
-                    <input class="" id="email" type="email" name="email" value="" required aria-required="true" aria-described-by="email-tip" />
-                </li>
-                <li class="field text" id="field-company">
-                    <label for="company">${_('Company')}</label>
-                    <input class="" id="company" type="text" name="company" value="" aria-required="true" aria-described-by="company-tip" />
-                </li>
-                <li class="field text" id="field-position">
-                    <label for="position">${_('Position')}</label>
-                    <input class="" id="position" type="text" name="position" value="" aria-required="true" aria-described-by="position-tip" />
-                </li>
-                <li class="field required text" id="field-message">
-                    <label for="message">${_('Message')}</label>
-                    <textarea id="message" rows ="10" name="message" required aria-required="true" aria-described-by="message-tip"></textarea>
-                </li>
-                
-            </ol>
-        </div>
+            <div role="alert" class="status message submission-error" tabindex="-1">
+            </div>
+            <div role="alert" class="status message submission-success" tabindex="-1">
+            </div>
+
+            <div class="">
+                <ol class="list-input">
+                    <li class="field required text" id="field-first-name">
+                        <label for="first-name">${_('First name')}</label>
+                        <input class="" id="first-name" type="text" name="first-name" value="" required aria-required="true" aria-described-by="first-name-tip" />
+                    </li>
+                    <li class="field required text" id="field-last-name">
+                        <label for="last-name">${_('Last name')}</label>
+                        <input class="" id="last-name" type="text" name="last-name" value="" required aria-required="true" aria-described-by="last-name-tip" />
+                    </li>
+                    <li class="field required text" id="field-email">
+                        <label for="email">${_('E-mail')}</label>
+                        <input class="" id="email" type="email" name="email" value="" required aria-required="true" aria-described-by="email-tip" />
+                    </li>
+                    <li class="field text" id="field-company">
+                        <label for="company">${_('Company')}</label>
+                        <input class="" id="company" type="text" name="company" value="" aria-required="true" aria-described-by="company-tip" />
+                    </li>
+                    <li class="field text" id="field-position">
+                        <label for="position">${_('Position')}</label>
+                        <input class="" id="position" type="text" name="position" value="" aria-required="true" aria-described-by="position-tip" />
+                    </li>
+                    <li class="field required text" id="field-message">
+                        <label for="message">${_('Message')}</label>
+                        <textarea id="message" rows ="10" name="message" required aria-required="true" aria-described-by="message-tip"></textarea>
+                    </li>
+                    
+                </ol>
+            </div>
 
         <div class="switch">
             <div class="switch-remember-me">
