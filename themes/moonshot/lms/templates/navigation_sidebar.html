@@ -14,7 +14,7 @@ from status.status import get_site_status_msg
 from openedx.core.djangoapps.lang_pref.api import header_language_selector_is_enabled, released_languages
 %>
 
-<div class="sidebar">
+<div class="sidebar-nav">
   <ul class="sidebar-list">
     % if not user.is_authenticated():   
 
@@ -73,4 +73,4 @@ from openedx.core.djangoapps.lang_pref.api import header_language_selector_is_en
   </ul>
 
 </div>
-<script type="text/javascript" src="static/js/sidebar_nav.js"></script>
+<script type="text/javascript" src="${static.url('js/sidebar_nav.js')}"></script
