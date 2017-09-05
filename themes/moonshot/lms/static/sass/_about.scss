@@ -13,9 +13,39 @@ body.view-about {
 
     section.ms-about {
         max-width: 720px;
+        margin-bottom: 100px;
+        letter-spacing: 0.9px;
+        color: #4a4a4a;
     }
 
     section.ms-board {
         max-width: 1040px;
+        letter-spacing: 0.9px;
+        
+        .board-member-card {
+            padding: 15px 15px 25px 15px;
+
+            .logo {
+                padding: 0;
+                margin-top: 30px;  
+                max-height: 100px;          
+            }
+
+            .name {
+                font-weight: bold;
+                color: #4a4a4a;
+                margin-top: 20px;
+            }
+
+            .job-title {
+                color: #9b9b9b;
+                font-size: 14px;
+            }
+
+            .description {
+                font-size: 14px;
+                color: #4a4a4a;
+            }
+        }
     }
 }
