@@ -29,7 +29,7 @@ from django.conf import settings
             ),
             url=u"https://{domain}{path}".format(
                 domain=site_domain,
-                path=reverse('about_course', args=[course.id.to_deprecated_string()])
+                path=urlquote_plus(reverse('about_course', args=[course.id.to_deprecated_string()]))
             )
         ).replace(u" ", u"+")
         tweet_action = u"http://twitter.com/intent/tweet?text={tweet_text}".format(tweet_text=tweet_text)
