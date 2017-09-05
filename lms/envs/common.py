@@ -2255,7 +2255,7 @@ MKTG_URL_LINK_MAP = {
     'ABOUT': 'about',
     'CONTACT': 'contact',
     'FAQ': 'help',
-    'COURSES': 'courses',
+    'COURSES': 'course',
     'ROOT': 'root',
     'TOS': 'tos',
     'HONOR': 'honor',  # If your site does not have an honor code, simply delete this line.

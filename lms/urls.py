@@ -278,7 +278,9 @@ urlpatterns += (
     # TODO: These views need to be updated before they work
     url(r'^calculate$', 'util.views.calculate'),
 
-    url(r'^courses/?$', 'branding.views.courses', name="courses"),
+    url(r'^course/?$', 'branding.views.courses', name="course"),
+
+    url(r'^courses/?$', 'courseware.views.views.find_courses', name="courses"),
 
     #About the course
     url(
