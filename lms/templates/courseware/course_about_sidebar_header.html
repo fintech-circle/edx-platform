@@ -22,7 +22,7 @@ from django.conf import settings
             number=course.number,
             title=course.display_name_with_default_escaped,
             account=static.get_value('course_about_twitter_account', settings.PLATFORM_TWITTER_ACCOUNT),
-            image=course.course_image,
+            image=course_image_urls['small'],
             url=u"http://{domain}{path}".format(
                 domain=site_domain,
                 path=reverse('about_course', args=[course.id.to_deprecated_string()])
