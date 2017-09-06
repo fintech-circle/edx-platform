@@ -137,8 +137,41 @@ body.view-login, body.view-register {
                 align-items: center;
                 justify-content: center;
 
-                button {
-                    width: 70px;
+                button[type="submit"] {
+                    width: 32px;
+                    height: 32px;
+                    padding: 0;
+                    background-color: transparent;
+                    border-radius: 0;
+                    margin: 0 19px;
+
+                    &:hover {
+                        background-color: transparent;
+                        border: transparent;
+                    }
+
+                    span {
+
+                        &::before {
+                            content: '';
+                        }
+                        
+                        width: 32px;
+                        height: 32px;
+
+                        &.fa-facebook {
+                            background: url("../images/facebook.png") 0 0 no-repeat;
+                        }
+
+                        &.fa-google-plus {
+                            background: url("../images/google-plus.png") 0 0 no-repeat;
+                        }
+
+                        &.fa-linkedin {
+                            background: url("../images/linkedin.png") 0 0 no-repeat;
+                        }
+
+                    }
                 }
             }
         }
