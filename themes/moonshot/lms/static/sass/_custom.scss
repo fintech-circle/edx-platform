@@ -187,6 +187,11 @@ header {
             .logo {
                 margin: 0 20px 0 0;
                 padding: 0;
+                
+                @media #{$screen-xs} {
+                    margin-bottom: 15px;
+                }
+
                 a {
                     display: block;
                     width: 149px;
@@ -249,10 +254,10 @@ header {
             .course-search {
                 float: left;
                 display: inline-block;
-                @media #{$screen-xs} {
-                    clear: both;
-                    padding: 10px 0 0;
-                }
+                // @media #{$screen-xs} {
+                //     clear: both;
+                //     padding: 10px 0 0;
+                // }
                 .form-inline {
                     border-radius: 30px;
                     background-color: rgba(245, 245, 245, 0.8);
@@ -491,10 +496,10 @@ body {
                     .course-search {
                         float: left;
                         display: inline-block;
-                        @media #{$screen-xs} {
-                            clear: both;
-                            padding: 10px 0 0;
-                        }
+                        // @media #{$screen-xs} {
+                        //     clear: both;
+                        //     padding: 10px 0 0;
+                        // }
                         .form-inline {
                             border-radius: 30px;
                             background-color: rgba(245, 245, 245, 0.8);
@@ -1373,7 +1378,7 @@ body {
                     background-color: #417505;
                 }
                 &.btn-tag-orange {
-                    background-color: #fd7400;
+                    background-color: #f6a623;
                 }
             }
         }

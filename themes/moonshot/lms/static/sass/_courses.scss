@@ -1,0 +1,14 @@
+body.view-in-course { 
+     
+    header.header-global {
+        position: relative !important;
+    }
+
+    div#carousel-example-generic,
+    .section-quote, 
+    .section-info, 
+    .section-newsletter {
+        display: none !important;
+    }
+
+}

@@ -1,5 +1,31 @@
-body.view-dashboard {
+body.view-dashboard,
+body.view-tos,
+body.view-privacy {
     section.container {
         min-width: unset;
     }
+}
+
+
+/* fixing missin omega(x) from homepage styling */
+.home .courses-container .highlighted-courses .courses .courses-listing .courses-listing-item {
+
+  @include media($bp-medium) {
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+  }
+
+  @include media($bp-large) {
+    @include span-columns(4); // 4 of 12
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+  }
+
+  @include media($bp-huge) {
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+  }
 }
