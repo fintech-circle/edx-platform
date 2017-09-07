@@ -1,0 +1,232 @@
+body.view-lecturers { 
+    
+    header.header-global {
+        position: relative !important;
+    }
+    
+    .section-quote, 
+    .section-info, 
+    .section-newsletter {
+        display: none !important;
+    }
+
+    section.ms-lecturers {
+        font-family: 'Open Sans';
+        display: block;
+        margin-bottom: 30px;
+
+        .main {
+            margin-top: 20px;
+        }
+
+        .header .title {
+            margin-top: 0;
+            margin-bottom: 49px;
+
+            .title-super {
+                font-family: 'Open Sans';
+                font-size: 18px;
+                font-weight: bold;
+                letter-spacing: 1.3px;
+                text-align: left;
+                color: #4a4a4a;
+            }
+        }
+
+        .description {
+            border: 1px solid #c8c8c8;
+            border-radius: 10px;
+            padding: 0 60px;
+        }
+
+        form {
+            padding: 0 60px;
+        }
+
+        form .field.required {
+            margin-bottom: 10px;
+
+            label {
+                font-family: 'Open Sans';
+                font-size: 10px;
+                text-align: left;
+                color: #4a4a4a;
+            }
+
+            input {
+                height: 51px;
+                background-color: #f3f3f3;
+                border: none;
+            }
+
+            textarea {
+                background-color: #f3f3f3;
+                border: none;
+                resize: none;
+            }
+
+
+            :after {
+                color: #fd7400;
+            }
+        }
+
+        form .field {
+            margin-bottom: 10px;
+
+            label {
+                font-family: 'Open Sans';
+                font-size: 10px;
+                text-align: left;
+                color: #4a4a4a;
+            }
+
+            input {
+                height: 51px;
+                background-color: #f3f3f3;
+                border: none;
+            }
+        }
+
+        .switch {
+            display: flex;
+            margin-top: 22px;
+
+            .switch-label {
+                margin: 10px;
+                font-family: 'Open Sans';
+                font-size: 12px;
+                letter-spacing: 0.9px;
+                text-align: left;
+                color: #4a4a4a;
+            }
+
+            .switch-remember-me {
+
+                .cmn-toggle {
+                    position: absolute;
+                    margin-left: -9999px;
+                    visibility: hidden;
+                }
+                .cmn-toggle + label {
+                    display: block;
+                    position: relative;
+                    cursor: pointer;
+                    outline: none;
+                    user-select: none;
+                    margin: 0;
+                }
+
+                input.cmn-toggle-round + label {
+                    padding: 2px;
+                    width: 50px;
+                    height: 30px;
+                    background-color: #dddddd;
+                    border-radius: 30px;
+                }
+                input.cmn-toggle-round + label:before,
+                input.cmn-toggle-round + label:after {
+                    display: block;
+                    position: absolute;
+                    top: 1px;
+                    left: 1px;
+                    bottom: 1px;
+                content: "";
+                }
+                input.cmn-toggle-round + label:before {
+                    right: 1px;
+                    background-color: #f1f1f1;
+                    border-radius: 30px;
+                    transition: background 0.4s;
+                }
+                input.cmn-toggle-round + label:after {
+                    width: 28px;
+                    background-color: #fff;
+                    border-radius: 100%;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+                    transition: margin 0.4s;
+                }
+                input.cmn-toggle-round:checked + label:before {
+                    background-color: #fd7400;
+                }
+                input.cmn-toggle-round:checked + label:after {
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        .lecturers-topis {
+            font-size: 12px;
+        }
+
+        .checkbox > label {
+            font-size: 12px;
+        }
+
+        .ms-checkbox {
+            float: left;
+
+            .btn.btn-warning {
+                width: 28px;
+                height: 28px;
+                background-color: #f3f3f3;
+
+                input {
+                    position: absolute;
+                    top: 5px;
+                    left: 5px;
+                    margin-bottom: 0;
+                }
+
+                span.glyphicon {
+                    position: absolute;
+                    top: 5px;
+                    left: 5px;
+                    opacity: 0;	
+                    color: #ffffff;    
+                    font-size: 15px;
+                }
+
+                &.active {
+                    background-color: #fd7400;
+
+                    span.glyphicon {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        
+        .form-actions {
+            top: 26px;
+            position: relative;
+            width: 166px;
+            height: 50px;
+            margin: 0 auto;
+            z-index: 10;
+
+            button[type="submit"] {
+                padding: 14px 25px;
+                border-radius: 30px;
+                background-color: #fd7400;
+                border: 0 none;
+                font-family: 'Open Sans';
+                font-size: 12px; 
+                font-weight: 600;
+                letter-spacing: 1.2px; 
+                color: #ffffff;
+            }
+        }
+
+        .submission-success {
+            box-shadow: inset 0 -1px 2px 0 tint($green, 85%);
+            border-bottom: 3px solid shade($green, 10%);
+            background: tint($green, 95%);
+
+            .message-title {
+                color: shade($green, 10%) !important;
+            }
+        }
+
+    }
+}

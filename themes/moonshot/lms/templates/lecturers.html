@@ -4,9 +4,78 @@
 
 <%block name="pagetitle">Lecturers</%block>
 
-<main id="main" aria-label="Content" tabindex="-1">
-    <section class="container lecturers">
-        <h1>Our Lecturers</h1>
-        <p>This page left intentionally blank. Feel free to add your own content.</p>
-    </section>
-</main>
+<%block name="bodyclass">view-lecturers</%block>
+
+<section class="login ms-lecturers container-bs">
+    <section role="main" class="main row-bs">
+
+        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 description">
+            bleh bleh
+        </div>
+
+        <form class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0" role="form" id="login-form" method="post" data-remote="true" action="/lecturer_ajax" novalidate>
+
+            <div role="alert" class="status message submission-error" tabindex="-1">
+            </div>
+            <div role="alert" class="status message submission-success" tabindex="-1">
+            </div>
+
+            <div class="">
+                <ol class="list-input row-bs">
+                    <li class="field required text" id="field-first-name">
+                        <label for="first-name">First name</label>
+                        <input class="" id="first-name" type="text" name="first-name" value="" required aria-required="true" aria-described-by="first-name-tip" />
+                    </li>
+                    <li class="field required text" id="field-last-name">
+                        <label for="last-name">Last name</label>
+                        <input class="" id="last-name" type="text" name="last-name" value="" required aria-required="true" aria-described-by="last-name-tip" />
+                    </li>
+                    <li class="field required text" id="field-email">
+                        <label for="email">E-mail</label>
+                        <input class="" id="email" type="email" name="email" value="" required aria-required="true" aria-described-by="email-tip" />
+                    </li>
+                    <li class="field text" id="field-linkedin-url">
+                        <label for="linkedin-url">LinkedIn profile URL</label>
+                        <input class="" id="linkedin-url" type="text" name="linkedin-url" value="" aria-described-by="linkedin-url-tip" />
+                    </li>
+                    <li class="field text" id="field-twitter-handle">
+                        <label for="twitter-handle">Twitter handle</label>
+                        <input class="" id="twitter-handle" type="text" name="twitter-handle" value="" aria-described-by="twitter-handle-tip" />
+                    </li>
+                    <li class="field required text" id="field-experience">
+                        <label for="experience">Provide detailed information about your background and experience</label>
+                        <textarea id="experience" rows ="10" name="experience" required aria-required="true" aria-described-by="experience-tip"></textarea>
+                    </li>
+                    <li class="field required text" id="field-language">
+                        <label for="language">What languages would you like to teach in?</label>
+                        <textarea id="language" rows ="10" name="language" required aria-required="true" aria-described-by="language-tip"></textarea>
+                    </li>
+
+                    <%include file="lecturers-topics.html" />
+
+                    <%include file="lecturers-technologies.html" />
+
+                    <li class="field required text" id="field-publications">
+                        <label for="publications">Please tell us about any prior video training, books, publications, blogs or websites you've contributed to</label>
+                        <textarea id="publications" rows ="10" name="publications" required aria-required="true" aria-described-by="publications-tip"></textarea>
+                    </li>
+                    <li class="field required text" id="field-course">
+                        <label for="course">Please tell us about the course you'd like to teach</label>
+                        <textarea id="course" rows ="10" name="course" required aria-required="true" aria-described-by="course-tip"></textarea>
+                    </li>
+                    <li class="field required text" id="field-sample">
+                        <label for="sample">If you have a sample movie of 3-5 minutes that illustrates your teaching style, please post it to YouTube or Vimeo and provide a link to it here</label>
+                        <textarea id="sample" rows ="10" name="sample" required aria-required="true" aria-described-by="sample-tip"></textarea>
+                    </li>
+                    
+                </ol>
+            </div>
+
+            <div class="form-actions">
+                <button name="submit" type="submit" id="submit" class="action action-primary action-update login-button"></button>
+            </div>
+
+        </form>
+
+  </section>
+</section>
