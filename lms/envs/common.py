@@ -2266,6 +2266,7 @@ MKTG_URL_LINK_MAP = {
     'SITEMAP.XML': 'sitemap_xml',
     'CATEGORIES': 'categories',
     'LECTURERS': 'lecturers',
+    'MEMBERS': 'members',
 
     # Verified Certificates
     'WHAT_IS_VERIFIED_CERT': 'verified-certificate',
