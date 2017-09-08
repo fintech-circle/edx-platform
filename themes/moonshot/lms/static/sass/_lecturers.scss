@@ -36,11 +36,81 @@ body.view-lecturers {
         .description {
             border: 1px solid #c8c8c8;
             border-radius: 10px;
-            padding: 0 60px;
+            padding: 40px 60px;
+
+            p.title {
+                font-size: 18px;
+            }
+
+            .quote {
+                .box {
+                    background-image: url("../images/quote-grey.png");
+                    background-repeat: no-repeat;
+                    background-position: top left;
+                    margin: 40px 0 0 0;
+                    @media #{$screen-xs} {
+                        margin: 0;
+                    }
+                    img {
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                    p {
+                        padding: 30px 0 0 30px;
+                        display: block;
+                        margin: 30px 0;
+                        font-family: 'Open Sans';
+                        font-size: 20px;
+                        font-style: italic;
+                        color: #4a4a4a;
+                    }
+                    .author {
+                        padding: 20px 0;
+                        text-align: right;
+                        float: right;
+                    }
+                    strong {
+                        position: relative;
+                        display: block;
+                        margin-bottom: 5px;
+                        font-family: 'Open Sans';
+                        font-size: 20px;
+                        font-weight: 600;
+                        color: #4a4a4a;
+                        @media #{$screen-xs} {
+                            display: inline-block;
+                        }
+                        &:before {
+                            position: absolute;
+                            top: 50%;
+                            left: -42px;
+                            content: "";
+                            display: block;
+                            width: 36px;
+                            height: 2px;
+                            background: #008fd3;
+                        }
+                    }
+                    span {
+                        display: block;
+                        font-family: 'Open Sans';
+                        font-size: 14px;
+                        color: #9b9b9b;
+                    }
+                }
+            }
         }
 
-        form {
-            padding: 0 60px;
+        .application {
+            padding: 40px 60px;
+
+            p.title {
+                font-size: 18px;
+            }
+
+            .application-fields {
+                margin-top: 20px;
+            }
         }
 
         form .field.required {

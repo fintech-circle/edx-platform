@@ -2,25 +2,157 @@
 <%! from django.utils.translation import ugettext as _ %>
 <%inherit file="main.html" />
 
+<%namespace name='static' file='static_content.html'/>
+
 <%block name="pagetitle">Lecturers</%block>
 
 <%block name="bodyclass">view-lecturers</%block>
+
+<%block name="js_extra">
+  <script type="text/javascript">
+    $(function() {
+
+      // adding js class for styling with accessibility in mind
+      $('body').addClass('js');
+
+      // form field label styling on focus
+      $("form :input").focus(function() {
+        $("label[for='" + this.id + "']").parent().addClass("is-focused");
+      }).blur(function() {
+        $("label").parent().removeClass("is-focused");
+      });
+
+      $("#first-name").focus();
+    });
+
+    (function() {
+      toggleSubmitButton(true);
+
+      $('#login-form').on('submit', function() {
+        toggleSubmitButton(false);
+      });
+
+      $('#login-form').on('ajax:error', function(event, request, status_string) {
+        toggleSubmitButton(true);
+
+        $('.message.submission-success').removeClass('is-shown');
+
+        if (request.status === 403) {
+          $('.message.submission-error').removeClass('is-shown');
+        } else {
+          $('.message.submission-error').addClass('is-shown').focus();
+          $('.message.submission-error').html(gettext("Your request could not be completed. Please try again."));
+        }
+      });
+
+      $('#login-form').on('ajax:success', function(event, json, xhr) {
+        if(json.success) {
+          $('.message.submission-success').addClass('is-shown').focus();
+          $('.message.submission-success .message-copy').html("Your application was sent successfully.");
+        } else {
+          toggleSubmitButton(true);
+          $('.message.submission-error').addClass('is-shown').focus();
+          $('.message.submission-error .message-copy').html(json.value);
+        }
+      });
+
+
+    })(this);
+
+    function toggleSubmitButton(enable) {
+      var $submitButton = $('form .form-actions #submit');
+
+      if(enable) {
+        $submitButton.
+          removeClass('is-disabled').
+          attr('aria-disabled', false).
+          prop('disabled', false).
+          html("${_('SEND')}");
+      }
+      else {
+        $submitButton.
+          addClass('is-disabled').
+          prop('disabled', true).
+          text("${_(u'PROCESSING...')}");
+      }
+    }
+
+  </script>
+</%block>
 
 <section class="login ms-lecturers container-bs">
     <section role="main" class="main row-bs">
 
         <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 description">
-            bleh bleh
+            <p class="title">
+                Share your fintech expertise with the world
+            </p>
+            <p>
+                Are you passionate about sharing your expertise and knowledge? Apply to join the 
+                FINTECH Circle Institute to reach our 75,000 FINTECH Circle members. 
+                We will help you present your content in the best possible light. 
+                As a lecturer, you can help people reach their professional goals and benefit 
+                from the global visibility our platform provides.
+            </p>
+            <p class="title">
+                Working with Us 
+            </p>
+            <p>
+                FINTECH Circle is the leading global fintech community consisting of top 
+                fintech entrepreneurs, investors, financial services professional and 
+                technology experts globally. Susanne Chishti, our Founder & CEO is the 
+                Co-Editor of The FINTECH Book, a global bestseller across 107 countries 
+                available in 5 languages. We collaborate with subject matter experts like 
+                you for our fintech book series and create both in person and online courses.
+            </p>
+            <div class="quote">
+                  <div class="row-bs">
+
+                      <div class="col-xs-12">
+                        <div class="box">
+
+                            <p class="text">
+                                I really enjoyed working with the FINTECH Circle 
+                                Team – they provided clear initial instructions and 
+                                guidance so I could record the online class on my own. 
+                                I enjoyed this simple and easy approach.
+                            </p>
+                            <img src="${static.url("images/KamalesLardi.jpg")}" alt="..." class="img-responsive">
+                            <div class="author">
+                                <strong>Kamales Lardi</strong>
+                                <span>Digital Strategist</span>
+                            </div>
+                                
+                        </div>
+                      </div>
+                  </div>
+                
+            </div>
+
+
+            <p class="title">
+                Apply Now! 
+            </p>
+            <p>
+                If you're interested in becoming a Lecturer, please apply on this 
+                form. We are looking forward to your application.
+            </p>
+            
         </div>
 
-        <form class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0" role="form" id="login-form" method="post" data-remote="true" action="/lecturer_ajax" novalidate>
+        <form class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 application" 
+            role="form" id="login-form" method="post" data-remote="true" action="/lecturer_ajax" novalidate>
+        
+            <p class="title">
+                Instructor Application
+            </p>
 
             <div role="alert" class="status message submission-error" tabindex="-1">
             </div>
             <div role="alert" class="status message submission-success" tabindex="-1">
             </div>
 
-            <div class="">
+            <div class="application-fields">
                 <ol class="list-input row-bs">
                     <li class="field required text" id="field-first-name">
                         <label for="first-name">First name</label>
