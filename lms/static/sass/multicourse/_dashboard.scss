@@ -311,8 +311,9 @@
 
       .wrapper-course-image {
         @include float(left);
-        @include margin-right(flex-gutter());
-        width: flex-grid(3);
+        // ms
+        // @include margin-right(flex-gutter());
+        // width: flex-grid(3);
 
         .cover {
           @include box-sizing(border-box);
@@ -365,7 +366,8 @@
       .wrapper-course-details {
         display: block;
         @include float(left);
-        width: flex-grid(9);
+        // ms
+        // width: flex-grid(9);
         padding: 0;
       }
 

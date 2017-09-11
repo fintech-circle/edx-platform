@@ -11,4 +11,27 @@ body.view-dashboard {
         display: none !important;
     }
 
+    .container.dashboard .listing-courses .course-item .course-container .course {
+        .wrapper-course-details {
+            padding-left: 22px;
+        }
+
+        .wrapper-course-image {
+            a {
+                width: 100%; 
+                
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 100%
+                }
+            }
+        }
+    }
+
+    .dashboard .my-courses {
+        @media #{$screen-xs} {
+            width: 100%;
+        }
+    }
 }
