@@ -258,7 +258,7 @@ def footer(request):
     accepts = request.META.get('HTTP_ACCEPT', '*/*')
 
     # Show the OpenEdX logo in the footer
-    show_openedx_logo = bool(request.GET.get('show-openedx-logo', False))
+    show_openedx_logo = False
 
     # Include JS and CSS dependencies
     # This is useful for testing the end-point directly.
