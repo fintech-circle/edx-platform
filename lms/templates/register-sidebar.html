@@ -19,28 +19,3 @@ from django.core.urlresolvers import reverse
 </div>
 
 % endif
-
-## TODO: Use a %block tag or something to allow themes to
-##       override in a more generalizable fashion.
-<div class="help">
-  <div class="cta cta-welcome">
-    <h3>${_("Who is the Lecturer Centre for?").format(platform_name=platform_name)}</h3>
-    <p>${_("The Lecturer Centre is for anyone that wants to create online courses on the global {platform_name} platform. Our users are often faculty members, FinTech entrepreneurs, experts, investors and FinTech thought leaders.").format(platform_name=platform_name)}</p>
-  </div>
-
-  <div class="cta cta-nextsteps">
-    <h3>${_("How technically savvy do I need to be to create courses in the Lecturer Centre?")}</h3>
-      <p>${_("The Lecturer Centre is designed to be easy to use. We will guide you through the process of setting up your own course within 15 minutes. In addition to your own class videos, you will be able to add research papers and a chat forum to engage with your students.").format(platform_name=platform_name)}</p>
-  </div>
-
-  % if settings.MKTG_URL_LINK_MAP.get('FAQ'):
-    <div class="cta cta-help">
-      <h3>${_("I've never developed an online course before. Is there help?")}</h3>
-      <p>${_("Absolutely. We have created a class design template and also a guide to help you create your first online course. Additionally, we're always here to help, just drop us a note on").format(platform_name=platform_name)}
-        <a href="mailto:help@FINTECHCircle.com" target="_top">
-            ${_("help@FINTECHCircle.com")}
-        </a>
-      </p>
-    </div>
-  % endif
-</div>
