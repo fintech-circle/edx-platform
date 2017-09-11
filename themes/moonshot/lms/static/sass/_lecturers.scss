@@ -110,6 +110,10 @@ body.view-lecturers {
         .application {
             padding: 40px 60px;
 
+            @media #{$screen-xs} {
+                padding: 30px 10px;
+            }
+
             p.title {
                 font-size: 18px;
             }
