@@ -227,7 +227,7 @@
             AuthFieldView: FieldViews.LinkFieldView.extend({
                 fieldTemplate: field_social_link_template,
                 className: function() {
-                    return 'u-field u-field-social u-field-' + this.options.valueAttribute;
+                    return 'col-xs-12 col-sm-6 col-md-4 u-field u-field-social u-field-' + this.options.valueAttribute;
                 },
                 initialize: function(options) {
                     this.options = _.extend({}, options);

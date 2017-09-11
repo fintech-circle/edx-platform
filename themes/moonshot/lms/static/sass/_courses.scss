@@ -11,4 +11,24 @@ body.view-in-course {
         display: none !important;
     }
 
+    @media #{$screen-sm} { 
+        .home .page-header-main {
+       
+            width: 100%;
+        }
+
+        .page-title,
+        .page-subtitle {
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .info-wrapper {
+            .handouts {
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+
 }
