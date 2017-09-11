@@ -12,7 +12,7 @@ from math import exp
 import dateutil.parser
 from pytz import utc
 
-DEFAULT_START_DATE = datetime(2030, 1, 1, tzinfo=utc)
+DEFAULT_START_DATE = datetime(2017, 1, 1, tzinfo=utc)
 
 
 def clean_course_key(course_key, padding_char):

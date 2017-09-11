@@ -207,10 +207,12 @@ header {
                     width: 149px;
                     height: 40px;
                     background: url("../images/logo-white.png") 0 0 no-repeat;
+                    
                     @media 
                     (-webkit-min-device-pixel-ratio: 2), 
                     (min-resolution: 192dpi) { 
                         background: url("../images/logo-white2x.png") 0 0 no-repeat;
+                        background-size: contain;
                     }
                 }
                 
