@@ -5,6 +5,7 @@ import urllib
 from django.conf import settings
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.cache import cache
+from django.core.mail import send_mail, BadHeaderError
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
@@ -12,6 +13,7 @@ from django.utils import translation
 from django.utils.translation.trans_real import get_supported_language_variant
 from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import ensure_csrf_cookie
+
 
 from edxmako.shortcuts import render_to_response
 import student.views
@@ -99,6 +101,67 @@ def courses(request):
     #  we do not expect this case to be reached in cases where
     #  marketing is enabled or the courses are not browsable
     return courseware.views.views.courses(request)
+
+
+@ensure_csrf_cookie
+def contact_ajax(request):
+    first_name = request.POST.get('first-name', '')
+    last_name = request.POST.get('last-name', '')
+    from_email = request.POST.get('from_email', '')
+    company = request.POST.get('company', '')
+    position = request.POST.get('position', '')
+    message = request.POST.get('message', '')
+    if first_name and last_name and from_email and message:
+        subject = "Contact form message from %s %s" % (first_name, last_name)
+        msg_content = """
+        From: %s %s (%s)
+        Company: %s
+        Position: %s
+        Message: %s""" % (first_name, last_name, from_email, company, position, message)
+        try:
+            send_mail(subject, msg_content, from_email, [settings.CONTACT_EMAIL])
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        return HttpResponse(200)
+    else:
+        # In reality we'd use a form class
+        # to get proper validation errors.
+        return HttpResponse('Make sure all fields are entered and valid.')
+
+
+@ensure_csrf_cookie
+def lecturer_ajax(request):
+    first_name = request.POST.get('first-name', '')
+    last_name = request.POST.get('last-name', '')
+    from_email = request.POST.get('from_email', '')
+    linkedin_url = request.POST.get('linkedin-url', '')
+    twitter_handle = request.POST.get('twitter-handle', '')
+    experience = request.POST.get('experience', '')
+    language = request.POST.get('language', '')
+    publications = request.POST.get('publications', '')
+    course = request.POST.get('course', '')
+    sample = request.POST.get('sample', '')
+    if first_name and last_name and from_email:
+        subject = "Lecturer application from %s %s" % (first_name, last_name)
+        msg_content = """
+        From: %s %s (%s)
+        LinkedIn: %s
+        Twitter: %s
+        Experience: %s
+        Language: %s
+        Publications: %s
+        Course: %s
+        Sample: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle, experience, language,
+                          publications, course, sample)
+        try:
+            send_mail(subject, msg_content, from_email, [settings.CONTACT_EMAIL])
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        return HttpResponse(200)
+    else:
+        # In reality we'd use a form class
+        # to get proper validation errors.
+        return HttpResponse('Make sure all fields are entered and valid.')
 
 
 def _footer_static_url(request, name):
