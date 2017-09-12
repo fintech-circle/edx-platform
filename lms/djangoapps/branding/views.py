@@ -7,7 +7,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.cache import cache
 from django.core.mail import send_mail, BadHeaderError
 from django.core.urlresolvers import reverse
-from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
 from django.utils import translation
 from django.utils.translation.trans_real import get_supported_language_variant
@@ -122,7 +122,7 @@ def contact_ajax(request):
             send_mail(subject, msg_content, from_email, [settings.CONTACT_EMAIL])
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
-        return HttpResponseRedirect('/thanks')
+        return HttpResponse(200)
     else:
         # In reality we'd use a form class
         # to get proper validation errors.
@@ -157,7 +157,7 @@ def lecturer_ajax(request):
             send_mail(subject, msg_content, from_email, [settings.CONTACT_EMAIL])
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
-        return HttpResponseRedirect('/thanks')
+        return HttpResponse(200)
     else:
         # In reality we'd use a form class
         # to get proper validation errors.
