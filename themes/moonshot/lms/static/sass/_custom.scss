@@ -339,6 +339,14 @@ body {
                             width: 149px;
                             height: 35px;
                             background: url("../images/ftci-logo-black.png") 0 0 no-repeat;
+                            background-size: contain;
+
+                             @media 
+                            (-webkit-min-device-pixel-ratio: 2), 
+                            (min-resolution: 192dpi) { 
+                                background: url("../images/ftci-logo-black2x.png") 0 0 no-repeat;
+                                background-size: contain;
+                            }
                         }
                     }
                     ol {
