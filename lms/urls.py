@@ -278,8 +278,10 @@ urlpatterns += (
     # TODO: These views need to be updated before they work
     url(r'^calculate$', 'util.views.calculate'),
 
-    url(r'^course/?$', 'branding.views.courses', name="course"),
+    url(r'^contact_ajax/?$', 'branding.views.contact_ajax', name="contact_ajax"),
+    url(r'^lecturer_ajax/?$', 'branding.views.lecturer_ajax', name="lecturer_ajax"),
 
+    url(r'^course/?$', 'branding.views.courses', name="course"),
     url(r'^courses/?$', 'courseware.views.views.find_courses', name="courses"),
 
     #About the course

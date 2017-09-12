@@ -1,0 +1,19 @@
+<%page expression_filter="h"/>
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+
+<%block name="pagetitle">${_("Thank you")}</%block>
+
+<%block name="bodyclass">view-members</%block>
+
+
+<section class="login ms-thanks container-bs">
+    <section role="main" class="main row-bs">
+        <div class="header col-xs-12 col-md-10 col-md-offset-1">
+        <h1 class="title">
+            <span class="title-super">${_("Thank you for your email. We will be in touch shortly.")}</span>
+        </h1>
+        </div>
+
+  </section>
+</section>

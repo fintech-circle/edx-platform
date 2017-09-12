@@ -19,6 +19,7 @@ urlpatterns = (
 
     url(r'^blog$', 'render', {'template': 'blog.html'}, name="blog"),
     url(r'^contact$', 'render', {'template': 'contact.html'}, name="contact"),
+    url(r'^thanks$', 'render', {'template': 'thanks.html'}, name="thanks"),
     url(r'^members', 'render', {'template': 'members.html'}, name="members"),
     url(r'^donate$', 'render', {'template': 'donate.html'}, name="donate"),
     url(r'^faq$', 'render', {'template': 'faq.html'}, name="faq"),
