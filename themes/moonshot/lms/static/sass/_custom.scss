@@ -307,7 +307,7 @@ header {
 
 body {
     &.is-authenticated, &.authenticated-views, &.view-login, &.view-register,
-    &.view-tos, &.view-privacy, &.view-about, &.view-contact {
+    &.view-tos, &.view-privacy, &.view-about, &.view-contact, &.view-course-info {
 
         header {
             height: auto;
@@ -339,6 +339,14 @@ body {
                             width: 149px;
                             height: 35px;
                             background: url("../images/ftci-logo-black.png") 0 0 no-repeat;
+                            background-size: contain;
+
+                             @media 
+                            (-webkit-min-device-pixel-ratio: 2), 
+                            (min-resolution: 192dpi) { 
+                                background: url("../images/ftci-logo-black2x.png") 0 0 no-repeat;
+                                background-size: contain;
+                            }
                         }
                     }
                     ol {
@@ -975,7 +983,7 @@ body {
                 }
                 .main-cta {
                     a {
-                        &.register {
+                        &.register, &.add-to-cart, &.find-courses {
                             padding: 14px 25px !important;
                             border-radius: 30px !important;
                             background-color: #fd7400 !important;

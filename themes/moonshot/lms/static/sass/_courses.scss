@@ -32,3 +32,25 @@ body.view-in-course {
     }
 
 }
+
+body.view-course-info {
+
+    header.header-global {
+        position: relative !important;
+    }
+
+    div#carousel-example-generic,
+    .section-quote, 
+    .section-info, 
+    .section-newsletter,
+    .section-tag {
+        display: none !important;
+    }
+
+    .course-info header.course-profile .intro-inner-wrapper .intro {
+        @media #{$screen-sm} {
+            width: 100%;
+        }
+    }
+
+}

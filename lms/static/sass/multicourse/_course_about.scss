@@ -267,8 +267,9 @@
 
   .details {
     @include float(left);
-    @include margin-right(flex-gutter());
-    width: flex-grid(8);
+    // ms
+    // @include margin-right(flex-gutter());
+    // width: flex-grid(8);
     font: normal 1em/1.6em $serif;
 
     h2 {
@@ -356,7 +357,8 @@
   .course-sidebar {
     @include box-sizing(border-box);
     @include float(left);
-    width: flex-grid(4);
+    // ms
+    // width: flex-grid(4);
 
     > section {
       box-shadow: inset 0 0 3px 0 rgba(0,0,0, 0.15);

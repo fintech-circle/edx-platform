@@ -1,0 +1,18 @@
+a.fintech-link {
+    border-radius: 60px;
+    background-color: #fd7400;
+    font-family: 'Open Sans';
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    border: 0 none;
+    &:hover {
+        color: #000;
+        border: 0 none;
+        background-color: #fd7400;
+    }
+}

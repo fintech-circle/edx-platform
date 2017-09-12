@@ -677,7 +677,7 @@
 // modal password reset form
 #forgot-password-modal {
   border-radius: 2px;
-
+  bottom: auto;
 
   .inner-wrapper {
     border-radius: 2px;
@@ -697,6 +697,7 @@
       }
 
       h2 {
+        color: black !important;
         @extend %heading-2;
         @include text-align(left);
       }
@@ -736,10 +737,20 @@
       .form-actions {
         padding: 0 !important;
 
-        .action-primary {
+        button[type="submit"].reset-button  {
           float: none;
           display: block !important;
           width: 100%;
+
+          padding: 14px 25px;
+          border-radius: 30px;
+          background-color: #fd7400;
+          border: 0 none;
+          font-family: 'Open Sans';
+          font-size: 12px; 
+          font-weight: 600;
+          letter-spacing: 1.2px; 
+          color: #ffffff;
         }
       }
     }

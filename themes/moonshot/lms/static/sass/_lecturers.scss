@@ -110,6 +110,10 @@ body.view-lecturers {
         .application {
             padding: 40px 60px;
 
+            @media #{$screen-xs} {
+                padding: 30px 10px;
+            }
+
             p.title {
                 font-size: 18px;
             }
@@ -161,6 +165,10 @@ body.view-lecturers {
                 height: 51px;
                 background-color: #f3f3f3;
                 border: none;
+            }
+
+            input, textarea {
+                font-size: 15px;
             }
         }
 
