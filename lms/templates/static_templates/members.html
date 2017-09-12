@@ -6,14 +6,191 @@
 
 <%block name="bodyclass">view-members</%block>
 
+<%block name="js_extra">
+  <script type="text/javascript">
+    $(function() {
+
+      // adding js class for styling with accessibility in mind
+      $('body').addClass('js');
+
+      // form field label styling on focus
+      $("form :input").focus(function() {
+        $("label[for='" + this.id + "']").parent().addClass("is-focused");
+      }).blur(function() {
+        $("label").parent().removeClass("is-focused");
+      });
+
+      $("#first-name").focus();
+    });
+
+    (function() {
+      toggleSubmitButton(true);
+
+      $('#login-form').on('submit', function() {
+        toggleSubmitButton(false);
+      });
+
+      $('#login-form').on('ajax:error', function(event, request, status_string) {
+        toggleSubmitButton(true);
+
+        $('.message.submission-success').removeClass('is-shown');
+
+        if (request.status === 403) {
+          $('.message.submission-error').removeClass('is-shown');
+        } else {
+          $('.message.submission-error').addClass('is-shown').focus();
+          $('.message.submission-error').html(gettext("Your request could not be completed. Please try again."));
+        }
+      });
+
+      $('#login-form').on('ajax:success', function(event, json, xhr) {
+        if(json.success) {
+          $('.message.submission-success').addClass('is-shown').focus();
+          $('.message.submission-success .message-copy').html("Your application was sent successfully.");
+        } else {
+          toggleSubmitButton(true);
+          $('.message.submission-error').addClass('is-shown').focus();
+          $('.message.submission-error .message-copy').html(json.value);
+        }
+      });
+
+
+    })(this);
+
+    function toggleSubmitButton(enable) {
+      var $submitButton = $('form .form-actions #submit');
+
+      if(enable) {
+        $submitButton.
+          removeClass('is-disabled').
+          attr('aria-disabled', false).
+          prop('disabled', false).
+          html("${_('SEND')}");
+      }
+      else {
+        $submitButton.
+          addClass('is-disabled').
+          prop('disabled', true).
+          text("${_(u'PROCESSING...')}");
+      }
+    }
+
+  </script>
+</%block>
 
 <section class="login ms-members container-bs">
     <section role="main" class="main row-bs">
-        <div class="header col-xs-12 col-md-10 col-md-offset-1">
-        <h1 class="title">
-            <span class="title-super">${_("Members")}</span>
-        </h1>
+                <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 description">
+            <p class="title">
+                Founding Partner
+            </p>
+            <p>
+               Are you a leader in financial services and/or technology? Are you passionate about fintech? Become 1 of only 100 Founding Partners of the FINTECH Circle Institute. 
+            </p>
+            <p>
+                You will receive life-time membership to the FINTECH Circle Institute, VIP benefits and reduced entry to the FINTECH Circle Summit in 2018.
+            </p>
+            <p>
+                <span class="bold">Fee: £5,000 +vat. </span><span class="italic">Apply by completing the form.</span>
+            </p>
+            <p class="italic">
+                Value added tax is 20% in the United Kingdom.
+            </p>
+            <div class="quote">
+                  <div class="row-bs">
+
+                      <div class="col-xs-12">
+                        <div class="box row-bs">
+
+                            <p class="text col-xs-12">
+                                I’m delighted to be a Global Ambassador of the FINTECH Circle Institute and committed to empower financial services professionals with practical, in-depth digital knowledge. As Global Ambassador I am excited to collaborate with other banking, FinTech and academic Leaders to shape the platform that will fuel innovation across the entire industry globally.
+                            </p>
+                            <div class="col-xs-12 col-sm-6">
+                                <img src="" alt="..." 
+                                    class="img-responsive">
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="author">
+                                    <strong>Pong Yip</strong>
+                                    <span>PY is Non-Executive Chairman of China Pacific Capital (CPC), a VC and private equity arm of the family office investing in early stage companies.  PY received an MSEE and BSEE from UPenn, and an MBA from the Wharton School at the UPenn.  With more than three decades of entrepreneurial and direct investment experience in the US, UK and Asia he has co-founded or provided seed funding to start-up entities, including Gartner Group Asia, American Online Asia, and Online Software Asia and fintech/edtech startups such as Mortgage Gym and SilkRoad Edtech Group.</span>
+                                </div>
+                            </div>    
+                        </div>
+                      </div>
+                  </div>
+                
+            </div>
+
+
+            <p class="title">
+                Apply Now! 
+            </p>
+            <p>
+                If you're interested in becoming a Founding Partner or Global Ambassador, please apply on this 
+                form. We are looking forward to your application.
+            </p>
+            
         </div>
+
+        <form class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 application" 
+            role="form" id="login-form" method="post" data-remote="true" action="/member_ajax" novalidate>
+
+            <div role="alert" class="status message submission-error" tabindex="-1">
+            </div>
+            <div role="alert" class="status message submission-success" tabindex="-1">
+            </div>
+
+            <div class="application-fields">
+                <ol class="list-input row-bs">
+                    <li class="field required text" id="field-first-name">
+                        <label for="first-name">First name</label>
+                        <input class="" id="first-name" type="text" name="first-name" value="" required aria-required="true" aria-described-by="first-name-tip" />
+                    </li>
+                    <li class="field required text" id="field-last-name">
+                        <label for="last-name">Last name</label>
+                        <input class="" id="last-name" type="text" name="last-name" value="" required aria-required="true" aria-described-by="last-name-tip" />
+                    </li>
+                    <li class="field required text" id="field-email">
+                        <label for="email">E-mail</label>
+                        <input class="" id="email" type="email" name="email" value="" required aria-required="true" aria-described-by="email-tip" />
+                    </li>
+                    <li class="field text" id="field-linkedin-url">
+                        <label for="linkedin-url">LinkedIn profile URL</label>
+                        <input class="" id="linkedin-url" type="text" name="linkedin-url" value="" aria-described-by="linkedin-url-tip" />
+                    </li>
+                    <li class="field text" id="field-twitter-handle">
+                        <label for="twitter-handle">Twitter handle</label>
+                        <input class="" id="twitter-handle" type="text" name="twitter-handle" value="" aria-described-by="twitter-handle-tip" />
+                    </li>
+                    <li class="field required text" id="field-experience">
+                        <label for="experience">Provide detailed information about your background and experience</label>
+                        <textarea id="experience" rows ="10" name="experience" required aria-required="true" aria-described-by="experience-tip"></textarea>
+                    </li>
+                    <li class="field required text" id="field-reason">
+                        <label for="reason">Why would you like to join the FINTECH Circle Institute as Founding Partner of Global Ambassador?</label>
+                        <textarea id="reason" rows ="10" name="reason" required aria-required="true" aria-described-by="reason-tip"></textarea>
+                    </li>
+                    <li class="field required text" id="field-experience">
+                        <label for="experience">Please tell us about your thought leadership in fintech? Any books or publications you have written or contributed to? Conferences you have spoken at?</label>
+                        <textarea id="experience" rows ="10" name="experience" required aria-required="true" aria-described-by="experience-tip"></textarea>
+                    </li>
+                    <li class="field required text" id="field-knowledge">
+                        <label for="course">Which areas of fintech do you know most about? Where have you got your deepest domain expertise? Which areas are new to you and would you like to explore further?</label>
+                        <textarea id="knowledge" rows ="10" name="knowledge" required aria-required="true" aria-described-by="knowledge-tip"></textarea>
+                    </li>
+                    <li class="field required text" id="field-sample">
+                        <label for="sample">Which areas of fintech would you like to focus on in your role as Founding Member or Global Ambassador? What could you contribute to the Institute? What is your vision for the Institute?</label>
+                        <textarea id="sample" rows ="10" name="sample" required aria-required="true" aria-described-by="sample-tip"></textarea>
+                    </li>
+                    
+                </ol>
+            </div>
+
+            <div class="form-actions">
+                <button name="submit" type="submit" id="submit" class="action action-primary action-update login-button"></button>
+            </div>
+
+        </form>
 
   </section>
 </section>
