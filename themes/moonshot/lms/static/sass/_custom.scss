@@ -975,7 +975,7 @@ body {
                 }
                 .main-cta {
                     a {
-                        &.register {
+                        &.register, &.add-to-cart, &.find-courses {
                             padding: 14px 25px !important;
                             border-radius: 30px !important;
                             background-color: #fd7400 !important;
