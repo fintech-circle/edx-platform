@@ -47,4 +47,10 @@ body.view-course-info {
         display: none !important;
     }
 
+    .course-info header.course-profile .intro-inner-wrapper .intro {
+        @media #{$screen-sm} {
+            width: 100%;
+        }
+    }
+
 }

@@ -34,10 +34,9 @@ body.view-privacy {
   }
 }
 
-body.view-in-course .window-wrap {
+body.view-in-course .window-wrap,
+body.view-course-info .content-wrapper .container,
+body.view-course-info .course-info header.course-profile .intro-inner-wrapper {
     min-width: unset !important;
 }
 
-body.view-course-info .content-wrapper .container {
-    min-width: unset !important;
-}
