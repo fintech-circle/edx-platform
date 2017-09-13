@@ -666,7 +666,6 @@ def compose_and_send_activation_email(user, profile, user_registration=None):
     send_activation_email.delay(subject, message_for_activation, from_address, dest_addr)
 
 
-@login_required
 @ensure_csrf_cookie
 def lecturers(request):
     """
@@ -687,7 +686,6 @@ def lecturers(request):
     return response
 
 
-@login_required
 @ensure_csrf_cookie
 def categories(request):
     """
