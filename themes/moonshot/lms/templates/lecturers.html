@@ -48,11 +48,11 @@
       $('#login-form').on('ajax:success', function(event, json, xhr) {
         if(json === 200 && xhr === 'success') {
           $('.message.submission-success').addClass('is-shown').focus();
-          $('.message.submission-success .message-copy').html("Your application was sent successfully.");
+          $('.message.submission-success').html("Your application was sent successfully.");
         } else {
           toggleSubmitButton(true);
           $('.message.submission-error').addClass('is-shown').focus();
-          $('.message.submission-error .message-copy').html(json.value);
+          $('.message.submission-error').html(json.value);
         }
       });
 
