@@ -112,11 +112,13 @@ ${HTML(fragment.foot_html())}
 % endif
 
 <div class="container">
-  <div class="course-wrapper" role="presentation">
+  <div class="course-wrapper hide-course-index" role="presentation">
 
 % if disable_accordion is UNDEFINED or not disable_accordion:
     <div class="course-index">
-
+      <button id="toggle-course-index2">
+        <span class="icon fa fa-close" aria-hidden="true"></span>
+      </button>
       <div class="wrapper-course-modes">
           % if settings.FEATURES.get('ENABLE_COURSEWARE_SEARCH'):
             <div id="courseware-search-bar" class="search-bar courseware-search-bar" role="search" aria-label="Course">
@@ -148,6 +150,12 @@ ${HTML(fragment.foot_html())}
     </div>
 % endif
     <section class="course-content" id="course-content">
+        <div>
+          <button id="toggle-course-index">
+              <span class="icon fa fa-chevron-next" aria-hidden="true"></span>
+              <span>${_('Course index')}</span>
+          </button>
+        </div>
         <header class="page-header has-secondary">
             <div class="page-header-main">
                 <nav aria-label="${_('Course')}" class="sr-is-focusable" tabindex="-1">

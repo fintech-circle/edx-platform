@@ -35,6 +35,122 @@ body.view-in-course {
         overflow: auto;
     }
 
+    &.view-courseware.courseware {
+        .xmodule_display.xmodule_SequenceModule .sequence-nav {
+            display: block;
+            height: unset
+        }
+
+        .xmodule_display.xmodule_SequenceModule nav.sequence-bottom {
+            width: 100%;
+            display: block;
+            height: unset;
+        }
+        
+        .xmodule_display.xmodule_SequenceModule .sequence-nav-button {
+            min-width: unset;
+            height: 40px;
+        }
+        
+        .xmodule_display.xmodule_SequenceModule .sequence-nav .sequence-nav-button {
+            max-width: unset;
+        }
+
+        .course-wrapper {
+            overflow: hidden;
+
+            #toggle-course-index {
+                position: absolute;
+                margin: 10px;
+                display: block;
+                top: 0;
+                height: 40px;
+                text-shadow: none;
+                background: none;
+                background-color: white;
+                border-color: #c8c8c8;
+                box-shadow: none;
+                min-width: 120px;
+                font-size: inherit;
+                font-weight: normal;
+                padding: 0 20px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+
+                display: none;
+            }
+
+            #toggle-course-index2 {
+                margin: 10px;
+                display: block;
+                top: 0;
+                height: 40px;
+                text-shadow: none;
+                background: none;
+                background-color: white;
+                border-color: #c8c8c8;
+                box-shadow: none;
+                font-size: inherit;
+                font-weight: normal;
+                padding: 0 20px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                float: right;
+
+                display: none;
+            }
+
+            .course-index {
+                position: absolute;
+                display: inline-block;
+                width: 200px;
+                z-index: 10;
+                transition: all .5s linear;
+                background-color: white;
+                height: 100%;
+                z-index: 1001;
+            }
+
+            .course-content {
+                float: right;
+                transition: all .5s linear;
+                width: calc(100% - 200px);
+            }
+
+            @media #{$screen-sm} { 
+                #toggle-course-index {
+                    display: block;
+                }
+
+                #toggle-course-index2 {
+                    display: block;  
+                }
+
+                &.hide-course-index {
+                    .course-index {
+                        left: -200px;
+                    }
+
+                    .course-content {
+                        width: 100%;
+                    }
+                }
+
+                &.show-course-index {
+                    .course-index {
+                        left: 0;
+                    }
+                    .course-content {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+    }
+
 }
 
 body.view-course-info {
