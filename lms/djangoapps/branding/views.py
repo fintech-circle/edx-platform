@@ -111,6 +111,7 @@ def contact_ajax(request):
     company = request.POST.get('company', '')
     position = request.POST.get('position', '')
     message = request.POST.get('message', '')
+    remember = request.POST.get('remember', '')
     if first_name and last_name and from_email and message:
         subject = "Contact form message from %s %s" % (first_name, last_name)
         msg_content = """
@@ -118,8 +119,11 @@ def contact_ajax(request):
         Company: %s
         Position: %s
         Message: %s""" % (first_name, last_name, from_email, company, position, message)
+        email_recipients = [settings.CONTACT_EMAIL]
+        if remember:
+            email_recipients.append(from_email)
         try:
-            send_mail(subject, msg_content, from_email, [settings.CONTACT_EMAIL])
+            send_mail(subject, msg_content, from_email, email_recipients)
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         return HttpResponse(200)
@@ -141,6 +145,23 @@ def lecturer_ajax(request):
     publications = request.POST.get('publications', '')
     course = request.POST.get('course', '')
     sample = request.POST.get('sample', '')
+
+    topicFinhTech = request.POST.get('topicFinhTech', '')
+    topicWealthTech = request.POST.get('topicWealthTech', '')
+    topicInsurTech = request.POST.get('topicInsurTech', '')
+    topicRegTech = request.POST.get('topicRegTech', '')
+    topicEnterpriseInnovation = request.POST.get('topicEnterpriseInnovation', '')
+    topicEnterprenourship = request.POST.get('topicEnterprenourship', '')
+    topicDtAgile = request.POST.get('topicDtAgile', '')
+    topicNA = request.POST.get('topicNA', '')
+
+    techDataScience = request.POST.get('techDataScience', '')
+    techAI = request.POST.get('techAI', '')
+    techBlockchain = request.POST.get('techBlockchain', '')
+    techCryptocurrencies = request.POST.get('techCryptocurrencies', '')
+    techSoftwareDev = request.POST.get('techSoftwareDev', '')
+    techUX = request.POST.get('techUX', '')
+    techNA = request.POST.get('techNA', '')
     if first_name and last_name and from_email:
         subject = "Lecturer application from %s %s" % (first_name, last_name)
         msg_content = """
@@ -151,8 +172,29 @@ def lecturer_ajax(request):
         Language: %s
         Publications: %s
         Course: %s
-        Sample: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle, experience, language,
-                          publications, course, sample)
+        Sample: %s
+
+        Topics:
+        Fintech: %s
+        WealthTec: %s
+        InsurTech: %s
+        RegTech: %s
+        EntepriseInnovation: %s
+        Enterprenourship: %s
+        DtAgile: %s
+        NA: %s
+
+        Technologies:
+        DataScience: %s
+        AI: %s
+        Blockchain: %s
+        Cryptocurrencies: %s
+        SoftwareDev: %s
+        UX: %s
+        NA: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle, experience, language,
+                          publications, course, sample, topicFinhTech, topicWealthTech, topicInsurTech, topicRegTech,
+                     topicEnterpriseInnovation, topicEnterprenourship, topicDtAgile, topicNA, techDataScience,
+                     techAI, techBlockchain, techCryptocurrencies, techSoftwareDev, techUX, techNA)
         try:
             send_mail(subject, msg_content, from_email, [settings.CONTACT_EMAIL])
         except BadHeaderError:
