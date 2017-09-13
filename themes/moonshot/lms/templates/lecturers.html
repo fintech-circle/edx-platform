@@ -46,7 +46,7 @@
       });
 
       $('#login-form').on('ajax:success', function(event, json, xhr) {
-        if(json.success) {
+        if(json === 200 && xhr === 'success') {
           $('.message.submission-success').addClass('is-shown').focus();
           $('.message.submission-success .message-copy').html("Your application was sent successfully.");
         } else {
