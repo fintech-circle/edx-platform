@@ -19,6 +19,25 @@ body.view-members {
             margin-top: 20px;
         }
 
+        .header {
+            padding: 40px 60px;
+            
+            @media #{$screen-xs} {
+                padding: 30px 10px;
+            } 
+            
+            button.buy-button {
+                width: 100px;
+                background: #fd7400;
+                box-shadow: none;
+                color: white;
+                font-weight: bold;
+                &:hover {
+                    background-color: #fd7400;
+                }
+            }
+        }
+
         .header .title {
             margin-top: 0;
             margin-bottom: 49px;
@@ -30,6 +49,10 @@ body.view-members {
                 letter-spacing: 1.3px;
                 text-align: left;
                 color: #4a4a4a;
+            }
+
+            .details {
+                margin-top: -5px;
             }
         }
 
@@ -51,7 +74,7 @@ body.view-members {
                 font-style: italic;
             }
 
-            bold {
+            .bold {
                 font-weight: bold;
             }
 
@@ -82,6 +105,10 @@ body.view-members {
                         padding: 20px 0;
                         text-align: right;
                         float: right;
+
+                        .bio {
+                            text-align: left;
+                        }
                     }
                     strong {
                         position: relative;
@@ -97,7 +124,7 @@ body.view-members {
                         &:before {
                             position: absolute;
                             top: 50%;
-                            left: -42px;
+                            right: 100px;
                             content: "";
                             display: block;
                             width: 36px;
@@ -136,7 +163,7 @@ body.view-members {
 
             label {
                 font-family: 'Open Sans';
-                font-size: 10px;
+                font-size: 16px;
                 text-align: left;
                 color: #4a4a4a;
             }
@@ -164,7 +191,7 @@ body.view-members {
 
             label {
                 font-family: 'Open Sans';
-                font-size: 10px;
+                font-size: 16px;
                 text-align: left;
                 color: #4a4a4a;
             }
