@@ -21,6 +21,14 @@
     background: $gray-d2;
     color: $base-font-color;
 
+    @media 
+    (-webkit-min-device-pixel-ratio: 2), 
+    (min-resolution: 192dpi) { 
+        width: 100%;
+        left: 0 !important;
+        margin-left: 0 !important;
+    }
+
     .inner-wrapper {
         z-index: z-index(mid-front);
         background: $modal-bg-color;
