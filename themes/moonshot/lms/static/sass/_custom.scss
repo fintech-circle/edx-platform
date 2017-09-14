@@ -307,7 +307,8 @@ header {
 
 body {
     &.is-authenticated, &.authenticated-views, &.view-login, &.view-register,
-    &.view-tos, &.view-privacy, &.view-about, &.view-contact, &.view-course-info {
+    &.view-tos, &.view-privacy, &.view-about, &.view-contact, &.view-course-info,
+    &.view-press {
 
         header {
             height: auto;
