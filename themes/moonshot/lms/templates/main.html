@@ -285,7 +285,6 @@ from pipeline_mako import render_require_js_path_overrides
             <script type="text/javascript">
                 $(document).ready(function() {
                     $('.courses .courses-listing .courses-listing-item .course a').on("click touchend", function(e) {
-                        console.log('course a click');
                         var el = $(this);
                         var link = el.attr("href");
                         window.location = link;
