@@ -174,7 +174,7 @@ def _footer_navigation_links():
         for link_name, link_url, link_title in [
             ("about", marketing_link("ABOUT"), _("About")),
             ("press", marketing_link("PRESS"), _("Press")),
-            ("lecturer", marketing_link("LECTURER"), _("Become a Lecturer")),
+            ("lecturer", marketing_link("LECTURERS"), _("Become a Lecturer")),
             ("contact", marketing_link("CONTACT"), _("Contact")),
         ]
         if link_url and link_url != "#"
