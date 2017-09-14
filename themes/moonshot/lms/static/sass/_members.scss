@@ -3,6 +3,10 @@ body.view-members {
     header.header-global {
         position: relative !important;
     }
+
+    header.header-global .wrapper-header .course-search {
+        display: none;
+    }
     
     .section-quote, 
     .section-info, 
