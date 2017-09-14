@@ -25,6 +25,11 @@
 
     (function() {
       toggleSubmitButton(true);
+      checkSubmitDisabled();
+
+      $('#login-form input, #login-form textarea').on('keyup', function (){
+        checkSubmitDisabled();
+      }); 
 
       $('#login-form').on('submit', function() {
         toggleSubmitButton(false);
@@ -56,6 +61,34 @@
 
 
     })(this);
+
+    function submitDisabled(){
+      var reqFields = '#first-name, #last-name, #email, #message',
+        filled = true;
+
+      $(reqFields).each(function(index, elem){
+        if($(elem).val() === '') {
+          filled = false;
+        }
+      })
+
+      return !filled;
+    }
+
+    function checkSubmitDisabled(){
+      var $submitButton = $('form .form-actions #submit');
+      if (submitDisabled()) {
+          $submitButton
+            .addClass('is-disabled')
+            .attr('aria-disabled', true)
+            .prop('disabled', true);
+        } else {
+          $submitButton
+            .removeClass('is-disabled')
+            .attr('aria-disabled', false)
+            .prop('disabled', false); 
+        }
+    }
 
     function toggleSubmitButton(enable) {
       var $submitButton = $('form .form-actions #submit');

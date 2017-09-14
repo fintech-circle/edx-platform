@@ -25,6 +25,11 @@
 
     (function () {
         toggleSubmitButton(true);
+        checkSubmitDisabled();
+
+        $('#login-form input, #login-form textarea').on('keyup', function (){
+            checkSubmitDisabled();
+        }); 
 
         $('#login-form').on('submit', function () {
             toggleSubmitButton(false);
@@ -56,6 +61,34 @@
 
 
     })(this);
+
+    function submitDisabled(){
+      var reqFields = '#first-name, #last-name, #email, #experience, #reason, #publications, #knowledge, #sample',
+        filled = true;
+
+      $(reqFields).each(function(index, elem){
+        if($(elem).val() === '') {
+          filled = false;
+        }
+      })
+
+      return !filled;
+    }
+
+    function checkSubmitDisabled(){
+      var $submitButton = $('form .form-actions #submit');
+      if (submitDisabled()) {
+          $submitButton
+            .addClass('is-disabled')
+            .attr('aria-disabled', true)
+            .prop('disabled', true);
+        } else {
+          $submitButton
+            .removeClass('is-disabled')
+            .attr('aria-disabled', false)
+            .prop('disabled', false); 
+        }
+    }
 
     function toggleSubmitButton(enable) {
         var $submitButton = $('form .form-actions #submit');
@@ -187,9 +220,9 @@
                         <label for="reason">Why would you like to join the FINTECH Circle Institute as Founding Partner of Global Ambassador?</label>
                         <textarea id="reason" rows ="10" name="reason" required aria-required="true" aria-described-by="reason-tip"></textarea>
                     </li>
-                    <li class="field required text" id="field-experience">
-                        <label for="experience">Please tell us about your thought leadership in fintech? Any books or publications you have written or contributed to? Conferences you have spoken at?</label>
-                        <textarea id="experience" rows ="10" name="experience" required aria-required="true" aria-described-by="experience-tip"></textarea>
+                    <li class="field required text" id="field-publications">
+                        <label for="publications">Please tell us about your thought leadership in fintech? Any books or publications you have written or contributed to? Conferences you have spoken at?</label>
+                        <textarea id="publications" rows ="10" name="publications" required aria-required="true" aria-described-by="publications-tip"></textarea>
                     </li>
                     <li class="field required text" id="field-knowledge">
                         <label for="course">Which areas of fintech do you know most about? Where have you got your deepest domain expertise? Which areas are new to you and would you like to explore further?</label>
