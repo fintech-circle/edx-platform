@@ -282,16 +282,6 @@ from pipeline_mako import render_require_js_path_overrides
           </div>
           % endif
 
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('.courses .courses-listing .courses-listing-item .course a').on("click touchend", function(e) {
-                        var el = $(this);
-                        var link = el.attr("href");
-                        window.location = link;
-                    });
-                });
-            </script>
-
           % if tag_list:
           <div class="section-tag">
               <div class="container-bs">
