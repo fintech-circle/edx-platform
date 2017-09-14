@@ -27,13 +27,22 @@ body.view-members {
             } 
             
             button.buy-button {
-                width: 100px;
+                width: 120px;
+                padding: 14px 25px;
+                border-radius: 30px;
                 background: #fd7400;
-                box-shadow: none;
-                color: white;
-                font-weight: bold;
-                &:hover {
-                    background-color: #fd7400;
+                border: 0 none;
+                font-family: 'Open Sans';
+                font-size: 12px; 
+                font-weight: 600;
+                letter-spacing: 1.2px; 
+                color: #ffffff;
+                text-transform: uppercase;
+                text-shadow: none;
+                box-shadow: 0 2px 1px 0 #0a4a67;
+
+                &:focus {
+                    box-shadow: 0 0 6px 0 #126f9a;
                 }
             }
         }
