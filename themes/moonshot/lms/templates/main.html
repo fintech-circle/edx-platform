@@ -234,7 +234,7 @@ from pipeline_mako import render_require_js_path_overrides
                   </div>
               </div>
           </div>
-          % if popular_courses:
+            
           <div class="section-popular-courses">
               <div class="container-bs">
                   <div class="row-bs">
@@ -245,29 +245,123 @@ from pipeline_mako import render_require_js_path_overrides
                                   <section class="courses-container">
                                       <section class="highlighted-courses">
                                           <section class="courses">
-                                              <ul class="courses-listing">
-                                                  % for course in popular_courses:
+                                            <ul class="courses-listing">
                                                   <li class="courses-listing-item">
-                                                      <article class="course" id="${course.id}" role="region" aria-label="${course.display_name}">
-                                                          <a href="/courses/${course.id}/about">
-                                                              <header class="course-image">
-                                                                  <div class="cover-image">
-                                                                      <img src="${course.course_image_url}" alt="${course.display_name}">
-                                                                      <div class="learn-more" aria-hidden="true"></div>
-                                                                  </div>
-                                                              </header>
-                                                              <div class="course-info" aria-hidden="true">
-                                                                  <h2 class="course-name">
-                                                                      <span class="course-organization">${course.org}</span>
-                                                                      <span class="course-tags">${course.short_description}</span>
-                                                                      <span class="course-title">${course.display_name}</span>
-                                                                  </h2>
-                                                                  <div class="course-date localized_datetime" aria-hidden="true">Starts: ${course.start.strftime('%b %-d, %Y')}</div>
-                                                              </div>
-                                                          </a>
-                                                      </article>
+                                                      <article class="course" role="region" aria-label="Insights by Ben Brabyn">
+                                                        <a href="/courses/course-v1:Brabyn+C1+Interview_with_Ben_Brabyn/about">
+                                                            <header class="course-image">
+                                                                <div class="cover-image">
+                                                                    <img src="/asset-v1:Brabyn+C1+Interview_with_Ben_Brabyn+type@asset+block@Ben_Final.jpg" alt="Insights by Ben Brabyn C1">
+                                                                    <div class="learn-more" aria-hidden="true"></div>
+                                                                </div>
+                                                            </header>
+                                                            <section class="course-info" aria-hidden="true">
+                                                                <h2 class="course-name">
+                                                                    <span class="course-organization">Brabyn</span>
+                                                                    <span class="course-tags"></span>
+                                                                    <span class="course-title">Insights by Ben Brabyn</span>
+                                                                </h2>
+                                                                <div class="course-date" aria-hidden="true">
+                                                                    Duration: 
+                                                                </div>
+                                                            </section>
+                                                            <div class="sr">
+                                                                <ul>
+                                                                    <li>Brabyn</li>
+                                                                    <li>C1</li>
+                                                                    <li>Starts<time itemprop="startDate" datetime="Jan 1, 2017">Jan 1, 2017</time></li>
+                                                                </ul>
+                                                            </div>
+                                                        </a>
+                                                    </article>
                                                   </li>
-                                                  % endfor
+                                                  <li class="courses-listing-item">
+                                                      <article class="course" role="region" aria-label="Insights by Joy McKnignt">
+                                                        <a href="/courses/course-v1:McKnight+C1+Interview_with_Joy_McKnignt/about">
+                                                            <header class="course-image">
+                                                                <div class="cover-image">
+                                                                    <img src="/asset-v1:McKnight+C1+Interview_with_Joy_McKnignt+type@asset+block@Joy_FInal.jpg" alt="Insights by Joy McKnignt C1">
+                                                                    <div class="learn-more" aria-hidden="true"></div>
+                                                                </div>
+                                                            </header>
+                                                            <section class="course-info" aria-hidden="true">
+                                                                <h2 class="course-name">
+                                                                    <span class="course-organization">McKnight</span>
+                                                                    <span class="course-tags"></span>
+                                                                    <span class="course-title">Insights by Joy McKnignt</span>
+                                                                </h2>
+                                                                <div class="course-date" aria-hidden="true">
+                                                                    Duration: 
+                                                                </div>
+                                                            </section>
+                                                            <div class="sr">
+                                                                <ul>
+                                                                    <li>McKnight</li>
+                                                                    <li>C1</li>
+                                                                    <li>Starts<time itemprop="startDate" datetime="Jan 1, 2017">Jan 1, 2017</time></li>
+                                                                </ul>
+                                                            </div>
+                                                        </a>
+                                                    </article>
+                                                  </li>
+                                                  <li class="courses-listing-item">
+                                                      <article class="course" role="region" aria-label="Insights by David Craig">
+                                                        <a href="/courses/course-v1:Craig+C1+Interview_with_David_Craig/about">
+                                                            <header class="course-image">
+                                                                <div class="cover-image">
+                                                                    <img src="/asset-v1:Craig+C1+Interview_with_David_Craig+type@asset+block@David_Final.jpg" alt="Insights by David Craig C1">
+                                                                    <div class="learn-more" aria-hidden="true"></div>
+                                                                </div>
+                                                            </header>
+                                                            <section class="course-info" aria-hidden="true">
+                                                                <h2 class="course-name">
+                                                                    <span class="course-organization">Craig</span>
+                                                                    <span class="course-tags"></span>
+                                                                    <span class="course-title">Insights by David Craig</span>
+                                                                </h2>
+                                                                <div class="course-date" aria-hidden="true">
+                                                                    Duration: 
+                                                                </div>
+                                                            </section>
+                                                            <div class="sr">
+                                                                <ul>
+                                                                    <li>Craig</li>
+                                                                    <li>C1</li>
+                                                                    <li>Starts<time itemprop="startDate" datetime="Jan 1, 2017">Jan 1, 2017</time></li>
+                                                                </ul>
+                                                            </div>
+                                                        </a>
+                                                    </article>
+                                                  </li>
+                                                  <li class="courses-listing-item">
+                                                      <article class="course" role="region" aria-label="Insights by Olof Pripp">
+                                                        <a href="/courses/course-v1:Pripp+C1+Interview_Olaf_Pripp/about">
+                                                            <header class="course-image">
+                                                                <div class="cover-image">
+                                                                    <img src="/asset-v1:Pripp+C1+Interview_Olaf_Pripp+type@asset+block@Olof_Final.jpg" alt="Insights by Olof Pripp C1">
+                                                                    <div class="learn-more" aria-hidden="true"></div>
+                                                                </div>
+                                                            </header>
+                                                            <section class="course-info" aria-hidden="true">
+                                                                <h2 class="course-name">
+                                                                    <span class="course-organization">Pripp</span>
+                                                                    <span class="course-tags">Interview</span>
+                                                                    <span class="course-title">Insights by Olof Pripp</span>
+                                                                </h2>
+                                                                <div class="course-date" aria-hidden="true">
+                                                                    Duration: 
+                                                                </div>
+                                                            </section>
+                                                            <div class="sr">
+                                                                <ul>
+                                                                    <li>Pripp</li>
+                                                                    <li>C1</li>
+                                                                    <li>Starts<time itemprop="startDate" datetime="Jan 1, 2017">Jan 1, 2017</time></li>
+                                                                </ul>
+                                                            </div>
+                                                        </a>
+                                                    </article>
+                                                  </li>
                                               </ul>
                                           </section>
                                       </section>
@@ -280,7 +374,6 @@ from pipeline_mako import render_require_js_path_overrides
               
               <!--<a href="" title="" class="btn btn-orange">View more</a>-->
           </div>
-          % endif
 
           % if tag_list:
           <div class="section-tag">
