@@ -16,8 +16,13 @@
   top: 0;
   z-index: 1;
   right: 0;
-  background-color: black;
+  background-color: white;
   overflow: auto;
+  transition: all .7s linear;
+
+  &.sidebar-opened {
+    background-color: black;
+  }
 }
 
 .bar {
