@@ -134,6 +134,42 @@ def contact_ajax(request):
 
 
 @ensure_csrf_cookie
+def members_ajax(request):
+    first_name = request.POST.get('first-name', '')
+    last_name = request.POST.get('last-name', '')
+    from_email = request.POST.get('from_email', '')
+    linkedin_url = request.POST.get('linkedin-url', '')
+    twitter_handle = request.POST.get('twitter-handle', '')
+    experience = request.POST.get('experience', '')
+    reason = request.POST.get('reason', '')
+    publications = request.POST.get('publications', '')
+    knowledge = request.POST.get('knowledge', '')
+    sample = request.POST.get('sample', '')
+    if first_name and last_name and from_email:
+        subject = "Members form from %s %s" % (first_name, last_name)
+        msg_content = """
+        From: %s %s (%s)
+        LinkedIn: %s
+        Twitter: %s
+        Experience: %s
+        Reason: %s
+        Publications: %s
+        Knowledge: %s
+        Sample: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle, experience, reason,
+                         publications, knowledge, sample)
+        email_recipients = [settings.CONTACT_EMAIL]
+        try:
+            send_mail(subject, msg_content, from_email, email_recipients)
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        return HttpResponse(200)
+    else:
+        # In reality we'd use a form class
+        # to get proper validation errors.
+        return HttpResponse('Make sure all fields are entered and valid.')
+
+
+@ensure_csrf_cookie
 def lecturer_ajax(request):
     first_name = request.POST.get('first-name', '')
     last_name = request.POST.get('last-name', '')

@@ -279,6 +279,7 @@ urlpatterns += (
     url(r'^calculate$', 'util.views.calculate'),
 
     url(r'^contact_ajax/?$', 'branding.views.contact_ajax', name="contact_ajax"),
+    url(r'^members_ajax/?$', 'branding.views.members_ajax', name="members_ajax"),
     url(r'^lecturer_ajax/?$', 'branding.views.lecturer_ajax', name="lecturer_ajax"),
 
     url(r'^course/?$', 'branding.views.courses', name="course"),
