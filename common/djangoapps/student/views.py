@@ -757,10 +757,6 @@ def dashboard(request):
     # enrollments, because it could have been a data push snafu.
     course_enrollments = list(get_course_enrollments(user, course_org_filter, org_filter_out_set))
 
-    course_key = CourseKey.from_string(course_id)
-    course_enrollments = filter(lambda x: x.course_id != 'course-v1:FCI+C1+FINTECH_Circle_Premium_Membership',
-                                course_enrollments)
-
     # Record how many courses there are so that we can get a better
     # understanding of usage patterns on prod.
     monitoring_utils.accumulate('num_courses', len(course_enrollments))
