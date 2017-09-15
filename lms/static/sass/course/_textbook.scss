@@ -27,6 +27,13 @@ div.book-wrapper {
     border-right: none;
     width: 180px;
 
+    @media 
+    (-webkit-min-device-pixel-ratio: 2), 
+    (min-resolution: 192dpi) { 
+        display: block;
+        width: 100%;
+    }
+
     #booknav {
         list-style: none;
 
@@ -99,6 +106,16 @@ div.book-wrapper {
     @extend .content;
     padding: 0;
     width:76%;
+
+    .iframe-custom {
+      width: 856;
+      @media 
+      (-webkit-min-device-pixel-ratio: 2), 
+      (min-resolution: 192dpi) { 
+          width: 100vw;
+          padding-right: 30px;
+      }
+    }
 
     nav {
       @extend .clearfix;
