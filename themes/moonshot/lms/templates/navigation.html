@@ -6,6 +6,8 @@
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 
+from openedx.core.djangoapps.user_api.accounts.image_helpers import get_profile_image_urls_for_user
+
 from lms.djangoapps.ccx.overrides import get_current_ccx
 from openedx.core.djangolib.markup import HTML, Text
 
@@ -99,6 +101,10 @@ site_status_msg = get_site_status_msg(course_id)
       <%include file="user_dropdown.html"/>
         % if should_display_shopping_cart_func() and not (course and static.is_request_in_themed_site()): # see shoppingcart.context_processor.user_has_cart_context_processor
         <ol class="user">
+            <% username = user.username profile_image_url = get_profile_image_urls_for_user(user)['medium'] %>
+            <a style="padding:0px;" href="${reverse('learner_profile', kwargs={'username': user.username})}">
+                <img style="max-width:35px;border-radius:5px;" src="${profile_image_url}" alt="${_('Profile image for {username}').format(username=username)}">
+            </a>
           <li class="primary">
             <a class="shopping-cart" href="${reverse('shoppingcart.views.show_cart')}">
               <span class="icon fa fa-shopping-cart" aria-hidden="true"></span> ${_("Shopping Cart")}
