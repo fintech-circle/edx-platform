@@ -2250,9 +2250,7 @@ EDXMKTG_LOGGED_IN_COOKIE_NAME = 'edxloggedin'
 EDXMKTG_USER_INFO_COOKIE_NAME = 'edx-user-info'
 EDXMKTG_USER_INFO_COOKIE_VERSION = 1
 
-MKTG_URLS = {
-    'BLOG': 'https://www.fintechcircle.com/blog'
-}
+MKTG_URLS = {}
 MKTG_URL_LINK_MAP = {
     'ABOUT': 'about',
     'CONTACT': 'contact',
@@ -3198,3 +3196,5 @@ COURSES_API_CACHE_TIMEOUT = 3600  # Value is in seconds
 
 ############## FTC Settings ###############
 POPULAR_COURSES_OVERRIDE = []
+
+EXTERNAL_BLOG_URL = 'https://www.fintechcircle.com/blog'

@@ -73,7 +73,7 @@ site_status_msg = get_site_status_msg(course_id)
               <a href="${marketing_link('MEMBERS')}">Members</a>
             </li>
             <li class="sidebar-item">
-                <a href="${marketing_link('BLOG')}">Blog</a>
+                <a href="${settings.EXTERNAL_BLOG_URL)}">Blog</a>
             </li>
             % if user.is_authenticated():
             <%block name="navigation_global_links_authenticated">
