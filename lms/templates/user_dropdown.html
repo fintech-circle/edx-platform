@@ -42,6 +42,13 @@ from openedx.core.djangoapps.user_api.accounts.image_helpers import get_profile_
     </div>
 % else:
     <ol class="user">
+        <%
+        username = user.username
+        profile_image_url = get_profile_image_urls_for_user(user)['medium']
+        %>
+        <a style="padding:0px;" href="${reverse('learner_profile', kwargs={'username': user.username})}">
+            <img style="max-width:35px;border-radius:5px;" src="${profile_image_url}" alt="${_('Profile image for {username}').format(username=username)}">
+        </a>
         <li class="primary">
             <a href="${reverse('dashboard')}" class="user-link">
                 <span class="sr">${_("Dashboard for:")}</span>
@@ -63,13 +70,6 @@ from openedx.core.djangoapps.user_api.accounts.image_helpers import get_profile_
                 </ul>
             </div>
         </li>
-        <%
-        username = user.username
-        profile_image_url = get_profile_image_urls_for_user(user)['medium']
-        %>
-        <a style="padding:0px;" href="${reverse('learner_profile', kwargs={'username': user.username})}">
-            <img style="max-width:35px;border-radius:5px;" src="${profile_image_url}" alt="${_('Profile image for {username}').format(username=username)}">
-        </a>
         <!--<li class="primary">-->
             <!--<div class="user-menu">-->
                 <!--<button class="dropdown" aria-expanded="false" aria-haspopup="true">-->
