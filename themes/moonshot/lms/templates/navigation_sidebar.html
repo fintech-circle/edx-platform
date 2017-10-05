@@ -60,6 +60,9 @@ from openedx.core.djangoapps.lang_pref.api import header_language_selector_is_en
         <li class="sidebar-item">
             <a href="${marketing_link('MEMBERS')}">Members</a>
         </li>
+        <li class="sidebar-item">
+            <a href="${marketing_link('BLOG')}">Blog</a>
+        </li>
         % if user.is_authenticated():
         <%block name="navigation_global_links_authenticated">
             %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
