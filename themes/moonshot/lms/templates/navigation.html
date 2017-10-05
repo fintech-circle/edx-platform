@@ -106,13 +106,6 @@ site_status_msg = get_site_status_msg(course_id)
                     <span class="icon fa fa-shopping-cart" aria-hidden="true"></span> ${_("Shopping Cart")}
                 </a>
             </li>
-            <%
-            username = user.username
-            profile_image_url = get_profile_image_urls_for_user(user)['medium']
-            %>
-            <a style="padding:0px;" href="${reverse('learner_profile', kwargs={'username': user.username})}">
-                <img style="max-width:35px;border-radius:5px;" src="${profile_image_url}" alt="${_('Profile image for {username}').format(username=username)}">
-            </a>
         </ol>
         % endif
       % else:
