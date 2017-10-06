@@ -50,7 +50,7 @@ from openedx.core.djangoapps.user_api.accounts.image_helpers import get_profile_
                 profile_image_url = get_profile_image_urls_for_user(self.real_user)['medium']
                 %>
                 <div class="label-username">${username}</div>
-                <!--<img class="user-image-frame" src="${profile_image_url}" alt="">-->
+                <img class="user-image-frame" src="${profile_image_url}" alt="">
             </a>
             <div class="user-menu">
                 <button class="dropdown" aria-expanded="false" aria-haspopup="true">

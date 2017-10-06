@@ -3196,3 +3196,5 @@ COURSES_API_CACHE_TIMEOUT = 3600  # Value is in seconds
 
 ############## FTC Settings ###############
 POPULAR_COURSES_OVERRIDE = []
+
+EXTERNAL_BLOG_URL = 'https://institute.fintechcircle.com/blog'
