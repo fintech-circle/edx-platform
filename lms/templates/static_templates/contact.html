@@ -53,10 +53,11 @@
           $('.message.submission-success').addClass('is-shown').focus();
           $('.message.submission-success').html("Your message was sent successfully.");
         } else {
-          toggleSubmitButton(true);
           $('.message.submission-error').addClass('is-shown').focus();
           $('.message.submission-error').html(json.value);
         }
+
+        toggleSubmitButton(true);
       });
 
 
