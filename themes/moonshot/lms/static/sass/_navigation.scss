@@ -313,16 +313,19 @@ nav {
   }
 }
 
-body.is-authenticated header.header-global .wrapper-header ol.user .user-menu {
-  .label-username {
-    margin: 15px 10px;
-  }
-  .user-image-frame {
-    height: 40px;
-    width: 40px;
-  }
-  ul.dropdown-menu {
-    left: -78px;
-    top: 50px;
+body.is-authenticated,
+body.authenticated-views {
+  header.header-global .wrapper-header ol.user .user-menu {
+    .label-username {
+      margin: 15px 10px;
+    }
+    .user-image-frame {
+      height: 40px;
+      width: 40px;
+    }
+    ul.dropdown-menu {
+      left: -78px;
+      top: 50px;
+    }
   }
 }
