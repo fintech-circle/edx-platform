@@ -23,34 +23,4 @@ from django.utils.translation import ugettext as _
   </%static:require_module>
 </%block>
 
-<section class="container container-bs categories ms-categories my-new-container" id="categories-main">
-
-  <main id="main" aria-label="Content" tabindex="-1">
-
-  <section class="find-courses" id="my-categories">
-    <header class="wrapper-header-categories">
-      <h2 class="header-categories">Categories</h2>
-    </header>
-
-    <ul id="category-tabs" class="nav nav-tabs category-tabs">
-      <li class="category-tab active">
-          <a href="#">Fintech General</a>
-      </li>
-      <li class="category-tab"><a href="#">WealthTECH</a></li>
-      <li class="category-tab"><a href="#">InsurTECH</a></li>
-      <li class="category-tab"><a href="#">RegTECH</a></li>
-      <li class="category-tab"><a href="#">Blockchain/Ccy</a></li>
-      <li class="category-tab"><a href="#">Artificial Intelligence</a></li>
-      <li class="category-tab"><a href="#">Enterprise Innovation</a></li>
-      <li class="category-tab"><a href="#">Startups</a></li>
-    </ul>
-
-    <section class="courses-container">
-      <div class="courses">
-        <ul class="courses-listing">
-        </ul>
-      </div>
-    </section>
-  </section>
-  </main>
-</section>
+<%include file="../corses-with-categories.html" />

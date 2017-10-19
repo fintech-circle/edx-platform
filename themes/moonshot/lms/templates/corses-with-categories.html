@@ -1,0 +1,44 @@
+
+<section class="container categories ms-categories" id="categories-main">
+
+  <main id="main" aria-label="Content" tabindex="-1">
+
+  <section class="find-courses" id="my-categories">
+    <header class="wrapper-header-categories">
+      <h2 class="header-categories">Categories</h2>
+    </header>
+
+    <ul id="category-tabs" class="nav nav-tabs category-tabs">
+      <li class="category-tab active">
+          <a href="#" data-tag="Fintech_General">Fintech General</a>
+      </li>
+      <li class="category-tab"><a href="#" data-tag="WealthTECH">WealthTECH</a></li>
+      <li class="category-tab"><a href="#" data-tag="InsurTECH">InsurTECH</a></li>
+      <li class="category-tab"><a href="#" data-tag="RegTECH">RegTECH</a></li>
+      <li class="category-tab"><a href="#" data-tag="Blockchain_Ccy">Blockchain/Ccy</a></li>
+      <li class="category-tab"><a href="#" data-tag="Artificial_Intelligence">Artificial Intelligence</a></li>
+      <li class="category-tab"><a href="#" data-tag="Enterprise_Innovation">Enterprise Innovation</a></li>
+      <li class="category-tab"><a href="#" data-tag="Startups">Startups</a></li>
+    </ul>
+
+    <section class="courses-container">
+      <div class="courses">
+        <ul class="courses-listing">
+        </ul>
+      </div>
+    </section>
+  </section>
+  <!-- <section class="my-categories" id="my-categories">
+    <header class="wrapper-header-categories">
+      <h2 class="header-categories">All Categories</h2>
+    </header>
+      <div class="section-tag categories-tabs">
+        <ul>
+            % for index, tag in enumerate(tag_list):
+                <li><a href="${EDX_ROOT_URL}/courses?search_query=${tag}" title="">${tag}</a></li>
+            % endfor
+        </ul>
+      </div>
+  </section> -->
+  </main>
+</section>

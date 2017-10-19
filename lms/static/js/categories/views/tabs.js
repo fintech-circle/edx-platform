@@ -19,13 +19,13 @@
                 if(!targetTab.hasClass('active')) {
                     this.$tabs.removeClass('active');
                     targetTab.addClass('active');
-                    var categoryText = targetTab.find('a').text();
+                    var categoryText = targetTab.find('a').attr('data-tag');
                     this.trigger('tab_change',categoryText);
                 }
             },
 
             getCategoryTabText: function(index) {
-                return this.$tabs.eq(index).find('a').text();
+                return this.$tabs.eq(index).find('a').attr('data-tag');
             }
 
         });
