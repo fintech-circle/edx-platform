@@ -129,10 +129,10 @@ def contact_ajax(request):
     if first_name and last_name and from_email and message:
         subject = "Contact form message from %s %s" % (first_name, last_name)
         msg_content = """
-        From: %s %s (%s)
-        Company: %s
-        Position: %s
-        Message: %s""" % (first_name, last_name, from_email, company, position, message)
+From: %s %s (%s)
+Company: %s
+Position: %s
+Message: %s""" % (first_name, last_name, from_email, company, position, message)
         email_recipients = [settings.CONTACT_EMAIL]
         if remember:
             email_recipients.append(from_email)
@@ -164,14 +164,14 @@ def members_ajax(request):
     if first_name and last_name and from_email:
         subject = "Members form from %s %s" % (first_name, last_name)
         msg_content = """
-        From: %s %s (%s)
-        LinkedIn: %s
-        Twitter: %s
-        Experience: %s
-        Reason: %s
-        Publications: %s
-        Knowledge: %s
-        Sample: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle, experience, reason,
+From: %s %s (%s)
+LinkedIn: %s
+Twitter: %s
+Experience: %s
+Reason: %s
+Publications: %s
+Knowledge: %s
+Sample: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle, experience, reason,
                          publications, knowledge, sample)
         email_recipients = [settings.CONTACT_EMAIL]
         try:
@@ -219,33 +219,33 @@ def lecturer_ajax(request):
     if first_name and last_name and from_email:
         subject = "Lecturer application from %s %s" % (first_name, last_name)
         msg_content = """
-        From: %s %s (%s)
-        LinkedIn: %s
-        Twitter: %s
-        Experience: %s
-        Language: %s
-        Publications: %s
-        Course: %s
-        Sample: %s
+From: %s %s (%s)
+LinkedIn: %s
+Twitter: %s
+Experience: %s
+Language: %s
+Publications: %s
+Course: %s
+Sample: %s
 
-        Topics:
-        Fintech: %s
-        WealthTec: %s
-        InsurTech: %s
-        RegTech: %s
-        EntepriseInnovation: %s
-        Enterprenourship: %s
-        DtAgile: %s
-        NA: %s
+Topics:
+Fintech: %s
+WealthTec: %s
+InsurTech: %s
+RegTech: %s
+EntepriseInnovation: %s
+Enterprenourship: %s
+DtAgile: %s
+NA: %s
 
-        Technologies:
-        DataScience: %s
-        AI: %s
-        Blockchain: %s
-        Cryptocurrencies: %s
-        SoftwareDev: %s
-        UX: %s
-        NA: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle, experience, language,
+Technologies:
+DataScience: %s
+AI: %s
+Blockchain: %s
+Cryptocurrencies: %s
+SoftwareDev: %s
+UX: %s
+NA: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle, experience, language,
                           publications, course, sample, topicFinhTech, topicWealthTech, topicInsurTech, topicRegTech,
                      topicEnterpriseInnovation, topicEnterprenourship, topicDtAgile, topicNA, techDataScience,
                      techAI, techBlockchain, techCryptocurrencies, techSoftwareDev, techUX, techNA)
