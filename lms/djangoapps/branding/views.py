@@ -1,6 +1,11 @@
 """Views for the branding app. """
 import logging
 import urllib
+import string
+import random
+import os
+
+from datetime import datetime
 
 from django.conf import settings
 from django.contrib.staticfiles.storage import staticfiles_storage
@@ -14,7 +19,6 @@ from django.utils.translation.trans_real import get_supported_language_variant
 from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import ensure_csrf_cookie
 
-
 from edxmako.shortcuts import render_to_response
 import student.views
 import courseware.views.views
@@ -24,6 +28,7 @@ from util.json_request import JsonResponse
 import branding.api as branding_api
 from openedx.core.djangoapps.lang_pref.api import released_languages
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
+
 
 log = logging.getLogger(__name__)
 
@@ -103,6 +108,15 @@ def courses(request):
     return courseware.views.views.courses(request)
 
 
+def save_form(msg):
+    def random_char(y):
+        return ''.join(random.choice(string.ascii_letters) for x in range(y))
+    """ Save form data to user-defined output directory. """
+    filename = os.path.join(settings.FORM_DIRECTORY, str(datetime.now()) + '_' + random_char(3))
+    with open(filename, 'w') as file_handle:
+        file_handle.write(msg)
+
+
 @ensure_csrf_cookie
 def contact_ajax(request):
     first_name = request.POST.get('first-name', '')
@@ -124,6 +138,8 @@ def contact_ajax(request):
             email_recipients.append(from_email)
         try:
             send_mail(subject, msg_content, from_email, email_recipients)
+            # Write the form to a new output file
+            save_form(msg_content)
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         return HttpResponse(200)
@@ -160,6 +176,8 @@ def members_ajax(request):
         email_recipients = [settings.CONTACT_EMAIL]
         try:
             send_mail(subject, msg_content, from_email, email_recipients)
+            # Write the form to a new output file
+            save_form(msg_content)
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         return HttpResponse(200)
@@ -233,6 +251,8 @@ def lecturer_ajax(request):
                      techAI, techBlockchain, techCryptocurrencies, techSoftwareDev, techUX, techNA)
         try:
             send_mail(subject, msg_content, from_email, [settings.CONTACT_EMAIL])
+            # Write the form to a new output file
+            save_form(msg_content)
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         return HttpResponse(200)
