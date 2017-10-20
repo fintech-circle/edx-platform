@@ -108,11 +108,11 @@ def courses(request):
     return courseware.views.views.courses(request)
 
 
-def save_form(msg):
+def save_form(form_name, msg):
     def random_char(y):
         return ''.join(random.choice(string.ascii_letters) for x in range(y))
     """ Save form data to user-defined output directory. """
-    filename = os.path.join(settings.FORM_DIRECTORY, str(datetime.now()) + '_' + random_char(3))
+    filename = os.path.join(settings.FORM_DIRECTORY, form_name + '_' + str(datetime.datetime.now().strftime('%d-%m-%Y')) + '_' + random_char(4))
     with open(filename, 'w') as file_handle:
         file_handle.write(msg)
 
@@ -139,7 +139,7 @@ Message: %s""" % (first_name, last_name, from_email, company, position, message)
         try:
             send_mail(subject, msg_content, from_email, email_recipients)
             # Write the form to a new output file
-            save_form(msg_content)
+            save_form('contact', msg_content)
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         return HttpResponse(200)
@@ -177,7 +177,7 @@ Sample: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle
         try:
             send_mail(subject, msg_content, from_email, email_recipients)
             # Write the form to a new output file
-            save_form(msg_content)
+            save_form('members', msg_content)
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         return HttpResponse(200)
@@ -252,7 +252,7 @@ NA: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle, ex
         try:
             send_mail(subject, msg_content, from_email, [settings.CONTACT_EMAIL])
             # Write the form to a new output file
-            save_form(msg_content)
+            save_form('lecturers', msg_content)
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         return HttpResponse(200)
