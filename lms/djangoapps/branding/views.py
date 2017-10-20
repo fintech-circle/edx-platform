@@ -112,7 +112,7 @@ def save_form(form_name, msg):
     def random_char(y):
         return ''.join(random.choice(string.ascii_letters) for x in range(y))
     """ Save form data to user-defined output directory. """
-    filename = os.path.join(settings.FORM_DIRECTORY, form_name + '_' + str(datetime.datetime.now().strftime('%d-%m-%Y')) + '_' + random_char(4))
+    filename = os.path.join(settings.FORM_DIRECTORY, form_name + '_' + str(datetime.now().strftime('%d-%m-%Y')) + '_' + random_char(4))
     with open(filename, 'w') as file_handle:
         file_handle.write(msg)
 
