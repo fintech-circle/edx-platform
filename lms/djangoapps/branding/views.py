@@ -1,6 +1,11 @@
 """Views for the branding app. """
 import logging
 import urllib
+import string
+import random
+import os
+
+from datetime import datetime
 
 from django.conf import settings
 from django.contrib.staticfiles.storage import staticfiles_storage
@@ -14,7 +19,6 @@ from django.utils.translation.trans_real import get_supported_language_variant
 from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import ensure_csrf_cookie
 
-
 from edxmako.shortcuts import render_to_response
 import student.views
 import courseware.views.views
@@ -24,6 +28,7 @@ from util.json_request import JsonResponse
 import branding.api as branding_api
 from openedx.core.djangoapps.lang_pref.api import released_languages
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
+
 
 log = logging.getLogger(__name__)
 
@@ -103,6 +108,15 @@ def courses(request):
     return courseware.views.views.courses(request)
 
 
+def save_form(form_name, msg):
+    def random_char(y):
+        return ''.join(random.choice(string.ascii_letters) for x in range(y))
+    """ Save form data to user-defined output directory. """
+    filename = os.path.join(settings.FORM_DIRECTORY, form_name + '_' + str(datetime.now().strftime('%d-%m-%Y')) + '_' + random_char(4))
+    with open(filename, 'w') as file_handle:
+        file_handle.write(msg)
+
+
 @ensure_csrf_cookie
 def contact_ajax(request):
     first_name = request.POST.get('first-name', '')
@@ -115,15 +129,17 @@ def contact_ajax(request):
     if first_name and last_name and from_email and message:
         subject = "Contact form message from %s %s" % (first_name, last_name)
         msg_content = """
-        From: %s %s (%s)
-        Company: %s
-        Position: %s
-        Message: %s""" % (first_name, last_name, from_email, company, position, message)
+From: %s %s (%s)
+Company: %s
+Position: %s
+Message: %s""" % (first_name, last_name, from_email, company, position, message)
         email_recipients = [settings.CONTACT_EMAIL]
         if remember:
             email_recipients.append(from_email)
         try:
             send_mail(subject, msg_content, from_email, email_recipients)
+            # Write the form to a new output file
+            save_form('contact', msg_content)
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         return HttpResponse(200)
@@ -148,18 +164,20 @@ def members_ajax(request):
     if first_name and last_name and from_email:
         subject = "Members form from %s %s" % (first_name, last_name)
         msg_content = """
-        From: %s %s (%s)
-        LinkedIn: %s
-        Twitter: %s
-        Experience: %s
-        Reason: %s
-        Publications: %s
-        Knowledge: %s
-        Sample: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle, experience, reason,
+From: %s %s (%s)
+LinkedIn: %s
+Twitter: %s
+Experience: %s
+Reason: %s
+Publications: %s
+Knowledge: %s
+Sample: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle, experience, reason,
                          publications, knowledge, sample)
         email_recipients = [settings.CONTACT_EMAIL]
         try:
             send_mail(subject, msg_content, from_email, email_recipients)
+            # Write the form to a new output file
+            save_form('members', msg_content)
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         return HttpResponse(200)
@@ -201,38 +219,40 @@ def lecturer_ajax(request):
     if first_name and last_name and from_email:
         subject = "Lecturer application from %s %s" % (first_name, last_name)
         msg_content = """
-        From: %s %s (%s)
-        LinkedIn: %s
-        Twitter: %s
-        Experience: %s
-        Language: %s
-        Publications: %s
-        Course: %s
-        Sample: %s
+From: %s %s (%s)
+LinkedIn: %s
+Twitter: %s
+Experience: %s
+Language: %s
+Publications: %s
+Course: %s
+Sample: %s
 
-        Topics:
-        Fintech: %s
-        WealthTec: %s
-        InsurTech: %s
-        RegTech: %s
-        EntepriseInnovation: %s
-        Enterprenourship: %s
-        DtAgile: %s
-        NA: %s
+Topics:
+Fintech: %s
+WealthTec: %s
+InsurTech: %s
+RegTech: %s
+EntepriseInnovation: %s
+Enterprenourship: %s
+DtAgile: %s
+NA: %s
 
-        Technologies:
-        DataScience: %s
-        AI: %s
-        Blockchain: %s
-        Cryptocurrencies: %s
-        SoftwareDev: %s
-        UX: %s
-        NA: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle, experience, language,
+Technologies:
+DataScience: %s
+AI: %s
+Blockchain: %s
+Cryptocurrencies: %s
+SoftwareDev: %s
+UX: %s
+NA: %s""" % (first_name, last_name, from_email, linkedin_url, twitter_handle, experience, language,
                           publications, course, sample, topicFinhTech, topicWealthTech, topicInsurTech, topicRegTech,
                      topicEnterpriseInnovation, topicEnterprenourship, topicDtAgile, topicNA, techDataScience,
                      techAI, techBlockchain, techCryptocurrencies, techSoftwareDev, techUX, techNA)
         try:
             send_mail(subject, msg_content, from_email, [settings.CONTACT_EMAIL])
+            # Write the form to a new output file
+            save_form('lecturers', msg_content)
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
         return HttpResponse(200)
