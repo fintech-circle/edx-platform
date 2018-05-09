@@ -186,6 +186,7 @@ def _footer_legal_links():
 
     links = [
         ("terms_of_service_and_honor_code", marketing_link("TOS_AND_HONOR"), _("Terms of Service")),
+        ("cookies_policy", marketing_link("COOKIES"), _("Cookies Policy")),
         ("privacy_policy", marketing_link("PRIVACY"), _("Privacy Policy")),
         ("accessibility_policy", marketing_link("ACCESSIBILITY"), _("Accessibility Policy")),
         ("sitemap", marketing_link("SITE_MAP"), _("Sitemap")),

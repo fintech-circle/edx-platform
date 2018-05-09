@@ -2260,6 +2260,7 @@ MKTG_URL_LINK_MAP = {
     'TOS': 'tos',
     'HONOR': 'honor',  # If your site does not have an honor code, simply delete this line.
     'PRIVACY': 'privacy',
+    'COOKIES': 'cookies',
     'PRESS': 'press',
     'LECTURER': 'lecturer',
     'HELP': 'help',
