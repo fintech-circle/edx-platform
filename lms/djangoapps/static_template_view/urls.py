@@ -22,6 +22,7 @@ urlpatterns = (
     url(r'^members$', 'render', {'template': 'members.html'}, name="members"),
     url(r'^donate$', 'render', {'template': 'donate.html'}, name="donate"),
     url(r'^faq$', 'render', {'template': 'faq.html'}, name="faq"),
+    url(r'^cookies$', 'render', {'template': 'cookies.html'}, name="cookies"),
     url(r'^help$', 'render', {'template': 'help.html'}, name="help_edx"),
     url(r'^jobs$', 'render', {'template': 'jobs.html'}, name="jobs"),
     url(r'^news$', 'render', {'template': 'news.html'}, name="news"),
